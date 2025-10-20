@@ -12,7 +12,7 @@ export default function HomePage() {
     <div className="w-[300px] h-[300px] bg-blue-500 rounded-full blur-[100px] opacity-30"></div>
   </div>
 
-        <div className="absolute w-[3300px] h-[300px] mb-8">
+        <div className="absolute w-full h-[300px] mb-8">
           <Atom3D />
         
         </div>
