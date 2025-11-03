@@ -27,7 +27,7 @@ export default function Atom3D() {
         <meshStandardMaterial color="#ffffff" emissive="#00bfff" />
       </mesh>
 
-      <OrbitControls enableZoom={false} autoRotate />
+      <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={20} />
     </Canvas>
   );
 }
