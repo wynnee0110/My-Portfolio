@@ -1,26 +1,17 @@
 "use client";
 
-  import Atom3D from "./components/Atom3D";
 import { useRouter } from "next/navigation";
-  import Link from "next/link";
+import Link from "next/link";
+import Header from "./components/Header";
+
+export default function HomePage() {
+  const router = useRouter();
   
-  export default function HomePage() {
-    const router = useRouter();
-    
-    return (
-      <main>
-      <header className="flex items-center justify-start px-0 py-0 fixed top-0 left-0 z-50 w-full bg-transparent">
-        {/* Logo (Atom3D) clickable */}
-        <button
-          onClick={() => router.push("/")}
-          className="relative bottom-3 w-[100px] h-[100px] hover:opacity-80 transition-opacity"
-          aria-label="Home"
-        >
-          <Atom3D />
-        </button>
-      </header>
+  return (
+    <main>
+      <Header />
 
-
+{/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-start h-[100vh] px-4">
           
     <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
