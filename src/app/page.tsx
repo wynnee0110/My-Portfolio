@@ -85,7 +85,24 @@ export default function HomePage() {
               improving designs, or learning how to make apps smarter and smoother —
               because there’s always something new to discover in tech.
             </p>
+            <div className="flex mt-6">
+              <Link 
+                href="/about"
+                className="bg-white text-base text-black font-semibold py-2 px-2 hover:bg-blue-300 transition"
+              >
+                Learn More About Me
+              </Link>
+              <Link 
+                href="/CV"
+                className="ml-4 text-white font-semibold py-2 px-6 border border-gray-300 hover:bg-gray-800 transition"
+              >
+                Download My CV
+              </Link>
+            </div>
+            
           </div>
+
+
         </section>
 
 
