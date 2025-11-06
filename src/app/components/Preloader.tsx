@@ -37,7 +37,7 @@ export default function PreloaderTailwind({ minMs = 600 }: PreloaderTailwindProp
       className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black 
         transition-opacity duration-500 ${fadeOut ? "opacity-0" : "opacity-100"}`}
     >
-      <div className="w-14 h-14 rounded-full border-4 border-white/20 border-t-white animate-spin" />
+      <div className="w-14 h-14 rounded-full border-4 border-white/20 border-t-white animate-spin transform scale-[0.5]" />
       <span className="sr-only">Loading...</span>
     </div>
   );
