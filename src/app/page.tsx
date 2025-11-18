@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Header from "./components/Header";
 import { useState } from "react";
+import Footer from "./components/footer";
 
 export default function HomePage() {
   const router = useRouter();
@@ -30,7 +31,7 @@ export default function HomePage() {
           
           </div>
         
-        <div className="mt-26 z-10 max-w-3xl text-center">
+        <div className="mt-34 z-10 max-w-3xl text-center">
         <h1 className="text-2xl font-bold mb-4">Welcome</h1>
         <p className="text-gray-400 max-w-md mb-6">
         
@@ -77,8 +78,8 @@ export default function HomePage() {
   <div className="text-start items-center px-4 p-8 max-w-3xl w-full">
     
     <div className="flex items-center gap-4 mb-5">
-  <h2 className="text-3xl md:text-5xl text-gray-500 font-bold whitespace-nowrap">.about me</h2>
-  <div className="h-[2px] w-full max-w-xl bg-gray-500 "></div>
+  <h2 className="text-3xl sm:text-5xl text-gray-500 font-bold whitespace-nowrap">.about me</h2>
+  
             </div>
 
             <p className="text-gray-300 leading-relaxed text-sm md:text-base">
@@ -140,22 +141,49 @@ export default function HomePage() {
             learning new tech.
           </p>
         </div>
+
       )}
 
+
+    
           </div>
-
-
         </section>
 
+   <section className="sm:h-screen bg-black-100 flex  justify-center">
+ 
 
-        <section className="h-screen flex items-start justify-center">
-          <div className="text-start items-center px-4 p-8 max-w-2xl">
-            <h2 className="text-3xl font-bold mb-4">Skills</h2>
-            <p className="text-gray-300 leading-relaxed">
+ 
+  <div className="flex flex-col items-center px-4 p-8 max-w-3xl w-full">
+    <div className="flex items-center gap-4 mb-5 w-full">
+      <h2 className="text-3xl sm:text-5xl text-gray-500 font-bold whitespace-nowrap">
+        .projects
+      </h2>
+    </div>
+  </div>
 
-            </p>
-          </div>
-    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+        <Footer/>
       </main>
 
     );
