@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Header from "./components/Header";
 import { useState } from "react";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 
 export default function HomePage() {
   const router = useRouter();
