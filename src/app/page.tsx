@@ -3,10 +3,12 @@
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Header from "./components/Header";
+import { useState } from "react";
 
 export default function HomePage() {
   const router = useRouter();
- 
+  const [open, setOpen] = useState(false);
+
   
   return (
     <main>
@@ -66,8 +68,14 @@ export default function HomePage() {
       
       
       <section id = "about" className="h-screen bg-black-100 flex items-center justify-center">
+  
   <div className="text-start items-center px-4 p-8 max-w-2xl">
-            <h2 className="text-3xl font-bold mb-4">About Me</h2>
+    
+    <div className="flex items-center gap-4 mb-5">
+  <h2 className="text-5xl text-gray-500 font-bold whitespace-nowrap">.about me</h2>
+  <div className="h-[2px] w-200 bg-gray-500 "></div>
+            </div>
+
             <p className="text-gray-300 leading-relaxed">
               Hi! <b>I’m Wayne</b> — a passionate developer who loves turning ideas into
               real, working projects. I enjoy building things from the ground up —
@@ -86,20 +94,55 @@ export default function HomePage() {
               improving designs, or learning how to make apps smarter and smoother —
               because there’s always something new to discover in tech.
             </p>
+            
             <div className="flex mt-6">
-              <Link 
-                href="/LearnMore"
+              <button
+              onClick={() => setOpen(!open)}
                 className="bg-white text-base text-black font-semibold py-2 px-2 hover:bg-gray-300 transition"
               >
                 Learn More
-              </Link> 
-              <Link 
-                href="/CV"
-                className="ml-4 text-white font-semibold py-2 px-6 border border-gray-300 hover:bg-gray-800 transition"
-              >
-                Download My CV
-              </Link>
+              </button> 
+
+  <button
+  onClick={() => {
+    const link = document.createElement("a");
+    link.href = "/mycv.pdf";
+    link.download = "Wayne-CV.pdf";
+    link.click();
+  }}
+  className="ml-4 text-white font-semibold py-2 px-6 border border-gray-300 hover:bg-gray-800 transition"
+>
+  Download CV
+</button>
+
             </div>
+
+                  {open && (
+        <div
+          className="
+            mt-4 p-4 
+            bg-black-100
+            shadow-lg 
+            rounded-xl 
+            border 
+            transition-all 
+            duration-300
+          "
+        >
+          <h2 className="text-xl font-semibold mb-2">About Me</h2>
+          <p className="text-gray-700">
+            Hello! I am Wayne. I love programming, building projects, and
+            learning new tech.
+          </p>
+        </div>
+      )}
+
+
+
+
+
+
+
             <div 
             id="LearnMore"
             className="hidden absolute w-full h-[300px] mt-48">
