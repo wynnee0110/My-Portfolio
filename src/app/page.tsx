@@ -69,14 +69,14 @@ export default function HomePage() {
       
       <section id = "about" className="h-screen bg-black-100 flex items-center justify-center">
   
-  <div className="text-start items-center px-4 p-8 max-w-2xl">
+  <div className="text-start items-center px-4 p-8 max-w-3xl w-full">
     
     <div className="flex items-center gap-4 mb-5">
-  <h2 className="text-5xl text-gray-500 font-bold whitespace-nowrap">.about me</h2>
-  <div className="h-[2px] w-200 bg-gray-500 "></div>
+  <h2 className="text-3xl md:text-5xl text-gray-500 font-bold whitespace-nowrap">.about me</h2>
+  <div className="h-[2px] w-full max-w-xl bg-gray-500 "></div>
             </div>
 
-            <p className="text-gray-300 leading-relaxed">
+            <p className="text-gray-300 leading-relaxed text-sm md:text-base">
               Hi! <b>I’m Wayne</b> — a passionate developer who loves turning ideas into
               real, working projects. I enjoy building things from the ground up —
               whether it’s a login system using PHP and MySQL, a personal portfolio
@@ -95,7 +95,7 @@ export default function HomePage() {
               because there’s always something new to discover in tech.
             </p>
             
-            <div className="flex mt-6">
+            <div className="flex flex-col sm:flex-row mt-6 gap-4">
               <button
               onClick={() => setOpen(!open)}
                 className="bg-white text-base text-black font-semibold py-2 px-2 hover:bg-gray-300 transition"
@@ -110,7 +110,7 @@ export default function HomePage() {
     link.download = "Wayne-CV.pdf";
     link.click();
   }}
-  className="ml-4 text-white font-semibold py-2 px-6 border border-gray-300 hover:bg-gray-800 transition"
+  className="  text-sm sm:text-base sm:py-3 sm:px-8 text-white font-semibold py-2 px-6 border border-gray-300 hover:bg-gray-800 transition "
 >
   Download CV
 </button>
@@ -137,22 +137,6 @@ export default function HomePage() {
         </div>
       )}
 
-
-
-
-
-
-
-            <div 
-            id="LearnMore"
-            className="hidden absolute w-full h-[300px] mt-48">
-              Hello
-
-
-
-              </div>
-            
-            
           </div>
 
 
