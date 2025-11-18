@@ -15,8 +15,13 @@ export default function HomePage() {
       <Header />
 
 {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-start h-[100vh] px-4">
-          
+      <section className="flex flex-col items-center justify-center text-start 
+  pt-24 pb-16   /* mobile spacing */
+  sm:pt-0 sm:pb-0 
+  sm:h-[100vh] px-4 
+  mb-10 sm:mb-0">
+
+
     <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
       <div className="w-[300px] h-[300px] bg-blue-500 rounded-full blur-[100px] opacity-30"></div>
     </div>
@@ -25,6 +30,7 @@ export default function HomePage() {
           
           </div>
         
+        <div className="mt-26 z-10 max-w-3xl text-center">
         <h1 className="text-2xl font-bold mb-4">Welcome</h1>
         <p className="text-gray-400 max-w-md mb-6">
         
@@ -36,17 +42,16 @@ export default function HomePage() {
           className="bg-white white:bg-blue-700 text-black font-semibold py-2 px-7 rounded-2xl transition">
             View Projects
           </button>
-        
-
             <button 
             onClick={() => router.push("/contact")}
             className="text-white font-semibold py-2 px-7 rounded-2xl border border-gray-300 hover:bg-gray-800 transition">
               Contact Me
             </button>
-        
+        </div>
         </div>
 
-        <div className="absolute mt-80">
+        <div className="mt-20 sm:mt-40">
+
   <a href="#about" className="absolute cursor-pointer">
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -67,8 +72,8 @@ export default function HomePage() {
       </section>
       
       
-      <section id = "about" className="h-screen bg-black-100 flex items-center justify-center">
-  
+      <section id="about" className="h-auto sm:h-screen bg-black-100 flex items-center justify-center">
+
   <div className="text-start items-center px-4 p-8 max-w-3xl w-full">
     
     <div className="flex items-center gap-4 mb-5">
