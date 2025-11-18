@@ -16,10 +16,10 @@ export default function HomePage() {
 
 {/* Hero Section */}
       <section className="flex flex-col items-center justify-center text-start 
-  pt-24 pb-16   /* mobile spacing */
-  sm:pt-0 sm:pb-0 
-  sm:h-[100vh] px-4 
-  mb-10 sm:mb-0">
+  
+  pt-0 sm:pb-0 
+  h-[100vh] px-4 
+ sm:mb-0">
 
 
     <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
@@ -72,7 +72,7 @@ export default function HomePage() {
       </section>
       
       
-      <section id="about" className="h-auto sm:h-screen bg-black-100 flex items-center justify-center">
+      <section id="about" className="sm:h-screen bg-black-100 flex items-center justify-center">
 
   <div className="text-start items-center px-4 p-8 max-w-3xl w-full">
     
