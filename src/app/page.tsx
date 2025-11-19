@@ -5,6 +5,8 @@ import Link from "next/link";
 import Header from "./components/Header";
 import { useState } from "react";
 import Footer from "./components/Footer";
+import { projects } from "./data/projectsData";
+import ProjectsSection from "./components/ProjectsSection";
 
 export default function HomePage() {
   const router = useRouter();
@@ -153,12 +155,17 @@ export default function HomePage() {
  
 
  
-  <div className="flex flex-col items-center px-4 p-8 max-w-3xl w-full">
+  <div className="flex flex-col items-center px-20 p-8 max-w-1xl w-full">
     <div className="flex items-center gap-4 mb-5 w-full">
       <h2 className="text-3xl sm:text-5xl text-gray-500 font-bold whitespace-nowrap">
         .projects
       </h2>
     </div>
+    <div className="">
+    <ProjectsSection />
+    
+    </div>
+    
   </div>
 
 
