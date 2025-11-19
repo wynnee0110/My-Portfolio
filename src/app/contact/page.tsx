@@ -22,7 +22,7 @@ export default function Contact() {
       <Header />
 
       <div className="flex bg-black min-h-screen items-center justify-center px-4 overflow-hidden">
-        <div className="transform scale-[0.9] flex flex-col w-full sm:w-[90%] md:w-[90%] lg:w-[500px] p-6 rounded-2xl">
+        <div className="transform scale-[0.8] flex flex-col w-full sm:w-[90%] md:w-[90%] lg:w-[500px] p-6 rounded-2xl">
           {/* Header */}
           <section className="mb-8 text-center md:text-left">
             <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">

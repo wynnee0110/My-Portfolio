@@ -41,13 +41,13 @@ export default function HomePage() {
 
         <div className="flex flex-row gap-4 z-10 ">
           <button 
-          onClick={() => router.push("/projects")}
-          className="bg-white white:bg-blue-700 text-black font-semibold py-2 px-7 rounded-2xl transition">
+          onClick={() => router.push("#projects")}
+          className="bg-white white:bg-blue-700 text-black font-semibold py-2 px-7 rounded-2xl transition hover:scale-102 transform">
             View Projects
           </button>
             <button 
             onClick={() => router.push("/contact")}
-            className="text-white font-semibold py-2 px-7 rounded-2xl border border-gray-300 hover:bg-gray-800 transition">
+            className="text-white font-semibold py-2 px-7 rounded-2xl border border-gray-300 hover:bg-gray-800 transition hover:scale-102">
               Contact Me
             </button>
         </div>
@@ -151,40 +151,52 @@ export default function HomePage() {
           </div>
         </section>
 
-   <section className="sm:h-screen bg-black-100 flex  justify-center">
- 
+<section id="projects" className="bg-black-100 flex justify-center">
+  <div className="w-full max-w-6xl px-4 sm:px-10 py-8">
 
- 
-  <div className="flex flex-col items-center px-20 p-8 max-w-1xl w-full">
     <div className="flex items-center gap-4 mb-5 w-full">
-      <h2 className="text-3xl sm:text-5xl text-gray-500 font-bold whitespace-nowrap">
+      <h2 className="text-3xl sm:text-5xl text-gray-500 font-bold">
         .projects
       </h2>
     </div>
-    <div className="">
+    <div className="">  
     <ProjectsSection />
     
     </div>
-    
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 </section>
+<section className="w-full py-20 flex flex-col items-center text-center">
+  <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+    Let’s build something great together.
+  </h2>
 
+  <p className="text-white/70 max-w-xl mb-8 text-sm md:text-base">
+    Whether it’s a full-stack web application, an API, or a product idea,
+    I’d love to help bring it to life.
+  </p>
 
-
+  <a
+    href="/contact"
+    className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 
+               hover:bg-white/20 transition-all text-white flex items-center gap-2"
+  >
+    <span>Contact Me</span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      strokeWidth={2}
+      stroke="currentColor"
+      className="w-4 h-4"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+      />
+    </svg>
+  </a>
+</section>
 
 
 
