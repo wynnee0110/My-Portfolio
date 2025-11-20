@@ -8,22 +8,22 @@ import Footer from "./components/Footer";
 import { projects } from "./data/projectsData";
 import ProjectsSection from "./components/ProjectsSection";
 
+
+
 export default function HomePage() {
   const router = useRouter();
   const [open, setOpen] = useState(false);
 
-  
+
   return (
     <main>
       <Header />
 
 {/* Hero Section */}
-      <section className="flex flex-col items-center justify-center text-start 
-  
-  pt-0 sm:pb-0 
+      <section className="flex flex-col items-center justify-center text-start
+  pt-10 sm:pb-0 
   h-[100vh] px-4 
- sm:mb-0">
-
+ sm:mb-[-100px]">
 
     <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
       <div className="w-[300px] h-[300px] bg-blue-500 rounded-full blur-[100px] opacity-30"></div>
@@ -33,7 +33,7 @@ export default function HomePage() {
           
           </div>
         
-        <div className="mt-34 z-10 max-w-3xl text-center">
+        <div className="mt-34 z-5 max-w-3xl text-center">
         <h1 className="text-2xl font-bold mb-4">Welcome</h1>
         <p className="text-gray-400 max-w-md mb-6">
         
@@ -106,7 +106,7 @@ export default function HomePage() {
             <div className="flex flex-col sm:flex-row mt-6 gap-4">
               <button
               onClick={() => setOpen(!open)}
-                className="bg-white text-base text-black font-semibold py-2 px-2 hover:bg-gray-300 transition"
+                className="bg-white text-base text-black font-semibold py-2 px-2 h-10 sm:px-2 sm:py-0 hover:bg-gray-500 transition"
               >
                 Learn More
               </button> 
@@ -118,7 +118,7 @@ export default function HomePage() {
     link.download = "Wayne-CV.pdf";
     link.click();
   }}
-  className="  text-sm sm:text-base sm:py-3 sm:px-8 text-white font-semibold py-2 px-6 border border-gray-300 hover:bg-gray-800 transition "
+  className="  text-sm sm:text-base sm:py-0 sm:px-2 h-10 text-white font-semibold py-2 px-6 border border-gray-300 hover:bg-gray-800 transition "
 >
   Download CV
 </button>
@@ -146,8 +146,6 @@ export default function HomePage() {
 
       )}
 
-
-    
           </div>
         </section>
 

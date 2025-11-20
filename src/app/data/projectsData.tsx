@@ -22,30 +22,6 @@ export const projects = [
     liveDemo: "https://yourprojecttool.com"
   },
 
-  {
-    title: "TaskFlow – Team Productivity Platform",
-    description: "A collaborative task management app for teams with role-based access.",
-    description2: "Features task boards, deadlines, and activity logs stored in the database.",
-    languages: ["Next.js", "Node.js", "Prisma", "PostgreSQL", "Tailwind"],
-    liveDemo: "https://taskflowapp.com"
 
-  },
-
-  {
-    title:"PulseStats – Creator Analytics Dashboard:",
-    description: "An analytics dashboard for content creators to track engagement metrics across platforms.",
-    description2: "Integrates with social media APIs to provide real-time insights and growth suggestions.",
-    languages: ["React", "D3.js", "Node.js", "MongoDB", "Tailwind"],
-    liveDemo: "https://pulsestats.com"
-  },
-
-
-  {
-    title: "FitTrack – Personal Fitness Tracker",
-    description: "A mobile app to log workouts, monitor progress, and set fitness goals.",
-    description2: "Includes exercise library, progress charts, and social sharing features.",
-    languages: ["React Native", "Expo", "Firebase", "Chart.js"],
-    liveDemo: "https://fittrackapp.com"
-  }
   
 ];
