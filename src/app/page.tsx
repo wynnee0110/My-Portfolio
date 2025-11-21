@@ -47,11 +47,11 @@ export default function HomePage() {
           className="bg-white white:bg-blue-700 text-black font-semibold py-2 px-7 rounded-2xl transition hover:scale-102 transform">
             View Projects
           </button>
-            <button 
-            onClick={() => router.push("/contact")}
+            <a 
+             href = "/contact"
             className="text-white font-semibold py-2 px-7 rounded-2xl border border-gray-300 hover:bg-gray-800 transition hover:scale-102">
               Contact Me
-            </button>
+            </a>
         </div>
         </div>
 
@@ -100,16 +100,16 @@ export default function HomePage() {
     </div>
 
     {/* RIGHT SIDE — SOCIAL LINKS */}
-   <div className="flex flex-col items-start sm:items-end gap-4 sm:w-[280px] mt-16 mr-20">
+   <div className="flex flex-col items-start sm:items-end gap-4 sm:w-[280px] mt-10 ml-4 sm:mt-16 sm:mr-20">
       
-      <a href="https://github.com/yourusername" target="_blank" className="flex items-center gap-2 text-gray-300 hover:text-white transition">
+      <a href="https://github.com/wynnee0110" target="_blank" className="flex items-center gap-2 text-gray-300 hover:text-white transition">
         GitHub
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 text-gray-300 hover:text-white transition" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M20 4L12 12M20 4V8.5M20 4H15.5M19 12.5V16.8C19 17.9201 19 18.4802 18.782 18.908C18.5903 19.2843 18.2843 19.5903 17.908 19.782C17.4802 20 16.9201 20 15.8 20H7.2C6.0799 20 5.51984 20 5.09202 19.782C4.71569 19.5903 4.40973 19.2843 4.21799 18.908C4 18.4802 4 17.9201 4 16.8V8.2C4 7.0799 4 6.51984 4.21799 6.09202C4.40973 5.71569 4.71569 5.40973 5.09202 5.21799C5.51984 5 6.07989 5 7.2 5H11.5" />
         </svg>
       </a>
 
-      <a href="https://linkedin.com/in/yourusername" target="_blank" className="flex items-center gap-2 text-gray-300 hover:text-white transition">
+      <a href="https://www.linkedin.com/in/wayne-obial-5404a4374/" target="_blank" className="flex items-center gap-2 text-gray-300 hover:text-white transition">
         LinkedIn
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 text-gray-300 hover:text-white transition" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M20 4L12 12M20 4V8.5M20 4H15.5M19 12.5V16.8C19 17.9201 19 18.4802 18.782 18.908C18.5903 19.2843 18.2843 19.5903 17.908 19.782C17.4802 20 16.9201 20 15.8 20H7.2C6.0799 20 5.51984 20 5.09202 19.782C4.71569 19.5903 4.40973 19.2843 4.21799 18.908C4 18.4802 4 17.9201 4 16.8V8.2C4 7.0799 4 6.51984 4.21799 6.09202C4.40973 5.71569 4.71569 5.40973 5.09202 5.21799C5.51984 5 6.07989 5 7.2 5H11.5" />
@@ -123,7 +123,7 @@ export default function HomePage() {
         </svg>
       </a>
 
-      <a href="mailto:your@email.com" className="flex items-center gap-2 text-gray-300 hover:text-white transition">
+      <a href="mailto:obialwayne@gmail.com" className="flex items-center gap-2 text-gray-300 hover:text-white transition">
         Email
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 text-gray-300 hover:text-white transition" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
           <path d="M20 4L12 12M20 4V8.5M20 4H15.5M19 12.5V16.8C19 17.9201 19 18.4802 18.782 18.908C18.5903 19.2843 18.2843 19.5903 17.908 19.782C17.4802 20 16.9201 20 15.8 20H7.2C6.0799 20 5.51984 20 5.09202 19.782C4.71569 19.5903 4.40973 19.2843 4.21799 18.908C4 18.4802 4 17.9201 4 16.8V8.2C4 7.0799 4 6.51984 4.21799 6.09202C4.40973 5.71569 4.71569 5.40973 5.09202 5.21799C5.51984 5 6.07989 5 7.2 5H11.5" />
