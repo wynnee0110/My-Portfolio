@@ -7,6 +7,8 @@ import { useState } from "react";
 import Footer from "./components/Footer";
 import { projects } from "./data/projectsData";
 import ProjectsSection from "./components/ProjectsSection";
+import "bootstrap-icons/font/bootstrap-icons.css";
+
 
 
 
@@ -75,81 +77,69 @@ export default function HomePage() {
       </section>
       
       
-      <section id="about" className="sm:h-screen bg-black-100 flex items-center justify-center">
+<section id = "about"className="w-full flex justify-center items-center py-20 mt-20">
+  <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between gap-2 px-10 ">
 
-  <div className="text-start items-center px-4 p-8 max-w-3xl w-full">
-    
-    <div className="flex items-center gap-4 mb-5">
-  <h2 className="text-3xl sm:text-5xl text-gray-500 font-bold whitespace-nowrap">.about me</h2>
-  
-            </div>
+    {/* LEFT SIDE — TEXT */}
+    <div className="flex-1 min-w-0">
+      <h2 className="text-3xl sm:text-5xl font-bold mb-4 text-gray-500">.about me</h2>
 
-            <p className="text-gray-300 leading-relaxed text-sm md:text-base">
-              Hi! <b>I’m Wayne</b> — a passionate developer who loves turning ideas into
-              real, working projects. I enjoy building things from the ground up —
-              whether it’s a login system using PHP and MySQL, a personal portfolio
-              website with Next.js and TypeScript, or even a Flappy Bird-style game
-              in Android Studio.
-              <br />
-              <br />
-              I like exploring how technology works behind the scenes and improving
-              my code structure step by step. My focus is on clean, functional, and
-              scalable development, combining both front-end creativity and back-end
-              logic.
-              <br />
-              <br />
-              When I’m not coding, I’m usually experimenting with new tools,
-              improving designs, or learning how to make apps smarter and smoother —
-              because there’s always something new to discover in tech.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row mt-6 gap-4">
-              <button
-              onClick={() => setOpen(!open)}
-                className="bg-white text-base text-black font-semibold py-2 px-2 h-10 sm:px-2 sm:py-0 hover:bg-gray-500 transition"
-              >
-                Learn More
-              </button> 
+      <p className="text-gray-300 text-md sm:text-base leading-relaxed px-4">
+      I’m just a tech enthusiast who loves building cool stuff and figuring out how things work.  
+      I spend most of my time coding little projects, experimenting with new tools, or just playing around 
+      with ideas that come to mind.  
+      <br /><br />
+      I love creating things that are useful, fun, or just satisfy my curiosity. Sometimes it’s a small game, 
+      a simple app, or even tweaking something just for the challenge. I enjoy the process as much as the result.  
+      <br /><br />
+      When I’m not glued to my computer screen, you can find me exploring the outdoors, reading up on the latest 
+      tech trends, or hanging out with friends and family.  
+      Overall, I’m just someone who’s passionate about technology and loves to create and learn new things every day.
 
-  <button
-  onClick={() => {
-    const link = document.createElement("a");
-    link.href = "/mycv.pdf";
-    link.download = "Wayne-CV.pdf";
-    link.click();
-  }}
-  className="  text-sm sm:text-base sm:py-0 sm:px-2 h-10 text-white font-semibold py-2 px-6 border border-gray-300 hover:bg-gray-800 transition "
->
-  Download CV
-</button>
+      </p>
+    </div>
 
-            </div>
+    {/* RIGHT SIDE — SOCIAL LINKS */}
+   <div className="flex flex-col items-start sm:items-end gap-4 sm:w-[280px] mt-16 mr-20">
+      
+      <a href="https://github.com/yourusername" target="_blank" className="flex items-center gap-2 text-gray-300 hover:text-white transition">
+        GitHub
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 text-gray-300 hover:text-white transition" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20 4L12 12M20 4V8.5M20 4H15.5M19 12.5V16.8C19 17.9201 19 18.4802 18.782 18.908C18.5903 19.2843 18.2843 19.5903 17.908 19.782C17.4802 20 16.9201 20 15.8 20H7.2C6.0799 20 5.51984 20 5.09202 19.782C4.71569 19.5903 4.40973 19.2843 4.21799 18.908C4 18.4802 4 17.9201 4 16.8V8.2C4 7.0799 4 6.51984 4.21799 6.09202C4.40973 5.71569 4.71569 5.40973 5.09202 5.21799C5.51984 5 6.07989 5 7.2 5H11.5" />
+        </svg>
+      </a>
 
-                  {open && (
-        <div
-          className="
-            mt-4 p-4 
-            bg-black-100
-            shadow-lg 
-            rounded-xl 
-            border 
-            transition-all 
-            duration-300
-          "
-        >
-          <h2 className="text-xl font-semibold mb-2">About Me</h2>
-          <p className="text-gray-700">
-            Hello! I am Wayne. I love programming, building projects, and
-            learning new tech.
-          </p>
-        </div>
+      <a href="https://linkedin.com/in/yourusername" target="_blank" className="flex items-center gap-2 text-gray-300 hover:text-white transition">
+        LinkedIn
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 text-gray-300 hover:text-white transition" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20 4L12 12M20 4V8.5M20 4H15.5M19 12.5V16.8C19 17.9201 19 18.4802 18.782 18.908C18.5903 19.2843 18.2843 19.5903 17.908 19.782C17.4802 20 16.9201 20 15.8 20H7.2C6.0799 20 5.51984 20 5.09202 19.782C4.71569 19.5903 4.40973 19.2843 4.21799 18.908C4 18.4802 4 17.9201 4 16.8V8.2C4 7.0799 4 6.51984 4.21799 6.09202C4.40973 5.71569 4.71569 5.40973 5.09202 5.21799C5.51984 5 6.07989 5 7.2 5H11.5" />
+        </svg>
+      </a>
 
-      )}
+      <a href="https://twitter.com/yourusername" target="_blank" className="flex items-center gap-2 text-gray-300 hover:text-white transition">
+        Twitter
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 text-gray-300 hover:text-white transition" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20 4L12 12M20 4V8.5M20 4H15.5M19 12.5V16.8C19 17.9201 19 18.4802 18.782 18.908C18.5903 19.2843 18.2843 19.5903 17.908 19.782C17.4802 20 16.9201 20 15.8 20H7.2C6.0799 20 5.51984 20 5.09202 19.782C4.71569 19.5903 4.40973 19.2843 4.21799 18.908C4 18.4802 4 17.9201 4 16.8V8.2C4 7.0799 4 6.51984 4.21799 6.09202C4.40973 5.71569 4.71569 5.40973 5.09202 5.21799C5.51984 5 6.07989 5 7.2 5H11.5" />
+        </svg>
+      </a>
 
-          </div>
-        </section>
+      <a href="mailto:your@email.com" className="flex items-center gap-2 text-gray-300 hover:text-white transition">
+        Email
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 text-gray-300 hover:text-white transition" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20 4L12 12M20 4V8.5M20 4H15.5M19 12.5V16.8C19 17.9201 19 18.4802 18.782 18.908C18.5903 19.2843 18.2843 19.5903 17.908 19.782C17.4802 20 16.9201 20 15.8 20H7.2C6.0799 20 5.51984 20 5.09202 19.782C4.71569 19.5903 4.40973 19.2843 4.21799 18.908C4 18.4802 4 17.9201 4 16.8V8.2C4 7.0799 4 6.51984 4.21799 6.09202C4.40973 5.71569 4.71569 5.40973 5.09202 5.21799C5.51984 5 6.07989 5 7.2 5H11.5" />
+        </svg>
+      </a>
 
-<section id="projects" className="bg-black-100 flex justify-center">
+    </div>
+
+
+
+  </div>
+</section>
+
+
+
+<section id="projects" className="bg-black-100 flex justify-center mt-15">
   <div className="w-full max-w-6xl px-4 sm:px-10 py-8">
 
     <div className="flex items-center gap-4 mb-5 w-full">
