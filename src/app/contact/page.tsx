@@ -4,6 +4,7 @@ import Header from "../components/Header";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { useForm, ValidationError } from "@formspree/react";
 
+
 export default function Contact() {
  
   const [state, handleSubmit] = useForm("myzbrgvd");
@@ -111,6 +112,7 @@ export default function Contact() {
           </form>
         </div>
       </div>
+
     </main>
   );
 }

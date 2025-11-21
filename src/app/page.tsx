@@ -27,15 +27,15 @@ export default function HomePage() {
   h-[100vh] px-4 
  sm:mb-[-100px]">
 
-    <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-      <div className="w-[300px] h-[300px] bg-blue-500 rounded-full blur-[100px] opacity-30"></div>
+    <div className=" absolute inset-0 flex justify-center items-center pointer-events-none">
+      <div className="w-[300px] h-[300px] bg-white rounded-full blur-[100px] opacity-30"></div>
     </div>
 
           <div className="absolute w-full h-[300px] mb-8"> 
           
           </div>
         
-        <div className="mt-34 z-5 max-w-3xl text-center">
+        <div className="mt-34 z-5 max-w-3xl text-center ">
         <h1 className="text-2xl font-bold mb-4">Welcome</h1>
         <p className="text-gray-400 max-w-md mb-6">
         
@@ -77,7 +77,7 @@ export default function HomePage() {
       </section>
       
       
-<section id = "about"className="w-full flex justify-center items-center py-20 mt-20">
+<section id = "about"className="w-full flex justify-center items-center sm:py-20 sm:mt-20">
   <div className="w-full max-w-6xl flex flex-col sm:flex-row justify-between gap-2 px-10 ">
 
     {/* LEFT SIDE — TEXT */}
@@ -139,7 +139,7 @@ export default function HomePage() {
 
 
 
-<section id="projects" className="bg-black-100 flex justify-center mt-15">
+<section id="projects" className="bg-black-100 flex justify-center sm:mt-15 ">
   <div className="w-full max-w-6xl px-4 sm:px-10 py-8">
 
     <div className="flex items-center gap-4 mb-5 w-full">
