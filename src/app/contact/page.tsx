@@ -1,5 +1,5 @@
 "use client";
-
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 import { useForm, ValidationError } from "@formspree/react";
@@ -22,7 +22,7 @@ export default function Contact() {
     <main className="overflow-hidden">
       <Header />
 
-      <div className="flex bg-black min-h-screen items-center justify-center px-4 overflow-hidden">
+      <div className="flex bg-gray-660 min-h-screen items-center justify-center px-4 overflow-hidden">
         <div className="transform scale-[0.8] flex flex-col w-full sm:w-[90%] md:w-[90%] lg:w-[500px] p-6 rounded-2xl">
           {/* Header */}
           <section className="mb-8 text-center md:text-left">
@@ -111,8 +111,10 @@ export default function Contact() {
             </div>
           </form>
         </div>
+
       </div>
 
+<Footer/>
     </main>
   );
 }
