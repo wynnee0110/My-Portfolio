@@ -25,7 +25,7 @@ export default function HomePage() {
       <section className="flex flex-col items-center justify-center text-start
   pt-10 sm:pb-0 
   h-[100vh] px-4 
- sm:mb-[-100px]">
+  sm:mb-[-100px]">
 
     <div className=" absolute inset-0 flex justify-center items-center pointer-events-none">
       <div className="w-[300px] h-[300px] bg-white rounded-full blur-[100px] opacity-30"></div>
@@ -139,7 +139,7 @@ export default function HomePage() {
 
 
 
-<section id="projects" className="bg-black-100 flex justify-center sm:mt-15 ">
+<section id="projects" className="bg-black-100 flex justify-center sm:mt-5 ">
   <div className="w-full max-w-6xl px-4 sm:px-10 py-8">
 
     <div className="flex items-center gap-4 mb-5 w-full">
@@ -153,6 +153,7 @@ export default function HomePage() {
     </div>
   </div>
 </section>
+
 <section className="w-full py-20 flex flex-col items-center text-center">
   <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
     Let’s build something great together.
@@ -165,8 +166,7 @@ export default function HomePage() {
 
   <a
     href="/contact"
-    className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 
-               hover:bg-white/20 transition-all text-white flex items-center gap-2"
+    className="px-6 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 hover:bg-white/20 transition-all text-white flex items-center gap-2"
   >
     <span>Contact Me</span>
     <svg
@@ -183,13 +183,8 @@ export default function HomePage() {
         d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
       />
     </svg>
-  </a>
-</section>
-
-
-
-
-
+    </a>
+    </section>
         <Footer/>
       </main>
 
