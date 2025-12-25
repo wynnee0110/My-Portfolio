@@ -5,7 +5,6 @@ import Link from "next/link";
 import Header from "./components/Header";
 import { useState } from "react";
 import Footer from "./components/Footer";
-import { projects } from "./data/projectsData";
 import ProjectsSection from "./components/ProjectsSection";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
