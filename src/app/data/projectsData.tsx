@@ -1,10 +1,10 @@
 export const projects = [
   {
-    title: "DevConnect - Developer Social Network",
-    description: "A social networking platform for developers to connect, share projects, and collaborate.",
-    description2: "Built with Next.js, Tailwind CSS, and Firebase for real-time updates.",
-    languages: ["Next.js", "Tailwind CSS", "Firebase"],
-    link: "https://example.com/devconnect",
+    title: "School Sports Management System",
+    description: "A web application to manage school sports events, teams, and schedules.",
+    description2: "Built with Next.js, Tailwind CSS, and Supabase for real-time data handling.",
+    languages: ["Next.js", "Tailwind CSS", "Supabase"],
+    link: "https://intrasyss.vercel.app/",
   },
   {
     title: "ShopEase - E-commerce Store",
@@ -19,7 +19,7 @@ export const projects = [
     description: "A collaborative task management app for teams with role-based access.",
     description2: "Features task boards, deadlines, and activity logs stored in the database.",
     languages: ["Next.js", "Node.js", "Prisma", "PostgreSQL", "Tailwind"],
-    liveDemo: "https://yourprojecttool.com"
+    link: "https://intrasyss.vercel.app/"
   },
 
 

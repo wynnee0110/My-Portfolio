@@ -30,10 +30,10 @@ export default function ProjectsSection() {
   </div>
 
   <a
-    href={project.liveDemo}
+    href={project.link}
     target="_blank"
     rel="noopener noreferrer"
-    className="inline-flex items-center gap-2 mt-4 px-3 py-2 text-white text-xs font-small hover:scale-102 transition-transform duration-200"
+    className="inline-flex items-center gap-2 mt-4 px-3 py-2 text-white text-xs font-small transition-transform duration-200"
   >
     Live Demo <FiExternalLink className="w-4 h-4" />
   </a>
