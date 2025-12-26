@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import Header from "./components/Header";
-import { useState } from "react";
 import Footer from "./components/Footer";
 import ProjectsSection from "./components/ProjectsSection";
 import "bootstrap-icons/font/bootstrap-icons.css";
