@@ -68,16 +68,16 @@ export default function HomePage() {
           <div className="flex-1 min-w-0">
             <h2 className="text-3xl sm:text-5xl font-bold mb-4 text-gray-500">.about me</h2>
             <p className="text-gray-300 text-md sm:text-base leading-relaxed px-4">
-              I'm just a tech enthusiast who loves building cool stuff and figuring out how things work.  
+              I&apos;m just a tech enthusiast who loves building cool stuff and figuring out how things work.  
               I spend most of my time coding little projects, experimenting with new tools, or just playing around 
               with ideas that come to mind.  
               <br /><br />
-              I love creating things that are useful, fun, or just satisfy my curiosity. Sometimes it's a small game, 
+              I love creating things that are useful, fun, or just satisfy my curiosity. Sometimes it&apos;s a small game, 
               a simple app, or even tweaking something just for the challenge. I enjoy the process as much as the result.  
               <br /><br />
-              When I'm not glued to my computer screen, you can find me exploring the outdoors, reading up on the latest 
+              When I&apos;m not glued to my computer screen, you can find me exploring the outdoors, reading up on the latest 
               tech trends, or hanging out with friends and family.  
-              Overall, I'm just someone who's passionate about technology and loves to create and learn new things every day.
+              Overall, I&apos;m just someone who&apos;s passionate about technology and loves to create and learn new things every day.
             </p>
           </div>
 
@@ -129,11 +129,11 @@ export default function HomePage() {
 
       <section className="w-full py-20 flex flex-col items-center text-center">
         <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-          Let's build something great together.
+          Let&apos;s build something great together.
         </h2>
         <p className="text-white/70 max-w-xl mb-8 text-sm md:text-base">
-          Whether it's a full-stack web application, an API, or a product idea,
-          I'd love to help bring it to life.
+          Whether it&apos;s a full-stack web application, an API, or a product idea,
+          I&apos;d love to help bring it to life.
         </p>
         <a
           href="/contact"
