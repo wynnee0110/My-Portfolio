@@ -9,7 +9,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 export default function HomePage() {
   const router = useRouter();
-  const [open, setOpen] = useState(false);
+  
 
   return (
     <main>
