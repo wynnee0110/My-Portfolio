@@ -3,7 +3,7 @@ export const projects = [
     title: "School Sports Management System",
     description: "A web application to manage school sports events, teams, and schedules.",
     description2: "Built with Next.js, Tailwind CSS, and Supabase for real-time data handling.",
-    languages: ["Next.js", "Tailwind CSS", "Supabase"],
+    languages: ["Next.js", "Tailwind CSS", "Supabase", "TypeScript", "React"],
     link: "https://intrasyss.vercel.app/",
   },
   {
