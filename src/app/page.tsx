@@ -10,7 +10,7 @@ import experience from "./data/experience.json";
 import connect from "./data/connect.json";
 import { Cpu } from "lucide-react";
 import { FaReact } from "react-icons/fa";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Brain } from "lucide-react";
 
 interface Tooltip {
@@ -32,6 +32,14 @@ type WindowWithIdle = Window & {
 export default function HomePage() {
   const [rightPanelView, setRightPanelView] = useState<RightPanelView>("home");
   const [simulationsReady, setSimulationsReady] = useState(false);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
+  }, [rightPanelView]);
+
   const [tooltip, setTooltip] = useState<Tooltip>({
     visible: false,
     text: "",
@@ -84,11 +92,14 @@ export default function HomePage() {
   };
 
   return (
-    <main className="portfolio-bg relative isolate min-h-[100svh] text-gray-800 dark:text-gray-300 transition-colors duration-300 overflow-hidden">
-      <div className="portfolio-bg__glow portfolio-bg__glow--a"></div>
-      <div className="portfolio-bg__glow portfolio-bg__glow--b"></div>
-      <div className="portfolio-bg__grid"></div>
-      <div className="portfolio-bg__grain"></div>
+    <main 
+      className="portfolio-bg relative isolate min-h-[100svh] text-gray-800 dark:text-gray-300 transition-colors duration-300"
+      style={{ overflowY: 'auto', overflowX: 'hidden' }}
+    >
+      <div className="portfolio-bg__glow portfolio-bg__glow--a !fixed"></div>
+      <div className="portfolio-bg__glow portfolio-bg__glow--b !fixed"></div>
+      <div className="portfolio-bg__grid !fixed"></div>
+      <div className="portfolio-bg__grain !fixed"></div>
       <section className="pt-20 pb-6 max-w-5xl mx-auto px-4 lg:px-0 relative z-10">
         <div className="flex flex-col md:flex-row transition-colors duration-300 md:h-[calc(100svh-6.5rem)]">
           <div className="w-full md:w-64 p-5 flex flex-col items-center shrink-0 transition-colors duration-300">
@@ -97,12 +108,12 @@ export default function HomePage() {
               Obial
             </div>
 
-            <div className="relative w-32 h-32 mb-4">
+            <div className="relative w-28 h-28 md:w-32 md:h-32 mb-4 shrink-0 rounded-full md:rounded-md overflow-hidden ring-4 ring-pink-500/10 md:ring-0">
               <Image
                 src="/images/2.jpeg"
                 alt="Profile picture"
                 fill
-                className="rounded-md object-cover"
+                className="object-cover"
               />
             </div>
 
@@ -111,7 +122,7 @@ export default function HomePage() {
               Online
             </div>
 
-            <div className="w-full text-center text-pink-700 dark:text-[#b8287f] font-bold text-xs py-1.5 uppercase tracking-widest mb-6">
+            <div className="outline outline-offset-2 outline-pink-700 dark:outline-pink-500 w-full text-center text-pink-700 dark:text-[#b8287f] font-bold text-xs py-1.5 uppercase tracking-widest mb-6">
               Software Dev
             </div>
 
@@ -216,11 +227,8 @@ export default function HomePage() {
             </div>
 
             <div
-              className={`p-6 md:p-8 space-y-8 min-h-0 ${
-                rightPanelView === "home"
-                  ? "overflow-y-hidden max-h-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-                  : "overflow-y-auto max-h-[70svh] md:max-h-none"
-              }`}
+              ref={scrollContainerRef}
+              className="p-6 md:p-8 space-y-8 min-h-0 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             >
               {rightPanelView === "home" && (
                 <>
