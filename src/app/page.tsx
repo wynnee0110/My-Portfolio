@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Header from "./components/Header";
 import ProjectsSection from "./components/ProjectsSection";
 import Reactdiff from "./components/Reactdiff";
 import Lorenz from "./components/Lorenz";
@@ -85,18 +84,14 @@ export default function HomePage() {
   };
 
   return (
-    <main className="relative isolate min-h-[100svh] bg-gray-50 dark:bg-[#0a0a0a] text-gray-800 dark:text-gray-300 transition-colors duration-300 overflow-hidden">
-      <div aria-hidden className="portfolio-bg pointer-events-none fixed inset-0 -z-10">
-        <div className="portfolio-bg__glow portfolio-bg__glow--a" />
-        <div className="portfolio-bg__glow portfolio-bg__glow--b" />
-        <div className="portfolio-bg__grid" />
-        <div className="portfolio-bg__grain" />
-      </div>
-      <Header />
-
-      <section className="pt-20 pb-6 max-w-5xl mx-auto px-4 lg:px-0">
-        <div className="flex flex-col md:flex-row bg-white dark:bg-[#161618] border border-gray-200 dark:border-[#2d2d2d] rounded-md overflow-hidden shadow-xl dark:shadow-2xl transition-colors duration-300 md:h-[calc(100svh-6.5rem)]">
-          <div className="w-full md:w-64 bg-gray-100 dark:bg-[#1a1a1c] p-5 flex flex-col items-center border-b md:border-b-0 md:border-r border-gray-200 dark:border-[#2d2d2d] shrink-0 transition-colors duration-300">
+    <main className="portfolio-bg relative isolate min-h-[100svh] text-gray-800 dark:text-gray-300 transition-colors duration-300 overflow-hidden">
+      <div className="portfolio-bg__glow portfolio-bg__glow--a"></div>
+      <div className="portfolio-bg__glow portfolio-bg__glow--b"></div>
+      <div className="portfolio-bg__grid"></div>
+      <div className="portfolio-bg__grain"></div>
+      <section className="pt-20 pb-6 max-w-5xl mx-auto px-4 lg:px-0 relative z-10">
+        <div className="flex flex-col md:flex-row transition-colors duration-300 md:h-[calc(100svh-6.5rem)]">
+          <div className="w-full md:w-64 p-5 flex flex-col items-center shrink-0 transition-colors duration-300">
             <div className="font-bold text-lg text-gray-900 dark:text-[#e2e8f0] mb-4 flex items-center gap-2">
               <span className="text-pink-600 dark:text-pink-500 text-sm">[Dev]</span> Wayne
               Obial
@@ -107,7 +102,7 @@ export default function HomePage() {
                 src="/images/2.jpeg"
                 alt="Profile picture"
                 fill
-                className="rounded-md object-cover border border-gray-300 dark:border-[#333]"
+                className="rounded-md object-cover"
               />
             </div>
 
@@ -116,7 +111,7 @@ export default function HomePage() {
               Online
             </div>
 
-            <div className="w-full text-center border border-pink-500 dark:border-[#b8287f] bg-pink-100 dark:bg-[#b8287f]/10 text-pink-700 dark:text-[#b8287f] font-bold text-xs py-1.5 uppercase tracking-widest mb-6">
+            <div className="w-full text-center text-pink-700 dark:text-[#b8287f] font-bold text-xs py-1.5 uppercase tracking-widest mb-6">
               Software Dev
             </div>
 
@@ -162,7 +157,7 @@ export default function HomePage() {
               {connect.map((item, index) => (
                 <div
                   key={index}
-                  className="flex justify-between border-b border-gray-300 dark:border-[#2d2d2d] pb-1"
+                  className="flex justify-between pb-1"
                 >
                   <span>{item.name}:</span>
                   {item.name === "Projects" ? (
@@ -196,7 +191,7 @@ export default function HomePage() {
           </div>
 
           <div className="flex-1 flex flex-col min-h-0">
-            <div className="bg-gray-100 dark:bg-[#1a1a1c] px-4 py-2 text-xs text-gray-500 dark:text-gray-500 border-b border-gray-200 dark:border-[#2d2d2d] flex justify-between items-center transition-colors duration-300">
+            <div className="px-4 py-2 text-xs text-gray-500 dark:text-gray-500 flex justify-between items-center transition-colors duration-300">
               <span className="flex items-center gap-3">
                 <span>
                   Posted just now (This portfolio was last modified recently by
@@ -231,13 +226,13 @@ export default function HomePage() {
                 <>
                   <section className="space-y-6">
                 <h1 className="text-xl font-medium text-black dark:text-white mb-2">
-                  Hey <span className="font-bold">Visitors</span>.
+                  Hey <span className="font-bold">Viewer</span>.
                 </h1>
 
-                <div className="text-sm leading-relaxed text-gray-700 dark:text-gray-300 space-y-4">
-                  <p>Greetings.</p>
+                <div className="text-sm leading-relaxed text-gray-7n00 dark:text-gray-300 space-y-4">
+                <p>Greetings.</p>
                   <p>
-                    I&apos;m Wayne - a technology-driven learner with a strong
+                    I&apos;m <span className="font-bold">Wayne</span> a technology-driven learner with a strong
                     interest in building practical and creative digital
                     solutions. I enjoy working on projects that involve software
                     development, automation, and problem-solving, and I&apos;m
@@ -260,12 +255,12 @@ export default function HomePage() {
                 </div>
               </section>
 
-              <section className="mt-8 bg-gray-50 dark:bg-[#111112] border border-gray-200 dark:border-[#333] rounded-md p-4 transition-colors duration-300">
+              <section className="mt-8 p-4 transition-colors duration-300">
                 <p className="text-red-600 dark:text-red-400 font-mono text-sm mb-4">
                   {"/* System.Experience Logs */"}
                 </p>
 
-                <div className="relative border-l-2 border-gray-300 dark:border-[#333] pl-4 space-y-6 ml-2">
+                <div className="relative pl-4 space-y-6 ml-2">
                   {experience.map((item, index) => (
                     <div key={index} className="relative">
                       <span className="absolute -left-[21px] top-1.5 w-2.5 h-2.5 bg-gray-400 dark:bg-gray-500 rounded-full"></span>
