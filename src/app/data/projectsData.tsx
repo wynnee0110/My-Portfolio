@@ -34,7 +34,7 @@ export const projects: Project[] = [
   link: "#",
   image: "/images/works/1.png",
 }
-  // 🔽 MOCK PROJECTS BASED ON YOU 
+ 
 ,
   {
     title: "VaultCli",
