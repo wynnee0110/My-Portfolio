@@ -37,11 +37,12 @@ export const projects: Project[] = [
   // 🔽 MOCK PROJECTS BASED ON YOU 
 ,
   {
-    title: "3D Campus Navigation System",
-    description: "An interactive 3D web map for navigating a university campus.",
+    title: "VaultCli",
+    description: "A self hosted vault for your secrets, and keys.",
     description2: "Supports satellite view, building extrusion, and indoor street-view–style exploration.",
-    languages: ["Three.js", "CesiumJS", "GLTF", "WebGL", "JavaScript"],
-    link: "#",
+    languages: ["Python", "Supabase", "Argon2", "CLI", "JSON", "Rest API","Cryptography"],
+    link: "https://vault-cli-site.vercel.app/",
+    image: "/images/works/4.png"
   },
   {
     title: "Safety Map & Risk-Aware Routing",
@@ -79,4 +80,6 @@ export const projects: Project[] = [
     languages: ["Next.js", "FastAPI", "Redis", "TypeScript"],
     link: "#",
   },
+
+  
 ];
