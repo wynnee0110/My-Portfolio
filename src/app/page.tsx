@@ -93,7 +93,7 @@ export default function HomePage() {
 
   return (
     <main 
-      className="portfolio-bg relative isolate min-h-[100svh] text-gray-800 dark:text-gray-300 transition-colors duration-300"
+      className="mt-0 portfolio-bg relative isolate min-h-[100svh] text-gray-800 dark:text-gray-300 transition-colors duration-300"
       style={{ overflowY: 'auto', overflowX: 'hidden' }}
     >
       <div className="portfolio-bg__glow portfolio-bg__glow--a !fixed"></div>
@@ -205,8 +205,7 @@ export default function HomePage() {
             <div className="px-4 py-2 text-xs text-gray-500 dark:text-gray-500 flex justify-between items-center transition-colors duration-300">
               <span className="flex items-center gap-3">
                 <span>
-                  Posted just now (This portfolio was last modified recently by
-                  WayneObial.)
+                  Recently updated (This portfolio was last modified on the 15 of may 2026)
                 </span>
                 {rightPanelView !== "home" && (
                   <button
@@ -219,7 +218,7 @@ export default function HomePage() {
               </span>
               <span className="font-bold text-gray-600 dark:text-gray-400">
                 {rightPanelView === "home"
-                  ? "#1"
+                  ? "#home"
                   : rightPanelView === "projects"
                     ? "#works"
                     : "#sim"}
@@ -228,7 +227,7 @@ export default function HomePage() {
 
             <div
               ref={scrollContainerRef}
-              className="p-6 md:p-8 space-y-8 min-h-0 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
+              className="p-6 md:p-8 space-y-[-1rem] min-h-0 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
             >
               {rightPanelView === "home" && (
                 <>
