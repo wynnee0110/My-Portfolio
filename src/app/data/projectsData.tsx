@@ -44,42 +44,14 @@ export const projects: Project[] = [
     link: "https://vault-cli-site.vercel.app/",
     image: "/images/works/4.png"
   },
-  {
-    title: "Safety Map & Risk-Aware Routing",
-    description: "A safety-focused mapping platform that visualizes incidents and danger zones.",
-    description2: "Uses weighted pathfinding to suggest safer routes in real time.",
-    languages: ["Next.js", "Mapbox", "PostgreSQL", "Node.js", "Algorithms"],
-    link: "#",
-  },
-  {
-    title: "Sign Language to Text Translator",
-    description: "A real-time system that converts hand gestures into readable text.",
-    description2: "Uses computer vision and machine learning for gesture recognition.",
-    languages: ["Python", "OpenCV", "TensorFlow", "MediaPipe"],
-    link: "#",
-  },
-  {
-    title: "AI Chatbot Platform",
-    description: "A locally hosted AI chatbot designed for privacy-focused conversations.",
-    description2: "Runs offline with customizable models and a web-based chat interface.",
-    languages: ["Node.js", "GPT4All", "Next.js", "Docker"],
-    link: "#",
-  },
 
   {
-    title: "Flutter Cross-Platform App",
-    description: "A responsive mobile and web application built from a single codebase.",
-    description2: "Optimized for performance with adaptive layouts.",
-    languages: ["Flutter", "Dart", "Firebase"],
-    link: "#",
-  },
-  {
-    title: "AI Automation Dashboard",
-    description: "A dashboard for managing automated workflows powered by AI.",
-    description2: "Integrates APIs, background jobs, and analytics.",
-    languages: ["Next.js", "FastAPI", "Redis", "TypeScript"],
-    link: "#",
-  },
+    title: "Cinefy",
+    description: "A movie platform for movie lovers",
+    description2: "Features authentication, profiles, avatars, likes, comments, and real-time engagement powered by a modern full-stack architecture.",
+    languages: ["React", "Tailwind CSS", "express.js", "redis",],
+    link: "https://cinefy-pi.vercel.app/",
+    image: "/images/works/6.png"
+  }
 
-  
 ];
