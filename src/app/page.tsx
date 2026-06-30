@@ -100,7 +100,7 @@ export default function HomePage() {
       <div className="portfolio-bg__glow portfolio-bg__glow--b !fixed"></div>
       <div className="portfolio-bg__grid !fixed"></div>
       <div className="portfolio-bg__grain !fixed"></div>
-      <section className="pt-20 pb-6 max-w-5xl mx-auto px-4 lg:px-0 relative z-10">
+      <section className="pt-15 pb-6 max-w-7xl mx-auto px-4 lg:px-0 relative z-10">
         <div className="flex flex-col md:flex-row transition-colors duration-300 md:h-[calc(100svh-6.5rem)]">
           <div className="w-full md:w-64 p-5 flex flex-col items-center shrink-0 transition-colors duration-300">
             <div className="font-bold text-lg text-gray-900 dark:text-[#e2e8f0] mb-4 flex items-center gap-2">

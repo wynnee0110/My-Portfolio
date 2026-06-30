@@ -53,5 +53,14 @@ export const projects: Project[] = [
     link: "https://cinefy-pi.vercel.app/",
     image: "/images/works/6.png"
   }
+,
+  {
+        title: "Cortex",
+    description: "A memory layer for AI agents for your projects",
+    description2: "Features context management, memory storage, and retrieval for AI agents, enabling them to learn and adapt over time.",
+    languages: ["React", "Tailwind CSS", "express.js", "redis",],
+    link: "https://github.com/wynnee0110/Cortex",
+    image: "/images/works/7.png"
+  }
 
 ];
