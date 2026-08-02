@@ -117,7 +117,7 @@ export default function HomePage() {
           <Terminal className="w-3.5 h-3.5 text-pink-500 animate-pulse" />
           <span className="font-semibold text-gray-900 dark:text-white">hexctl</span>
           <span className="text-gray-400 dark:text-gray-500">/</span>
-          <span className="text-pink-600 dark:text-pink-400 font-medium">portfolio</span>
+
         </div>
 
         <div className="flex items-center gap-4 text-xs font-mono">
@@ -216,8 +216,8 @@ export default function HomePage() {
                   <button
                     onClick={() => setRightPanelView("projects")}
                     className={`px-2.5 py-0.5 rounded text-[11px] font-semibold transition-all ${rightPanelView === "projects"
-                        ? "bg-pink-500 text-white shadow-sm"
-                        : "text-pink-600 dark:text-pink-400 hover:underline"
+                      ? "bg-pink-500 text-white shadow-sm"
+                      : "text-pink-600 dark:text-pink-400 hover:underline"
                       }`}
                   >
                     Visit
@@ -229,8 +229,8 @@ export default function HomePage() {
                       setRightPanelView("simulations");
                     }}
                     className={`px-2.5 py-0.5 rounded text-[11px] font-semibold transition-all ${rightPanelView === "simulations"
-                        ? "bg-pink-500 text-white shadow-sm"
-                        : "text-pink-600 dark:text-pink-400 hover:underline"
+                      ? "bg-pink-500 text-white shadow-sm"
+                      : "text-pink-600 dark:text-pink-400 hover:underline"
                       }`}
                   >
                     Visit
@@ -273,8 +273,8 @@ export default function HomePage() {
               <button
                 onClick={() => setRightPanelView("home")}
                 className={`px-2.5 py-1 rounded-md transition-all ${rightPanelView === "home"
-                    ? "text-pink-600 dark:text-pink-400 font-bold bg-pink-500/10 border border-pink-500/20"
-                    : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
+                  ? "text-pink-600 dark:text-pink-400 font-bold bg-pink-500/10 border border-pink-500/20"
+                  : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
                   }`}
               >
                 home
@@ -282,8 +282,8 @@ export default function HomePage() {
               <button
                 onClick={() => setRightPanelView("projects")}
                 className={`px-2.5 py-1 rounded-md transition-all ${rightPanelView === "projects"
-                    ? "text-pink-600 dark:text-pink-400 font-bold bg-pink-500/10 border border-pink-500/20"
-                    : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
+                  ? "text-pink-600 dark:text-pink-400 font-bold bg-pink-500/10 border border-pink-500/20"
+                  : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
                   }`}
               >
                 works
@@ -294,8 +294,8 @@ export default function HomePage() {
                   setRightPanelView("simulations");
                 }}
                 className={`px-2.5 py-1 rounded-md transition-all ${rightPanelView === "simulations"
-                    ? "text-pink-600 dark:text-pink-400 font-bold bg-pink-500/10 border border-pink-500/20"
-                    : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
+                  ? "text-pink-600 dark:text-pink-400 font-bold bg-pink-500/10 border border-pink-500/20"
+                  : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
                   }`}
               >
                 sim
