@@ -2,21 +2,45 @@
   {
     "role": "Head of Committee on Development, ICpEP.SE USTP Chapter",
     "period": "2026 – Present",
-    "description": "Lead the planning, development, and execution of chapter initiatives and technical projects. Collaborate with committee members to deliver programs that enhance students' technical skills, leadership, and professional development."
+    "description": "Lead the development of digital solutions that support chapter operations, student engagement, and technical initiatives while coordinating with officers and committee members.",
+    "highlights": [
+      "Oversee the design and development of internal web applications and digital tools for the chapter",
+      "Plan and implement technical initiatives that improve organizational workflows",
+      "Coordinate with committees to deliver technology-driven solutions for chapter events",
+      "Guide members through software development best practices, version control, and collaborative workflows"
+    ]
   },
   {
     "role": "Technology Department Member, Google Developer Groups (GDG) USTP",
     "period": "2025 – Present",
-    "description": "Contribute to the planning, development, and technical execution of community events and initiatives. Support the creation of software solutions, assist in organizing technical workshops, and promote innovation and knowledge sharing within the student developer community."
+    "description": "Support the technical execution of community events and contribute to initiatives that promote modern software development and open-source technologies.",
+    "highlights": [
+      "Assist in developing technical resources and digital solutions for GDG events",
+      "Collaborate with the technology team to organize developer-focused workshops and activities",
+      "Contribute to community projects while promoting modern web technologies and best practices",
+      "Support initiatives that encourage learning, collaboration, and open-source participation"
+    ]
   },
   {
-    "role": "Freelance Software Engineer",
+    "role": "Freelance Full-Stack Software Engineer",
     "period": "2024 – Present",
-    "description": "Design, develop, and maintain custom web and mobile applications for clients and organizations. Deliver scalable, user-focused solutions while collaborating closely with stakeholders to meet business and technical requirements."
+    "description": "Design, develop, and deploy full-stack applications, IoT systems, and developer tools for organizations, student groups, and independent clients.",
+    "highlights": [
+      "Develop web applications using Next.js, React, TypeScript, Express.js, Supabase, Firebase, and PostgreSQL",
+      "Build IoT and embedded systems using ESP32, Arduino, C++, and Python",
+      "Develop RESTful APIs, authentication systems, real-time applications, and AI-powered integrations",
+      "Deploy and maintain applications using Linux, Docker, Vercel, Render, and Cloudflare"
+    ]
   },
   {
     "role": "Freelance Graphic Designer",
     "period": "2022 – 2024",
-    "description": "Designed branding materials, marketing assets, and digital graphics for clients across various industries. Produced visually engaging designs that aligned with client objectives and strengthened brand identity."
+    "description": "Created visual identities and digital marketing assets for businesses, organizations, and student initiatives.",
+    "highlights": [
+      "Designed logos, brand identity systems, and promotional materials for diverse clients",
+      "Produced social media graphics, posters, event banners, and presentation assets",
+      "Collaborated closely with clients to transform concepts into cohesive visual designs",
+      "Delivered print-ready and digital assets using industry-standard design workflows"
+    ]
   }
 ]

@@ -10,7 +10,7 @@ import CoolBackground from "./components/CoolBackground";
 import DarkModeToggle from "./components/DarkModeToggle";
 import experience from "./data/experience.json";
 import connect from "./data/connect.json";
-import { Cpu, Brain, Terminal, ArrowUpRight } from "lucide-react";
+import { Cpu, Brain, Terminal, ArrowUpRight, ChevronDown } from "lucide-react";
 import { FaReact } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
 
@@ -34,6 +34,7 @@ export default function HomePage() {
   const [rightPanelView, setRightPanelView] = useState<RightPanelView>("home");
   const [simulationsReady, setSimulationsReady] = useState(false);
   const [currentTime, setCurrentTime] = useState<string>("");
+  const [expandedExp, setExpandedExp] = useState<number | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -204,47 +205,24 @@ export default function HomePage() {
             </div>
           )}
 
-          {/* Social Links */}
+          {/* Social Links — Projects & Simulations excluded (shown in top nav) */}
           <div className="w-full text-xs font-mono space-y-1.5 text-gray-600 dark:text-gray-400 pt-4 border-t border-black/10 dark:border-white/10">
-            {connect.map((item, index) => (
+            {connect
+              .filter((item) => item.name !== "Projects" && item.name !== "Simulations")
+              .map((item, index) => (
               <div
                 key={index}
                 className="flex justify-between items-center py-1 px-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
               >
                 <span className="font-medium text-gray-700 dark:text-gray-300">{item.name}</span>
-                {item.name === "Projects" ? (
-                  <button
-                    onClick={() => setRightPanelView("projects")}
-                    className={`px-2.5 py-0.5 rounded text-[11px] font-semibold transition-all ${rightPanelView === "projects"
-                      ? "bg-pink-500 text-white shadow-sm"
-                      : "text-pink-600 dark:text-pink-400 hover:underline"
-                      }`}
-                  >
-                    Visit
-                  </button>
-                ) : item.name === "Simulations" ? (
-                  <button
-                    onClick={() => {
-                      setSimulationsReady(true);
-                      setRightPanelView("simulations");
-                    }}
-                    className={`px-2.5 py-0.5 rounded text-[11px] font-semibold transition-all ${rightPanelView === "simulations"
-                      ? "bg-pink-500 text-white shadow-sm"
-                      : "text-pink-600 dark:text-pink-400 hover:underline"
-                      }`}
-                  >
-                    Visit
-                  </button>
-                ) : (
-                  <a
-                    href={item.url}
-                    target={item.url.startsWith("http") ? "_blank" : "_self"}
-                    rel="noopener noreferrer"
-                    className="text-pink-600 dark:text-pink-400 hover:text-pink-500 dark:hover:text-pink-300 flex items-center gap-0.5 hover:underline"
-                  >
-                    Visit <ArrowUpRight className="w-3 h-3" />
-                  </a>
-                )}
+                <a
+                  href={item.url}
+                  target={item.url.startsWith("http") ? "_blank" : "_self"}
+                  rel="noopener noreferrer"
+                  className="text-pink-600 dark:text-pink-400 hover:text-pink-500 dark:hover:text-pink-300 flex items-center gap-0.5 hover:underline"
+                >
+                  Visit <ArrowUpRight className="w-3 h-3" />
+                </a>
               </div>
             ))}
           </div>
@@ -258,7 +236,7 @@ export default function HomePage() {
             <div className="flex items-center gap-4">
               {rightPanelView !== "home" && (
                 <button
-                  onClick={() => setRightPanelView("home")}
+                  onClick={() => { setRightPanelView("home"); setExpandedExp(null); }}
                   className="text-pink-600 dark:text-pink-400 hover:underline font-semibold"
                 >
                   ← Home
@@ -271,7 +249,7 @@ export default function HomePage() {
 
             <div className="flex items-center gap-1.5">
               <button
-                onClick={() => setRightPanelView("home")}
+                onClick={() => { setRightPanelView("home"); setExpandedExp(null); }}
                 className={`px-2.5 py-1 rounded-md transition-all ${rightPanelView === "home"
                   ? "text-pink-600 dark:text-pink-400 font-bold bg-pink-500/10 border border-pink-500/20"
                   : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
@@ -280,7 +258,7 @@ export default function HomePage() {
                 home
               </button>
               <button
-                onClick={() => setRightPanelView("projects")}
+                onClick={() => { setRightPanelView("projects"); setExpandedExp(null); }}
                 className={`px-2.5 py-1 rounded-md transition-all ${rightPanelView === "projects"
                   ? "text-pink-600 dark:text-pink-400 font-bold bg-pink-500/10 border border-pink-500/20"
                   : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
@@ -292,6 +270,7 @@ export default function HomePage() {
                 onClick={() => {
                   setSimulationsReady(true);
                   setRightPanelView("simulations");
+                  setExpandedExp(null);
                 }}
                 className={`px-2.5 py-1 rounded-md transition-all ${rightPanelView === "simulations"
                   ? "text-pink-600 dark:text-pink-400 font-bold bg-pink-500/10 border border-pink-500/20"
@@ -341,25 +320,88 @@ export default function HomePage() {
                     {"/* Experience */"}
                   </span>
 
-                  <div className="space-y-4">
-                    {experience.map((item, index) => (
-                      <div
-                        key={index}
-                        className="pl-4 border-l-2 border-pink-500/40 space-y-1 transition-all hover:border-pink-500"
-                      >
-                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                          <h3 className="font-medium text-sm text-gray-900 dark:text-gray-100">
-                            {item.role}
-                          </h3>
-                          <span className="text-[11px] font-mono text-gray-500 dark:text-gray-400">
-                            {item.period}
-                          </span>
+                  <div className="space-y-2">
+                    {experience.map((item, index) => {
+                      const isOpen = expandedExp === index;
+                      return (
+                        <div
+                          key={index}
+                          className={`border-l-2 transition-all duration-200 ${
+                            isOpen
+                              ? "border-pink-500 bg-pink-500/5 rounded-r-xl"
+                              : "border-pink-500/30 hover:border-pink-500/70"
+                          }`}
+                        >
+                          {/* Clickable header row */}
+                          <button
+                            onClick={() => setExpandedExp(isOpen ? null : index)}
+                            className="w-full text-left flex items-start justify-between gap-3 pl-4 pr-3 py-2.5 group"
+                          >
+                            <div className="flex-1 min-w-0">
+                              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                                <h3 className={`font-medium text-sm leading-snug transition-colors ${
+                                  isOpen
+                                    ? "text-pink-600 dark:text-pink-400"
+                                    : "text-gray-900 dark:text-gray-100 group-hover:text-pink-600 dark:group-hover:text-pink-400"
+                                }`}>
+                                  {item.role}
+                                </h3>
+                                <span className="text-[11px] font-mono text-gray-500 dark:text-gray-400 shrink-0">
+                                  {item.period}
+                                </span>
+                              </div>
+                              {!isOpen && (
+                                <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5 leading-relaxed line-clamp-1">
+                                  {item.description}
+                                </p>
+                              )}
+                            </div>
+                            <ChevronDown
+                              className={`w-4 h-4 text-gray-400 dark:text-gray-500 shrink-0 mt-0.5 transition-transform duration-300 ${
+                                isOpen ? "rotate-180 text-pink-500" : ""
+                              }`}
+                            />
+                          </button>
+
+                          {/* Expandable details */}
+                          <div
+                            className={`overflow-hidden transition-all duration-300 ease-in-out ${
+                              isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                            }`}
+                          >
+                            <div className="pl-4 pr-3 pb-4 space-y-3">
+                              <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed italic border-b border-black/8 dark:border-white/8 pb-2">
+                                &quot;{item.description}&quot;
+                              </p>
+                              {(item as { highlights?: string[] }).highlights && (
+                                <div className="space-y-2">
+                                  <span className="text-[10px] font-mono font-semibold uppercase tracking-wider text-pink-500/80">
+                                    Highlights
+                                  </span>
+                                  <div className="relative">
+                                    {/* Vertical line — center of 14px node = left-[6px] */}
+                                    <div className="absolute left-[6px] top-0 bottom-0 w-px bg-pink-500/30" />
+                                    <div className="space-y-3">
+                                    {(item as { highlights: string[] }).highlights.map((h, hi) => (
+                                      <div key={hi} className="flex items-start gap-3">
+                                        {/* Timeline node — 14px, center at 7px matches line */}
+                                        <div className="shrink-0 w-3.5 h-3.5 rounded-full border-2 border-pink-500/60 bg-pink-500/10 flex items-center justify-center mt-0.5 z-10 bg-white dark:bg-[#0a0a0a]">
+                                          <span className="w-1 h-1 rounded-full bg-pink-500" />
+                                        </div>
+                                        <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed pt-px">
+                                          {h}
+                                        </p>
+                                      </div>
+                                    ))}
+                                    </div>
+                                  </div>
+                                </div>
+                              )}
+                            </div>
+                          </div>
                         </div>
-                        <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed italic">
-                          &quot;{item.description}&quot;
-                        </p>
-                      </div>
-                    ))}
+                      );
+                    })}
                   </div>
                 </section>
               </>
