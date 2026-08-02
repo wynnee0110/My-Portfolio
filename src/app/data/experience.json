@@ -1,7 +1,22 @@
 [
   {
-    "role": "Full-Stack Developer Trainee at CodersTrust",
+    "role": "Head of Committee on Development, ICpEP.SE USTP Chapter",
+    "period": "2026 – Present",
+    "description": "Lead the planning, development, and execution of chapter initiatives and technical projects. Collaborate with committee members to deliver programs that enhance students' technical skills, leadership, and professional development."
+  },
+  {
+    "role": "Technology Department Member, Google Developer Groups (GDG) USTP",
+    "period": "2025 – Present",
+    "description": "Contribute to the planning, development, and technical execution of community events and initiatives. Support the creation of software solutions, assist in organizing technical workshops, and promote innovation and knowledge sharing within the student developer community."
+  },
+  {
+    "role": "Freelance Software Engineer",
     "period": "2024 – Present",
-    "description": "Built responsive web interfaces using Next.js, Tailwind CSS, and modern UI/UX principles."
+    "description": "Design, develop, and maintain custom web and mobile applications for clients and organizations. Deliver scalable, user-focused solutions while collaborating closely with stakeholders to meet business and technical requirements."
+  },
+  {
+    "role": "Freelance Graphic Designer",
+    "period": "2022 – 2024",
+    "description": "Designed branding materials, marketing assets, and digital graphics for clients across various industries. Produced visually engaging designs that aligned with client objectives and strengthened brand identity."
   }
 ]

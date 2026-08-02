@@ -17,7 +17,6 @@ const GLOW_LENGTH = 180;
 
 function AttractorGeometry() {
   const groupRef = useRef<THREE.Group>(null);
-  const lineRef = useRef<THREE.Line>(null);
   const headRef = useRef(0);
   const visibleRef = useRef(true);
 

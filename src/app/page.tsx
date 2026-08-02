@@ -6,12 +6,13 @@ import Reactdiff from "./components/Reactdiff";
 import Lorenz from "./components/Lorenz";
 import BubbleSort from "./components/Bubblesort";
 import NeuralNetwork from "./components/Neuralnetwork";
+import CoolBackground from "./components/CoolBackground";
+import DarkModeToggle from "./components/DarkModeToggle";
 import experience from "./data/experience.json";
 import connect from "./data/connect.json";
-import { Cpu } from "lucide-react";
+import { Cpu, Brain, Terminal, ArrowUpRight } from "lucide-react";
 import { FaReact } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
-import { Brain } from "lucide-react";
 
 interface Tooltip {
   visible: boolean;
@@ -32,7 +33,18 @@ type WindowWithIdle = Window & {
 export default function HomePage() {
   const [rightPanelView, setRightPanelView] = useState<RightPanelView>("home");
   const [simulationsReady, setSimulationsReady] = useState(false);
+  const [currentTime, setCurrentTime] = useState<string>("");
   const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const updateTime = () => {
+      const now = new Date();
+      setCurrentTime(now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }));
+    };
+    updateTime();
+    const interval = setInterval(updateTime, 1000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (scrollContainerRef.current) {
@@ -92,282 +104,350 @@ export default function HomePage() {
   };
 
   return (
-    <main 
-      className="mt-0 portfolio-bg relative isolate min-h-[100svh] text-gray-800 dark:text-gray-300 transition-colors duration-300"
+    <main
+      className="portfolio-bg relative isolate min-h-[100svh] text-gray-800 dark:text-gray-200 transition-colors duration-300 flex flex-col justify-between"
       style={{ overflowY: 'auto', overflowX: 'hidden' }}
     >
-      <div className="portfolio-bg__glow portfolio-bg__glow--a !fixed"></div>
-      <div className="portfolio-bg__glow portfolio-bg__glow--b !fixed"></div>
-      <div className="portfolio-bg__grid !fixed"></div>
-      <div className="portfolio-bg__grain !fixed"></div>
-      <section className="pt-15 pb-6 max-w-7xl mx-auto px-4 lg:px-0 relative z-10">
-        <div className="flex flex-col md:flex-row transition-colors duration-300 md:h-[calc(100svh-6.5rem)]">
-          <div className="w-full md:w-64 p-5 flex flex-col items-center shrink-0 transition-colors duration-300">
-            <div className="font-bold text-lg text-gray-900 dark:text-[#e2e8f0] mb-4 flex items-center gap-2">
-              <span className="text-pink-600 dark:text-pink-500 text-sm">[Dev]</span> Wayne
-              Obial
+      {/* Interactive Background Canvas */}
+      <CoolBackground />
+
+      {/* Top Embedded Minimalist Header */}
+      <header className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-7xl flex items-center justify-between px-5 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white/30 dark:bg-black/40 backdrop-blur-md shadow-sm">
+        <div className="flex items-center gap-2 font-mono text-xs text-gray-700 dark:text-gray-300">
+          <Terminal className="w-3.5 h-3.5 text-pink-500 animate-pulse" />
+          <span className="font-semibold text-gray-900 dark:text-white">hexctl</span>
+          <span className="text-gray-400 dark:text-gray-500">/</span>
+          <span className="text-pink-600 dark:text-pink-400 font-medium">portfolio</span>
+        </div>
+
+        <div className="flex items-center gap-4 text-xs font-mono">
+          <span className="hidden sm:inline-block px-3 py-0.5 rounded-full bg-black/5 dark:bg-white/10 text-gray-600 dark:text-gray-400 border border-black/5 dark:border-white/10">
+            {currentTime || "--:--"}
+          </span>
+          <DarkModeToggle />
+        </div>
+      </header>
+
+      {/* Main Workspace Layout */}
+      <section className="pt-24 pb-12 max-w-7xl mx-auto px-4 lg:px-6 relative z-10 w-full flex-1 flex flex-col md:flex-row gap-8 md:h-[calc(100svh-7rem)] min-h-[600px]">
+
+        {/* LEFT UNTOUCHED SIDEBAR */}
+        <aside className="w-full md:w-64 flex flex-col items-center shrink-0 justify-between py-2 border-b md:border-b-0 md:border-r border-black/10 dark:border-white/10 md:pr-8">
+          <div className="w-full flex flex-col items-center">
+            {/* Identity */}
+            <div className="font-bold text-lg text-gray-900 dark:text-white mb-4 flex items-center gap-2">
+              <span className="cyber-badge text-xs px-2.5 py-0.5 rounded-full font-mono font-medium">
+                [Dev]
+              </span>
+              <span>Wayne Obial</span>
             </div>
 
-            <div className="relative w-28 h-28 md:w-32 md:h-32 mb-4 shrink-0 rounded-full md:rounded-md overflow-hidden ring-4 ring-pink-500/10 md:ring-0">
+            {/* Profile Avatar */}
+            <div className="relative w-28 h-28 md:w-36 md:h-36 mb-4 shrink-0 rounded-full md:rounded-2xl overflow-hidden ring-2 ring-pink-500/30 shadow-lg group">
               <Image
                 src="/images/2.jpeg"
-                alt="Profile picture"
+                alt="Wayne Obial Profile Picture"
                 fill
-                className="object-cover"
+                className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
             </div>
 
-            <div className="text-sm text-green-600 dark:text-green-500 mb-4 flex items-center gap-1">
-              <span className="w-2 h-2 bg-green-600 dark:bg-green-500 rounded-full inline-block"></span>
-              Online
+            {/* Online Status */}
+            <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-4 flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
+              <span className="w-2 h-2 bg-emerald-500 rounded-full online-dot"></span>
+              <span>Online</span>
             </div>
 
-            <div className="outline outline-offset-2 outline-pink-700 dark:outline-pink-500 w-full text-center text-pink-700 dark:text-[#b8287f] font-bold text-xs py-1.5 uppercase tracking-widest mb-6">
+            {/* Role Badge */}
+            <div className="w-full text-center text-pink-700 dark:text-pink-400 font-bold text-xs py-1.5 px-3 rounded-xl bg-pink-500/10 border border-pink-500/20 uppercase tracking-widest mb-6">
               Software Dev
             </div>
 
-            <div className="w-full flex justify-center gap-4 mb-6">
+            {/* Tech Stack Icons */}
+            <div className="w-full flex justify-center gap-4 mb-6 py-2 px-4 rounded-xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 backdrop-blur-sm">
               <div
-                onMouseMove={(e) => handleMouseMove(e, "React Developer")}
+                onMouseMove={(e) => handleMouseMove(e, "React / Next.js")}
                 onMouseLeave={handleMouseLeave}
-                className="cursor-pointer"
+                className="cursor-pointer p-1 rounded hover:bg-cyan-500/10 transition-colors"
               >
-                <FaReact className="text-cyan-500 text-3xl hover:scale-110 transition-transform" />
+                <FaReact className="text-cyan-500 text-2xl hover:scale-110 transition-transform" />
               </div>
 
               <div
-                onMouseMove={(e) => handleMouseMove(e, "IoT")}
+                onMouseMove={(e) => handleMouseMove(e, "IoT Systems")}
                 onMouseLeave={handleMouseLeave}
-                className="cursor-pointer"
+                className="cursor-pointer p-1 rounded hover:bg-emerald-500/10 transition-colors"
               >
-                <Cpu className="text-green-500 w-7 h-7 hover:scale-110 transition-transform" />
+                <Cpu className="text-emerald-500 w-6 h-6 hover:scale-110 transition-transform" />
               </div>
 
               <div
-                onMouseMove={(e) => handleMouseMove(e, "AI/ML")}
+                onMouseMove={(e) => handleMouseMove(e, "AI & Machine Learning")}
                 onMouseLeave={handleMouseLeave}
-                className="cursor-pointer"
+                className="cursor-pointer p-1 rounded hover:bg-purple-500/10 transition-colors"
               >
-                <Brain className="text-purple-400 w-7 h-7 hover:scale-110 transition-transform" />
+                <Brain className="text-purple-400 w-6 h-6 hover:scale-110 transition-transform" />
               </div>
-            </div>
-
-            {tooltip.visible && (
-              <div
-                className="fixed z-50 bg-black text-white text-xs px-2 py-1 rounded pointer-events-none"
-                style={{
-                  left: tooltip.x,
-                  top: tooltip.y,
-                }}
-              >
-                {tooltip.text}
-              </div>
-            )}
-
-            <div className="w-full text-xs space-y-2 text-gray-600 dark:text-gray-400">
-              {connect.map((item, index) => (
-                <div
-                  key={index}
-                  className="flex justify-between pb-1"
-                >
-                  <span>{item.name}:</span>
-                  {item.name === "Projects" ? (
-                    <button
-                      onClick={() => setRightPanelView("projects")}
-                      className="text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 hover:underline"
-                    >
-                      Visit
-                    </button>
-                  ) : item.name === "Simulations" ? (
-                    <button
-                      onClick={() => {
-                        setSimulationsReady(true);
-                        setRightPanelView("simulations");
-                      }}
-                      className="text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 hover:underline"
-                    >
-                      Visit
-                    </button>
-                  ) : (
-                    <a
-                      href={item.url}
-                      className="text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300 hover:underline"
-                    >
-                      Visit
-                    </a>
-                  )}
-                </div>
-              ))}
             </div>
           </div>
 
-          <div className="flex-1 flex flex-col min-h-0">
-            <div className="px-4 py-2 text-xs text-gray-500 dark:text-gray-500 flex justify-between items-center transition-colors duration-300">
-              <span className="flex items-center gap-3">
-                <span>
-                  Recently updated (This portfolio was last modified on the 15 of may 2026)
-                </span>
-                {rightPanelView !== "home" && (
+          {/* Custom Tooltip */}
+          {tooltip.visible && (
+            <div
+              className="fixed z-50 bg-gray-900 text-white text-xs font-mono px-2.5 py-1 rounded-md shadow-lg pointer-events-none border border-white/20"
+              style={{
+                left: tooltip.x,
+                top: tooltip.y,
+              }}
+            >
+              {tooltip.text}
+            </div>
+          )}
+
+          {/* Social Links */}
+          <div className="w-full text-xs font-mono space-y-1.5 text-gray-600 dark:text-gray-400 pt-4 border-t border-black/10 dark:border-white/10">
+            {connect.map((item, index) => (
+              <div
+                key={index}
+                className="flex justify-between items-center py-1 px-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+              >
+                <span className="font-medium text-gray-700 dark:text-gray-300">{item.name}</span>
+                {item.name === "Projects" ? (
                   <button
-                    onClick={() => setRightPanelView("home")}
-                    className="text-pink-600 dark:text-pink-500 hover:underline"
+                    onClick={() => setRightPanelView("projects")}
+                    className={`px-2.5 py-0.5 rounded text-[11px] font-semibold transition-all ${rightPanelView === "projects"
+                        ? "bg-pink-500 text-white shadow-sm"
+                        : "text-pink-600 dark:text-pink-400 hover:underline"
+                      }`}
                   >
-                    Back to Home
+                    Visit
                   </button>
+                ) : item.name === "Simulations" ? (
+                  <button
+                    onClick={() => {
+                      setSimulationsReady(true);
+                      setRightPanelView("simulations");
+                    }}
+                    className={`px-2.5 py-0.5 rounded text-[11px] font-semibold transition-all ${rightPanelView === "simulations"
+                        ? "bg-pink-500 text-white shadow-sm"
+                        : "text-pink-600 dark:text-pink-400 hover:underline"
+                      }`}
+                  >
+                    Visit
+                  </button>
+                ) : (
+                  <a
+                    href={item.url}
+                    target={item.url.startsWith("http") ? "_blank" : "_self"}
+                    rel="noopener noreferrer"
+                    className="text-pink-600 dark:text-pink-400 hover:text-pink-500 dark:hover:text-pink-300 flex items-center gap-0.5 hover:underline"
+                  >
+                    Visit <ArrowUpRight className="w-3 h-3" />
+                  </a>
                 )}
-              </span>
-              <span className="font-bold text-gray-600 dark:text-gray-400">
-                {rightPanelView === "home"
-                  ? "#home"
-                  : rightPanelView === "projects"
-                    ? "#works"
-                    : "#sim"}
+              </div>
+            ))}
+          </div>
+        </aside>
+
+        {/* REFACTORED MINIMAL MAIN CONTENT AREA */}
+        <div className="flex-1 flex flex-col min-h-0">
+
+          {/* Minimalist View Switcher Navigation */}
+          <div className="flex items-center justify-between pb-3 mb-6 border-b border-black/10 dark:border-white/10 font-mono text-xs">
+            <div className="flex items-center gap-4">
+              {rightPanelView !== "home" && (
+                <button
+                  onClick={() => setRightPanelView("home")}
+                  className="text-pink-600 dark:text-pink-400 hover:underline font-semibold"
+                >
+                  ← Home
+                </button>
+              )}
+              <span className="text-gray-400 dark:text-gray-500">
+                {rightPanelView === "home" ? "/* Overview */" : rightPanelView === "projects" ? "/* Portfolio Builds */" : "/* Math Models */"}
               </span>
             </div>
 
-            <div
-              ref={scrollContainerRef}
-              className="p-6 md:p-8 space-y-[-1rem] min-h-0 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden"
-            >
-              {rightPanelView === "home" && (
-                <>
-                  <section className="space-y-6">
-                <h1 className="text-xl font-medium text-black dark:text-white mb-2">
-                  Hey <span className="font-bold">Viewer</span>.
-                </h1>
+            <div className="flex items-center gap-1.5">
+              <button
+                onClick={() => setRightPanelView("home")}
+                className={`px-2.5 py-1 rounded-md transition-all ${rightPanelView === "home"
+                    ? "text-pink-600 dark:text-pink-400 font-bold bg-pink-500/10 border border-pink-500/20"
+                    : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
+                  }`}
+              >
+                home
+              </button>
+              <button
+                onClick={() => setRightPanelView("projects")}
+                className={`px-2.5 py-1 rounded-md transition-all ${rightPanelView === "projects"
+                    ? "text-pink-600 dark:text-pink-400 font-bold bg-pink-500/10 border border-pink-500/20"
+                    : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
+                  }`}
+              >
+                works
+              </button>
+              <button
+                onClick={() => {
+                  setSimulationsReady(true);
+                  setRightPanelView("simulations");
+                }}
+                className={`px-2.5 py-1 rounded-md transition-all ${rightPanelView === "simulations"
+                    ? "text-pink-600 dark:text-pink-400 font-bold bg-pink-500/10 border border-pink-500/20"
+                    : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
+                  }`}
+              >
+                sim
+              </button>
+            </div>
+          </div>
 
-                <div className="text-sm leading-relaxed text-gray-7n00 dark:text-gray-300 space-y-4">
-                <p>Greetings.</p>
-                  <p>
-                    I&apos;m <span className="font-bold">Wayne</span> a technology-driven learner with a strong
-                    interest in building practical and creative digital
-                    solutions. I enjoy working on projects that involve software
-                    development, automation, and problem-solving, and I&apos;m
-                    always curious about how systems work behind the scenes.
-                  </p>
-                  <p>
-                    I actively explore different tools, frameworks, and
-                    technologies by creating hands-on projects, from small
-                    scripts to full applications. Through these projects, I
-                    focus on writing clean, efficient solutions while
-                    continuously improving my skills and understanding.
-                  </p>
-                  <p>
-                    I believe in continuous growth, learning beyond the
-                    classroom, and turning ideas into real, functional products.
-                    This portfolio showcases my journey, projects, and the
-                    skills I&apos;m developing as I move forward in the tech
-                    field.
-                  </p>
-                </div>
-              </section>
+          {/* Scrollable Main Content Stream */}
+          <div
+            ref={scrollContainerRef}
+            className="flex-1 space-y-8 min-h-0 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pr-2"
+          >
+            {/* MINIMAL HOME VIEW */}
+            {rightPanelView === "home" && (
+              <>
+                <article className="space-y-4">
+                  <h1 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                    Hey <span className="text-pink-600 dark:text-pink-400 font-bold">Viewer</span>.
+                  </h1>
 
-              <section className="mt-8 p-4 transition-colors duration-300">
-                <p className="text-red-600 dark:text-red-400 font-mono text-sm mb-4">
-                  {"/* System.Experience Logs */"}
-                </p>
+                  <div className="text-sm leading-relaxed text-gray-600 dark:text-gray-300 space-y-3 font-normal">
+                    <p>Greetings.</p>
+                    <p>
+                      I&apos;m <span className="font-semibold text-gray-900 dark:text-white">Wayne</span>, a technology-driven learner with a strong
+                      interest in building practical and creative digital solutions. I enjoy working on projects that involve software
+                      development, automation, and problem-solving, and I&apos;m always curious about how systems work behind the scenes.
+                    </p>
+                    <p>
+                      I actively explore different tools, frameworks, and technologies by creating hands-on projects, from small
+                      scripts to full applications. Through these projects, I focus on writing clean, efficient solutions while
+                      continuously improving my skills and understanding.
+                    </p>
+                    <p>
+                      I believe in continuous growth, learning beyond the classroom, and turning ideas into real, functional products.
+                      This portfolio showcases my journey, projects, and the skills I&apos;m developing as I move forward in the tech field.
+                    </p>
+                  </div>
+                </article>
 
-                <div className="relative pl-4 space-y-6 ml-2">
-                  {experience.map((item, index) => (
-                    <div key={index} className="relative">
-                      <span className="absolute -left-[21px] top-1.5 w-2.5 h-2.5 bg-gray-400 dark:bg-gray-500 rounded-full"></span>
+                {/* MINIMAL EXPERIENCE LOGS */}
+                <section className="pt-4 border-t border-black/10 dark:border-white/10 space-y-4">
+                  <span className="text-xs font-mono text-pink-600 dark:text-pink-400 font-semibold tracking-wider uppercase">
+                    {"/* Experience */"}
+                  </span>
 
-                      <h3 className="font-semibold text-gray-900 dark:text-gray-200">
-                        {item.role}
-                      </h3>
-                      <p className="text-xs text-gray-500 dark:text-gray-500 mb-1">
-                        {item.period}
-                      </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 italic">
-                        &quot;{item.description}&quot;
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </section>
-                </>
-              )}
+                  <div className="space-y-4">
+                    {experience.map((item, index) => (
+                      <div
+                        key={index}
+                        className="pl-4 border-l-2 border-pink-500/40 space-y-1 transition-all hover:border-pink-500"
+                      >
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
+                          <h3 className="font-medium text-sm text-gray-900 dark:text-gray-100">
+                            {item.role}
+                          </h3>
+                          <span className="text-[11px] font-mono text-gray-500 dark:text-gray-400">
+                            {item.period}
+                          </span>
+                        </div>
+                        <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed italic">
+                          &quot;{item.description}&quot;
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              </>
+            )}
 
-              {rightPanelView === "projects" && (
-                <section className="space-y-3">
-                <div className="text-sm font-medium tracking-widest uppercase text-gray-400 dark:text-gray-500">
-                  Projects
+            {/* UNTOUCHED PROJECTS COMPONENT */}
+            {rightPanelView === "projects" && (
+              <section className="space-y-3">
+                <div className="text-xs font-mono text-gray-500 dark:text-gray-400 pb-2 border-b border-black/10 dark:border-white/10">
+                  {"/* Selected Projects */"}
                 </div>
                 <ProjectsSection />
               </section>
-              )}
+            )}
 
-              {simulationsReady ? (
-                <section
-                  className={
-                    rightPanelView === "simulations" ? "space-y-6" : "hidden"
-                  }
-                >
-                  <div className="text-sm font-medium tracking-widest uppercase text-gray-400 dark:text-gray-500">
-                    Simulations
-                  </div>
+            {/* UNTOUCHED SIMULATIONS COMPONENT */}
+            {simulationsReady ? (
+              <section
+                className={
+                  rightPanelView === "simulations" ? "space-y-8" : "hidden"
+                }
+              >
+                <div className="text-xs font-mono text-gray-500 dark:text-gray-400 pb-2 border-b border-black/10 dark:border-white/10">
+                  {"/* Interactive Math Models */"}
+                </div>
 
-                  <div className="space-y-8">
-                    <div className="space-y-3">
-                      <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        1. Reaction-Diffusion
-                      </h2>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        Interactive Gray-Scott pattern simulation based on
-                        reaction-diffusion equations.
-                      </p>
+                <div className="space-y-8">
+                  <div className="space-y-2">
+                    <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2 font-mono">
+                      <span className="text-pink-500">01.</span> Reaction-Diffusion
+                    </h2>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      Interactive Gray-Scott pattern simulation based on reaction-diffusion equations.
+                    </p>
+                    <div className="rounded-xl overflow-hidden border border-black/10 dark:border-white/10">
                       <Reactdiff />
                     </div>
+                  </div>
 
-                    <div className="space-y-3">
-                      <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        2. The Lorenz Attractor
-                      </h2>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        3D chaotic system showing how small changes in initial
-                        conditions create different trajectories.
-                      </p>
-                      <div className="w-full aspect-square cursor-grab active:cursor-grabbing">
-                        <Lorenz />
-                      </div>
+                  <div className="space-y-2">
+                    <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2 font-mono">
+                      <span className="text-pink-500">02.</span> The Lorenz Attractor
+                    </h2>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      3D chaotic system showing how small changes in initial conditions create different trajectories.
+                    </p>
+                    <div className="w-full aspect-square cursor-grab active:cursor-grabbing rounded-xl overflow-hidden">
+                      <Lorenz />
                     </div>
+                  </div>
 
-                    <div className="space-y-3">
-                      <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        3. Bubble Sort
-                      </h2>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        Step-by-step visual demonstration of bubble sort
-                        comparisons and swaps.
-                      </p>
+                  <div className="space-y-2">
+                    <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2 font-mono">
+                      <span className="text-pink-500">03.</span> Bubble Sort
+                    </h2>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      Step-by-step visual demonstration of bubble sort comparisons and swaps.
+                    </p>
+                    <div className="rounded-xl overflow-hidden border border-black/10 dark:border-white/10">
                       <BubbleSort />
                     </div>
+                  </div>
 
-                    <div className="space-y-3 pb-1">
-                      <h2 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
-                        4. Neural Network
-                      </h2>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        Feedforward neural network visualization with weighted
-                        layers and activations.
-                      </p>
+                  <div className="space-y-2">
+                    <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2 font-mono">
+                      <span className="text-pink-500">04.</span> Neural Network
+                    </h2>
+                    <p className="text-xs text-gray-500 dark:text-gray-400">
+                      Feedforward neural network visualization with weighted layers and activations.
+                    </p>
+                    <div className="rounded-xl overflow-hidden border border-black/10 dark:border-white/10">
                       <NeuralNetwork />
                     </div>
                   </div>
+                </div>
+              </section>
+            ) : (
+              rightPanelView === "simulations" && (
+                <section className="space-y-3">
+                  <div className="text-xs font-mono text-gray-500 dark:text-gray-400">
+                    {"/* Simulations */"}
+                  </div>
+                  <p className="text-xs font-mono text-gray-500">
+                    Preparing simulations...
+                  </p>
                 </section>
-              ) : (
-                rightPanelView === "simulations" && (
-                  <section className="space-y-2">
-                    <div className="text-sm font-medium tracking-widest uppercase text-gray-400 dark:text-gray-500">
-                      Simulations
-                    </div>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Preparing simulations...
-                    </p>
-                  </section>
-                )
-              )}
-            </div>
+              )
+            )}
           </div>
         </div>
       </section>
