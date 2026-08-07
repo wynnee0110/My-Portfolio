@@ -4,7 +4,7 @@ import { projects } from "../data/projectsData";
 import { FiExternalLink } from "react-icons/fi";
 import Image from "next/image";
 import { useState } from "react";
-const FALLBACK = "/images/works/fallback.png";
+const FALLBACK = "/images/works/fallback.webp";
 
 function ProjectCard({
   project,
