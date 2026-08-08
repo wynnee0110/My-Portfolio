@@ -33,9 +33,9 @@ const STACK = [
 // ── helper sub-component ──────────────────────────────────────
 function InfoChip({ label, value }: { label: string; value: string }) {
     return (
-        <div className="flex flex-col gap-0.5 px-3 py-2.5 rounded-lg bg-white/[0.03] border border-white/[0.07]">
-            <p className="text-[9px] font-mono text-gray-600 uppercase tracking-widest">{label}</p>
-            <p className="text-[11px] font-medium text-gray-300">{value}</p>
+        <div className="flex flex-col gap-0.5 px-3 py-2.5 rounded-lg bg-gray-100 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.07]">
+            <p className="text-[9px] font-mono text-gray-400 dark:text-gray-600 uppercase tracking-widest">{label}</p>
+            <p className="text-[11px] font-medium text-gray-700 dark:text-gray-300">{value}</p>
         </div>
     );
 }
@@ -95,20 +95,20 @@ export default function FloatingButton() {
                 right: "2rem",
                 zIndex: 9999,
             }}
-            className="w-76 rounded-xl border border-white/8 bg-[#111111] shadow-xl overflow-hidden"
+            className="w-76 rounded-xl border border-gray-200 dark:border-white/8 bg-white dark:bg-[#111111] shadow-xl overflow-hidden"
         >
             {/* Header */}
-            <div className="px-4 pt-4 pb-3 border-b border-white/6 flex items-start justify-between">
+            <div className="px-4 pt-4 pb-3 border-b border-gray-100 dark:border-white/6 flex items-start justify-between">
                 <div>
-                    <p className="text-[10px] font-mono text-gray-600 uppercase tracking-widest mb-0.5">
+                    <p className="text-[10px] font-mono text-gray-400 dark:text-gray-600 uppercase tracking-widest mb-0.5">
                         About This Site
                     </p>
-                    <h3 className="text-sm font-semibold text-gray-100">{SITE_META.name}</h3>
-                    <span className="text-[10px] font-mono text-gray-600">{SITE_META.version}</span>
+                    <h3 className="text-sm font-semibold text-gray-800 dark:text-gray-100">{SITE_META.name}</h3>
+                    <span className="text-[10px] font-mono text-gray-400 dark:text-gray-600">{SITE_META.version}</span>
                 </div>
                 <button
                     onClick={() => setOpen(false)}
-                    className="mt-0.5 p-1 rounded-md text-gray-600 hover:text-gray-300 hover:bg-white/6 transition-colors"
+                    className="mt-0.5 p-1 rounded-md text-gray-400 dark:text-gray-600 hover:text-gray-700 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/6 transition-colors"
                     aria-label="Close"
                 >
                     <FiX size={14} />
@@ -127,18 +127,18 @@ export default function FloatingButton() {
                 {/* Stack */}
                 <div>
                     <div className="flex items-center gap-1.5 mb-2">
-                        <FiLayers size={11} className="text-gray-600" />
-                        <p className="text-[9px] font-mono text-gray-600 uppercase tracking-widest">Tech Stack</p>
+                        <FiLayers size={11} className="text-gray-400 dark:text-gray-600" />
+                        <p className="text-[9px] font-mono text-gray-400 dark:text-gray-600 uppercase tracking-widest">Tech Stack</p>
                     </div>
                     <div className="grid grid-cols-3 gap-1.5">
                         {STACK.map(({ icon: Icon, label, desc }) => (
                             <div
                                 key={label}
-                                className="flex flex-col items-center gap-1 py-2 px-1 rounded-lg bg-white/[0.03] border border-white/[0.06] hover:bg-white/[0.06] transition-colors cursor-default"
+                                className="flex flex-col items-center gap-1 py-2 px-1 rounded-lg bg-gray-100 dark:bg-white/[0.03] border border-gray-200 dark:border-white/[0.06] hover:bg-gray-200 dark:hover:bg-white/[0.06] transition-colors cursor-default"
                             >
-                                <Icon size={16} className="text-gray-400" />
-                                <span className="text-[9px] font-medium text-gray-400 leading-none text-center">{label}</span>
-                                <span className="text-[8px] text-gray-600 leading-none text-center">{desc}</span>
+                                <Icon size={16} className="text-gray-500 dark:text-gray-400" />
+                                <span className="text-[9px] font-medium text-gray-600 dark:text-gray-400 leading-none text-center">{label}</span>
+                                <span className="text-[8px] text-gray-400 dark:text-gray-600 leading-none text-center">{desc}</span>
                             </div>
                         ))}
                     </div>
@@ -155,7 +155,7 @@ export default function FloatingButton() {
                     href={SITE_META.repo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-1.5 w-full py-2 rounded-lg border border-white/8 hover:border-white/15 text-gray-500 hover:text-gray-300 transition-colors text-[11px] font-mono"
+                    className="flex items-center justify-center gap-1.5 w-full py-2 rounded-lg border border-gray-200 dark:border-white/8 hover:border-gray-300 dark:hover:border-white/15 text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 transition-colors text-[11px] font-mono"
                 >
                     <FiGithub size={12} />
                     View Source
@@ -163,10 +163,10 @@ export default function FloatingButton() {
             </div>
 
             {/* Footer */}
-            <div className="px-4 py-2 border-t border-white/6 flex items-center justify-between">
-                <span className="text-[9px] font-mono text-gray-700">Built by Wayne Obial</span>
-                <span className="flex items-center gap-1 text-[9px] font-mono text-gray-600">
-                    <span className="w-1.5 h-1.5 rounded-full bg-gray-600 animate-pulse" />
+            <div className="px-4 py-2 border-t border-gray-100 dark:border-white/6 flex items-center justify-between">
+                <span className="text-[9px] font-mono text-gray-400 dark:text-gray-700">Built by Wayne Obial</span>
+                <span className="flex items-center gap-1 text-[9px] font-mono text-gray-400 dark:text-gray-600">
+                    <span className="w-1.5 h-1.5 rounded-full bg-gray-400 dark:bg-gray-600 animate-pulse" />
                     Live
                 </span>
             </div>
