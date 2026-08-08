@@ -13,6 +13,7 @@ import connect from "./data/connect.json";
 import { Cpu, Brain, Terminal, ArrowUpRight, ChevronDown } from "lucide-react";
 import { FaPython, FaReact } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
+import FloatingButton from "./components/FloatingButton";
 
 interface Tooltip {
   visible: boolean;
@@ -109,6 +110,7 @@ export default function HomePage() {
       className="portfolio-bg relative isolate min-h-[100svh] text-gray-800 dark:text-gray-200 transition-colors duration-300 flex flex-col justify-between"
       style={{ overflowY: 'auto', overflowX: 'hidden' }}
     >
+      <FloatingButton />
       {/* Interactive Background Canvas */}
       <CoolBackground />
 
