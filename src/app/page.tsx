@@ -11,7 +11,7 @@ import DarkModeToggle from "./components/DarkModeToggle";
 import experience from "./data/experience.json";
 import connect from "./data/connect.json";
 import { Cpu, Brain, Terminal, ArrowUpRight, ChevronDown } from "lucide-react";
-import { FaReact } from "react-icons/fa";
+import { FaPython, FaReact } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
 
 interface Tooltip {
@@ -167,11 +167,19 @@ export default function HomePage() {
             {/* Tech Stack Icons */}
             <div className="w-full flex justify-center gap-4 mb-6 py-2 px-4 rounded-xl bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 backdrop-blur-sm">
               <div
+                onMouseMove={(e) => handleMouseMove(e, "Python")}
+                onMouseLeave={handleMouseLeave}
+                className="cursor-pointer p-1 rounded hover:bg-cyan-500/10 transition-colors"
+              >
+                <FaPython className="text-gray text-2xl hover:scale-110 transition-transform" />
+              </div>
+
+              <div
                 onMouseMove={(e) => handleMouseMove(e, "React / Next.js")}
                 onMouseLeave={handleMouseLeave}
                 className="cursor-pointer p-1 rounded hover:bg-cyan-500/10 transition-colors"
               >
-                <FaReact className="text-cyan-500 text-2xl hover:scale-110 transition-transform" />
+                <FaReact className="text-gray text-2xl hover:scale-110 transition-transform" />
               </div>
 
               <div
@@ -179,7 +187,7 @@ export default function HomePage() {
                 onMouseLeave={handleMouseLeave}
                 className="cursor-pointer p-1 rounded hover:bg-emerald-500/10 transition-colors"
               >
-                <Cpu className="text-emerald-500 w-6 h-6 hover:scale-110 transition-transform" />
+                <Cpu className="text-gray w-6 h-6 hover:scale-110 transition-transform" />
               </div>
 
               <div
@@ -187,7 +195,7 @@ export default function HomePage() {
                 onMouseLeave={handleMouseLeave}
                 className="cursor-pointer p-1 rounded hover:bg-purple-500/10 transition-colors"
               >
-                <Brain className="text-purple-400 w-6 h-6 hover:scale-110 transition-transform" />
+                <Brain className="text-gray w-6 h-6 hover:scale-110 transition-transform" />
               </div>
             </div>
           </div>
@@ -210,21 +218,21 @@ export default function HomePage() {
             {connect
               .filter((item) => item.name !== "Projects" && item.name !== "Simulations")
               .map((item, index) => (
-              <div
-                key={index}
-                className="flex justify-between items-center py-1 px-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
-              >
-                <span className="font-medium text-gray-700 dark:text-gray-300">{item.name}</span>
-                <a
-                  href={item.url}
-                  target={item.url.startsWith("http") ? "_blank" : "_self"}
-                  rel="noopener noreferrer"
-                  className="text-pink-600 dark:text-pink-400 hover:text-pink-500 dark:hover:text-pink-300 flex items-center gap-0.5 hover:underline"
+                <div
+                  key={index}
+                  className="flex justify-between items-center py-1 px-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
                 >
-                  Visit <ArrowUpRight className="w-3 h-3" />
-                </a>
-              </div>
-            ))}
+                  <span className="font-medium text-gray-700 dark:text-gray-300">{item.name}</span>
+                  <a
+                    href={item.url}
+                    target={item.url.startsWith("http") ? "_blank" : "_self"}
+                    rel="noopener noreferrer"
+                    className="text-pink-600 dark:text-pink-400 hover:text-pink-500 dark:hover:text-pink-300 flex items-center gap-0.5 hover:underline"
+                  >
+                    Visit <ArrowUpRight className="w-3 h-3" />
+                  </a>
+                </div>
+              ))}
           </div>
         </aside>
 
@@ -326,11 +334,10 @@ export default function HomePage() {
                       return (
                         <div
                           key={index}
-                          className={`border-l-2 transition-all duration-200 ${
-                            isOpen
-                              ? "border-pink-500 bg-pink-500/5 rounded-r-xl"
-                              : "border-pink-500/30 hover:border-pink-500/70"
-                          }`}
+                          className={`border-l-2 transition-all duration-200 ${isOpen
+                            ? "border-pink-500 bg-pink-500/5 rounded-r-xl"
+                            : "border-pink-500/30 hover:border-pink-500/70"
+                            }`}
                         >
                           {/* Clickable header row */}
                           <button
@@ -339,11 +346,10 @@ export default function HomePage() {
                           >
                             <div className="flex-1 min-w-0">
                               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                                <h3 className={`font-medium text-sm leading-snug transition-colors ${
-                                  isOpen
-                                    ? "text-pink-600 dark:text-pink-400"
-                                    : "text-gray-900 dark:text-gray-100 group-hover:text-pink-600 dark:group-hover:text-pink-400"
-                                }`}>
+                                <h3 className={`font-medium text-sm leading-snug transition-colors ${isOpen
+                                  ? "text-pink-600 dark:text-pink-400"
+                                  : "text-gray-900 dark:text-gray-100 group-hover:text-pink-600 dark:group-hover:text-pink-400"
+                                  }`}>
                                   {item.role}
                                 </h3>
                                 <span className="text-[11px] font-mono text-gray-500 dark:text-gray-400 shrink-0">
@@ -357,17 +363,15 @@ export default function HomePage() {
                               )}
                             </div>
                             <ChevronDown
-                              className={`w-4 h-4 text-gray-400 dark:text-gray-500 shrink-0 mt-0.5 transition-transform duration-300 ${
-                                isOpen ? "rotate-180 text-pink-500" : ""
-                              }`}
+                              className={`w-4 h-4 text-gray-400 dark:text-gray-500 shrink-0 mt-0.5 transition-transform duration-300 ${isOpen ? "rotate-180 text-pink-500" : ""
+                                }`}
                             />
                           </button>
 
                           {/* Expandable details */}
                           <div
-                            className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                              isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                            }`}
+                            className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                              }`}
                           >
                             <div className="pl-4 pr-3 pb-4 space-y-3">
                               <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed italic border-b border-black/8 dark:border-white/8 pb-2">
@@ -382,17 +386,17 @@ export default function HomePage() {
                                     {/* Vertical line — center of 14px node = left-[6px] */}
                                     <div className="absolute left-[6px] top-0 bottom-0 w-px bg-pink-500/30" />
                                     <div className="space-y-3">
-                                    {(item as { highlights: string[] }).highlights.map((h, hi) => (
-                                      <div key={hi} className="flex items-start gap-3">
-                                        {/* Timeline node — 14px, center at 7px matches line */}
-                                        <div className="shrink-0 w-3.5 h-3.5 rounded-full border-2 border-pink-500/60 bg-pink-500/10 flex items-center justify-center mt-0.5 z-10 bg-white dark:bg-[#0a0a0a]">
-                                          <span className="w-1 h-1 rounded-full bg-pink-500" />
+                                      {(item as { highlights: string[] }).highlights.map((h, hi) => (
+                                        <div key={hi} className="flex items-start gap-3">
+                                          {/* Timeline node — 14px, center at 7px matches line */}
+                                          <div className="shrink-0 w-3.5 h-3.5 rounded-full border-2 border-pink-500/60 bg-pink-500/10 flex items-center justify-center mt-0.5 z-10 bg-white dark:bg-[#0a0a0a]">
+                                            <span className="w-1 h-1 rounded-full bg-pink-500" />
+                                          </div>
+                                          <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed pt-px">
+                                            {h}
+                                          </p>
                                         </div>
-                                        <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed pt-px">
-                                          {h}
-                                        </p>
-                                      </div>
-                                    ))}
+                                      ))}
                                     </div>
                                   </div>
                                 </div>
