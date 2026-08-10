@@ -6,7 +6,7 @@
   },
   {
     "name": "LinkedIn",
-    "url": "https://www.linkedin.com/in/wayne-obial-5404a4374/",
+    "url": "https://www.linkedin.com/in/jeruh-john-wayne-llacuna-obial-5404a4374/",
     "icon": "linkedin"
   },
   {
@@ -14,28 +14,14 @@
     "url": "mailto:obialwayne@gmail.com",
     "icon": "email"
   },
-  
   {
     "name": "Twitter/ X",
     "url": "https://X.com/Waynnneee1",
     "icon": "twitter"
   },
-
-    {
+  {
     "name": "Cv",
     "url": "/MyC.pdf",
     "icon": "email"
-  }, 
-
-  {
-    "name": "Projects",
-    "url": "/works",
-    "icon": "works"
-  },
-
-  {
-    "name": "Simulations",
-    "url": "/simulation",
-    "icon": "simulation"
   }
 ]
