@@ -412,27 +412,3 @@ html {
 .stagger-item:nth-child(8) {
   animation-delay: 640ms;
 }
-
-/* Mood badge float animation */
-@keyframes mood-float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-4px); }
-}
-
-@keyframes mood-dot-glow {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50%       { opacity: 0.55; transform: scale(0.8); }
-}
-
-.mood-float-badge {
-  animation: mood-float 3.5s ease-in-out infinite;
-}
-
-.mood-dot-pulse {
-  animation: mood-dot-glow 2s ease-in-out infinite;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .mood-float-badge { animation: none; }
-  .mood-dot-pulse   { animation: none; }
-}

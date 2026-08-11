@@ -14,8 +14,6 @@ import { Cpu, Brain, Terminal, ArrowUpRight, ChevronDown } from "lucide-react";
 import { FaPython, FaReact } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
 import FloatingButton from "./components/FloatingButton";
-import MoodBadge from "./components/MoodBadge";
-
 
 interface Tooltip {
   visible: boolean;
@@ -155,11 +153,6 @@ export default function HomePage() {
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
               />
-            </div>
-
-            {/* Mood Badge — GitHub-style floating status */}
-            <div className="mb-3">
-              <MoodBadge />
             </div>
 
             {/* Online Status */}
