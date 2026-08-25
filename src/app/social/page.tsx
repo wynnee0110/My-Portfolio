@@ -24,7 +24,7 @@ function Page() {
                             {/* Back button */}
                             <Link
                                 href="/"
-                                className="inline-flex items-center gap-2 text-sm text-pink-600 dark:text-pink-500 hover:text-pink-500 dark:hover:text-pink-400 transition-colors mb-6 font-medium"
+                                className="inline-flex items-center gap-2 text-sm text-slate-800 dark:text-slate-200 hover:text-slate-600 dark:hover:text-slate-400 transition-colors mb-6 font-medium"
                             >
                                 <ArrowLeft className="w-4 h-4" />
                                 Back

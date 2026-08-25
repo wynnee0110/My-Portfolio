@@ -12,7 +12,7 @@ export default function Contact() {
 
   if (state.succeeded) {
     return (
-      <main className="overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] min-h-[100svh] bg-gray-50 dark:bg-[#0a0a0a] text-gray-800 dark:text-gray-300 transition-colors duration-300 flex items-center justify-center">
+      <main className="overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] min-h-[100svh] bg-white dark:bg-black text-gray-800 dark:text-gray-300 transition-colors duration-300 flex items-center justify-center">
         <Header />
         <div className="text-center">
           <h1 className="text-2xl font-bold text-gray-900 dark:text-white">Thanks for reaching out!</h1>
@@ -23,11 +23,11 @@ export default function Contact() {
   }
 
   return (
-    <main className="overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] min-h-[100svh] bg-gray-50 dark:bg-[#0a0a0a] text-gray-800 dark:text-gray-300 pb-10 transition-colors duration-300">
+    <main className="overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] min-h-[100svh] bg-white dark:bg-black text-gray-800 dark:text-gray-300 pb-10 transition-colors duration-300">
       <Header />
 
       <div>
-        <section className="pt-25 max-w-5xl mx-auto px-4 lg:px-0">
+        <section className="pt-25 max-w-4xl mx-auto px-4 lg:px-0">
           <div className="flex flex-col bg-white dark:bg-[#161618] border border-gray-200 dark:border-[#2d2d2d] rounded-md overflow-hidden shadow-xl dark:shadow-2xl transition-colors duration-300">
 
             {/* Post Meta Header */}
@@ -42,7 +42,7 @@ export default function Contact() {
               {/* Back button */}
               <Link
                 href="/"
-                className="inline-flex items-center gap-2 text-sm text-pink-600 dark:text-pink-500 hover:text-pink-500 dark:hover:text-pink-400 transition-colors mb-6 font-medium"
+                className="inline-flex items-center gap-2 text-sm text-slate-800 dark:text-slate-200 hover:text-slate-600 dark:hover:text-slate-400 transition-colors mb-6 font-medium"
               >
                 <ArrowLeft className="w-4 h-4" />
                 Back
@@ -67,7 +67,7 @@ export default function Contact() {
                       type="text"
                       name="name"
                       required
-                      className="p-2 border-b border-gray-300 dark:border-[#333] bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-pink-500 dark:focus:border-pink-500 transition-colors text-sm"
+                      className="p-2 border-b border-gray-300 dark:border-[#333] bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-slate-500 dark:focus:border-slate-400 transition-colors text-sm"
                       placeholder="Your Name"
                     />
                     <ValidationError prefix="Name" field="name" errors={state.errors} />
@@ -80,7 +80,7 @@ export default function Contact() {
                       type="email"
                       name="email"
                       required
-                      className="p-2 border-b border-gray-300 dark:border-[#333] bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-pink-500 dark:focus:border-pink-500 transition-colors text-sm"
+                      className="p-2 border-b border-gray-300 dark:border-[#333] bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-slate-500 dark:focus:border-slate-400 transition-colors text-sm"
                       placeholder="Your Email"
                     />
                     <ValidationError prefix="Email" field="email" errors={state.errors} />
@@ -92,7 +92,7 @@ export default function Contact() {
                       id="message"
                       name="message"
                       required
-                      className="p-2 border-b border-gray-300 dark:border-[#333] bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-pink-500 dark:focus:border-pink-500 transition-colors resize-none text-sm"
+                      className="p-2 border-b border-gray-300 dark:border-[#333] bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-slate-500 dark:focus:border-slate-400 transition-colors resize-none text-sm"
                       placeholder="Your Message"
                       rows={5}
                     />
@@ -104,7 +104,7 @@ export default function Contact() {
                     <button
                       type="submit"
                       disabled={state.submitting}
-                      className="bg-pink-600 hover:bg-pink-700 text-white font-semibold py-2 px-6 rounded-md transition-colors w-full sm:w-auto text-sm"
+                      className="bg-slate-800 hover:bg-slate-900 dark:bg-slate-200 dark:hover:bg-white dark:text-slate-900 text-white font-semibold py-2 px-6 rounded-md transition-colors w-full sm:w-auto text-sm"
                     >
                       {state.submitting ? "Sending..." : "Submit"}
                     </button>

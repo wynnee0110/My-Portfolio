@@ -89,8 +89,8 @@ function SimCard({ sim, index, active, onClick }: { sim: Sim; index: number; act
       className={`
         stagger-item w-full text-left rounded-2xl border transition-all duration-300 p-4 group
         ${active
-          ? "border-pink-500/40 bg-pink-500/8 shadow-lg shadow-pink-500/10"
-          : "border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-pink-500/30 hover:bg-pink-500/5"
+          ? "border-slate-500/40 bg-slate-500/10 shadow-lg shadow-slate-500/10"
+          : "border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-slate-500/30 hover:bg-slate-500/5"
         }
       `}
     >
@@ -105,7 +105,7 @@ function SimCard({ sim, index, active, onClick }: { sim: Sim; index: number; act
         <div>
           <div className="flex items-center gap-2">
             <span className="text-[10px] font-mono text-gray-400 dark:text-gray-500">{String(index + 1).padStart(2, "0")}</span>
-            <h3 className={`text-sm font-semibold ${active ? "text-pink-600 dark:text-pink-400" : "text-gray-900 dark:text-gray-100"}`}>
+            <h3 className={`text-sm font-semibold ${active ? "text-slate-800 dark:text-slate-200" : "text-gray-900 dark:text-gray-100"}`}>
               {sim.label}
             </h3>
           </div>
@@ -113,7 +113,7 @@ function SimCard({ sim, index, active, onClick }: { sim: Sim; index: number; act
             {sim.description.split(".")[0]}.
           </p>
         </div>
-        <div className={`ml-auto w-1.5 h-1.5 rounded-full transition-all ${active ? "bg-pink-500 shadow-sm shadow-pink-500/50" : "bg-transparent"}`} />
+        <div className={`ml-auto w-1.5 h-1.5 rounded-full transition-all ${active ? "bg-slate-600 dark:bg-slate-300 shadow-sm" : "bg-transparent"}`} />
       </div>
     </button>
   );
@@ -184,14 +184,14 @@ export default function SimulationPage() {
       <CoolBackground />
 
       {/* Top Header */}
-      <header className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-7xl flex items-center justify-between px-5 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white/30 dark:bg-black/40 backdrop-blur-md shadow-sm">
+      <header className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-4xl flex items-center justify-between px-5 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white/50 dark:bg-black/50 backdrop-blur-md shadow-sm">
         <div className="flex items-center gap-2 font-mono text-xs text-gray-700 dark:text-gray-300">
-          <Terminal className="w-3.5 h-3.5 text-pink-500 animate-pulse" />
+          <Terminal className="w-3.5 h-3.5 text-slate-700 dark:text-slate-300 animate-pulse" />
           <span className="font-semibold text-gray-900 dark:text-white">hexctl</span>
           <span className="text-gray-400 dark:text-gray-500">/</span>
-          <Link href="/" className="text-gray-500 dark:text-gray-400 hover:text-pink-500 dark:hover:text-pink-400 transition-colors">portfolio</Link>
+          <Link href="/" className="text-gray-500 dark:text-gray-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors">portfolio</Link>
           <span className="text-gray-400 dark:text-gray-500">/</span>
-          <span className="text-pink-600 dark:text-pink-400 font-medium">simulation</span>
+          <span className="text-slate-800 dark:text-slate-200 font-medium">simulation</span>
         </div>
         <div className="flex items-center gap-4 text-xs font-mono">
           <span className="hidden sm:inline-block px-3 py-0.5 rounded-full bg-black/5 dark:bg-white/10 text-gray-600 dark:text-gray-400 border border-black/5 dark:border-white/10">
@@ -202,21 +202,21 @@ export default function SimulationPage() {
       </header>
 
       <PageTransition>
-        <div className="relative z-10 pt-24 pb-16 max-w-7xl mx-auto px-4 lg:px-8">
+        <div className="relative z-10 pt-24 pb-16 max-w-4xl mx-auto px-4 lg:px-6">
 
           {/* Page Header */}
           <div className="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-black/10 dark:border-white/10 pb-8">
             <div className="space-y-2">
               <Link
                 href="/"
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-pink-600 dark:text-pink-400 hover:text-pink-500 dark:hover:text-pink-300 transition-colors mb-3"
+                className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-800 dark:text-slate-200 hover:text-slate-600 dark:hover:text-slate-400 transition-colors mb-3"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 back
               </Link>
               <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
                 Interactive<br />
-                <span className="text-pink-600 dark:text-pink-400">Simulations.</span>
+                <span className="text-slate-800 dark:text-slate-200">Simulations.</span>
               </h1>
               <p className="text-sm text-gray-500 dark:text-gray-400 font-mono max-w-sm mt-2">
                 Math models, algorithms, and systems — visualized live in the browser.
@@ -253,7 +253,7 @@ export default function SimulationPage() {
           {/* Footer */}
           <div className="mt-16 pt-6 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-gray-500 dark:text-gray-400">
             <span>wayne.obial — interactive simulations</span>
-            <Link href="/" className="inline-flex items-center gap-1.5 text-pink-600 dark:text-pink-400 hover:underline">
+            <Link href="/" className="inline-flex items-center gap-1.5 text-slate-800 dark:text-slate-200 hover:underline">
               <ArrowLeft className="w-3 h-3" /> back to home
             </Link>
           </div>

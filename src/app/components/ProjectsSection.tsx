@@ -53,7 +53,7 @@ function ProjectCard({
       <div className="flex flex-col flex-1 justify-between p-5 space-y-4">
         <div>
           <div className="flex justify-between items-start mb-2 gap-2">
-            <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 group-hover:text-pink-600 dark:group-hover:text-pink-400 transition-colors">
+            <h3 className="text-base font-semibold text-gray-900 dark:text-gray-100 group-hover:text-slate-700 dark:group-hover:text-slate-300 transition-colors">
               {project.title}
             </h3>
 
@@ -66,8 +66,8 @@ function ProjectCard({
                 p-1.5 rounded-lg
                 bg-black/5 dark:bg-white/10
                 text-gray-600 dark:text-gray-300
-                hover:text-pink-600 dark:hover:text-pink-400
-                hover:bg-pink-500/10 dark:hover:bg-pink-500/20
+                hover:text-slate-900 dark:hover:text-slate-100
+                hover:bg-slate-500/15 dark:hover:bg-white/15
                 transition-all duration-200 shrink-0
               "
             >
@@ -88,9 +88,9 @@ function ProjectCard({
               className="
                 px-2.5 py-0.5 text-[11px] font-mono font-medium
                 rounded-full
-                bg-pink-500/10 dark:bg-pink-400/15
-                text-pink-700 dark:text-pink-300
-                border border-pink-500/20 dark:border-pink-400/30
+                bg-slate-500/10 dark:bg-white/10
+                text-slate-700 dark:text-slate-300
+                border border-slate-500/20 dark:border-white/15
               "
             >
               {tag}

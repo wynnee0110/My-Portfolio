@@ -80,11 +80,11 @@ body {
 
 :root {
   --radius: 0.625rem;
-  --background: oklch(1 0 0);
+  --background: #ffffff;
   --foreground: oklch(0.145 0 0);
-  --card: oklch(1 0 0);
+  --card: #ffffff;
   --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
+  --popover: #ffffff;
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
@@ -114,19 +114,19 @@ body {
 }
 
 .dark {
-  --background: oklch(0.145 0 0);
+  --background: #000000;
   --foreground: oklch(0.985 0 0);
-  --card: oklch(0.205 0 0);
+  --card: #000000;
   --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.205 0 0);
+  --popover: #000000;
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
-  --secondary: oklch(0.269 0 0);
+  --secondary: oklch(0.15 0 0);
   --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
+  --muted: oklch(0.15 0 0);
   --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
+  --accent: oklch(0.15 0 0);
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --border: oklch(1 0 0 / 10%);
@@ -137,11 +137,11 @@ body {
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
+  --sidebar: oklch(0.1 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
   --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent: oklch(0.15 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
@@ -240,75 +240,20 @@ html {
 }
 
 .portfolio-bg {
-  --bg-base: #f2f2f2;
-  --glow-a-core: #ffffff;
-  --glow-a-mid: #d4d4d4;
-  --glow-b-core: #efefef;
-  --glow-b-mid: #c4c4c4;
-  --grid-line: rgba(0, 0, 0, 0.08);
-  --grain-dot: #000000;
+  --bg-base: #ffffff;
   background: var(--bg-base);
   overflow: hidden;
   transition: background-color 450ms ease;
 }
 
 .dark .portfolio-bg {
-  --bg-base: #0a0a0a;
-  --glow-a-core: #ffffff;
-  --glow-a-mid: #9f9f9f;
-  --glow-b-core: #e6e6e6;
-  --glow-b-mid: #8b8b8b;
-  --grid-line: rgba(255, 255, 255, 0.08);
-  --grain-dot: #ffffff;
+  --bg-base: #000000;
 }
 
-.portfolio-bg__glow {
-  position: absolute;
-  width: 70vmax;
-  height: 70vmax;
-  border-radius: 999px;
-  filter: blur(80px);
-  opacity: 0.32;
-  transition: opacity 450ms ease;
-}
-
-.portfolio-bg__glow--a {
-  top: -25vmax;
-  left: -18vmax;
-  background: radial-gradient(circle at center, var(--glow-a-core) 0%, var(--glow-a-mid) 36%, transparent 70%);
-  animation: portfolio-pan-a 18s ease-in-out infinite;
-  transition: background 450ms ease;
-}
-
-.portfolio-bg__glow--b {
-  bottom: -30vmax;
-  right: -22vmax;
-  background: radial-gradient(circle at center, var(--glow-b-core) 0%, var(--glow-b-mid) 32%, transparent 70%);
-  animation: portfolio-pan-b 22s ease-in-out infinite;
-  transition: background 450ms ease;
-}
-
-.portfolio-bg__grid {
-  position: absolute;
-  inset: -20%;
-  background-image:
-    linear-gradient(var(--grid-line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: 120px 120px;
-  mix-blend-mode: soft-light;
-  opacity: 0.35;
-  animation: portfolio-grid-drift 14s linear infinite;
-  transition: background-image 450ms ease;
-}
-
+.portfolio-bg__glow,
+.portfolio-bg__grid,
 .portfolio-bg__grain {
-  position: absolute;
-  inset: -50%;
-  opacity: 0.08;
-  background-image: radial-gradient(var(--grain-dot) 0.45px, transparent 0.45px);
-  background-size: 3px 3px;
-  animation: portfolio-grain-shift 1.8s steps(4) infinite;
-  transition: background-image 450ms ease;
+  display: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -355,25 +300,25 @@ html {
 
 .glass-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(236, 72, 153, 0.35);
-  box-shadow: 0 8px 25px -10px rgba(236, 72, 153, 0.12);
+  border-color: rgba(71, 85, 105, 0.4);
+  box-shadow: 0 8px 25px -10px rgba(0, 0, 0, 0.1);
 }
 
 .dark .glass-card:hover {
-  border-color: rgba(236, 72, 153, 0.4);
-  box-shadow: 0 10px 30px -10px rgba(236, 72, 153, 0.2);
+  border-color: rgba(203, 213, 225, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(255, 255, 255, 0.08);
 }
 
 .cyber-badge {
-  background: rgba(236, 72, 153, 0.08);
-  border: 1px solid rgba(236, 72, 153, 0.25);
-  color: #db2777;
+  background: rgba(51, 65, 85, 0.08);
+  border: 1px solid rgba(51, 65, 85, 0.2);
+  color: #334155;
 }
 
 .dark .cyber-badge {
-  background: rgba(236, 72, 153, 0.12);
-  border: 1px solid rgba(236, 72, 153, 0.35);
-  color: #f472b6;
+  background: rgba(241, 245, 249, 0.1);
+  border: 1px solid rgba(241, 245, 249, 0.2);
+  color: #e2e8f0;
 }
 
 /* Pulsing energy dot */
