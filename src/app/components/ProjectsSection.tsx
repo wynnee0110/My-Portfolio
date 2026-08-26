@@ -32,6 +32,7 @@ function ProjectCard({
           src={imgSrc}
           alt={project.title}
           fill
+
           sizes="(max-width: 768px) 100vw, 50vw"
           className="
             object-cover
@@ -104,7 +105,7 @@ function ProjectCard({
 
 export default function ProjectsSection() {
   return (
-    <section className="max-w-5xl mx-auto py-2" id="projects">
+    <section className="max-w-5xl mx-auto py-2 space-y-6" id="projects">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {projects.map((project, index) => (
           <ProjectCard
@@ -114,6 +115,8 @@ export default function ProjectsSection() {
           />
         ))}
       </div>
+
+
     </section>
   );
 }
