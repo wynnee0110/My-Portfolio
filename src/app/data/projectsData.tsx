@@ -72,4 +72,21 @@ export const projects: Project[] = [
     link: "https://github.com/wynnee0110/tg-devtools",
     image: "/images/works/fallback.webp",
   },
+  {
+    title: "ScanSync",
+    description:
+      "A QR-based attendance management system built for ICpEP.SE-USTP.",
+    description2:
+      "Built with a React Native mobile app using Expo and a FastAPI backend, ScanSync enables fast QR attendance scanning, event management, real-time attendance tracking, and personalized dashboards.",
+    languages: [
+      "React Native",
+      "Expo",
+      "FastAPI",
+      "Python",
+      "Supabase",
+      "Google Cloud",
+    ],
+    link: "https://scan-sync-app.vercel.app/",
+    image: "/images/works/fallback.webp",
+  },
 ];
