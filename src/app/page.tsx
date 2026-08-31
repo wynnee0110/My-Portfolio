@@ -163,12 +163,6 @@ export default function HomePage() {
                 />
               </div>
 
-              {/* Online Status */}
-              <div className="text-xs font-mono text-emerald-600 dark:text-emerald-400 mb-4 flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20">
-                <span className="w-2 h-2 bg-emerald-500 rounded-full online-dot"></span>
-                <span>Online</span>
-              </div>
-
               {/* Role Badge */}
               <div className="w-full text-center text-slate-800 dark:text-slate-200 font-bold text-xs py-1.5 px-3 rounded-xl bg-slate-500/10 dark:bg-white/10 border border-slate-500/20 dark:border-white/15 uppercase tracking-widest mb-6">
                 Software Dev
