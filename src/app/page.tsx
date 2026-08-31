@@ -18,6 +18,7 @@ import { Cpu, Brain, Terminal, ArrowUpRight, ChevronDown } from "lucide-react";
 import { FaPython, FaReact } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
 import FloatingButton from "./components/FloatingButton";
+import BackToTop from "./components/BackToTop";
 
 interface Tooltip {
   visible: boolean;
@@ -511,6 +512,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      <BackToTop containerRef={scrollContainerRef} />
     </main>
   );
 }

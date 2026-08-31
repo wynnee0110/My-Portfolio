@@ -16,6 +16,7 @@ const NeuralNetwork = dynamic(() => import('../components/Neuralnetwork'), { ssr
 import CoolBackground from '../components/CoolBackground';
 import DarkModeToggle from '../components/DarkModeToggle';
 import PageTransition from '../components/PageTransition';
+import BackToTop from '../components/BackToTop';
 import { ArrowLeft, Terminal } from 'lucide-react';
 
 type Sim = {
@@ -223,6 +224,7 @@ export default function SimulationPage() {
 
         </div>
       </PageTransition>
+      <BackToTop />
     </main>
   );
 }

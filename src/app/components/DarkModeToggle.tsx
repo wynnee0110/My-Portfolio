@@ -13,9 +13,7 @@ export default function DarkModeToggle() {
   }, []);
 
   if (!mounted) {
-    return (
-      <div className="w-9 h-9 rounded-full bg-black/5 dark:bg-white/10" />
-    );
+    return <div className="w-10 h-4" />;
   }
 
   const isDark = resolvedTheme === "dark";
@@ -24,12 +22,18 @@ export default function DarkModeToggle() {
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
       aria-label="Toggle theme"
-      className="relative p-2 rounded-full bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20 border border-black/10 dark:border-white/15 text-gray-700 dark:text-gray-200 transition-all duration-300 shadow-sm backdrop-blur-md active:scale-95 group"
+      className="inline-flex items-center gap-1.5 text-xs font-mono text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors active:scale-95 group focus:outline-none"
     >
       {isDark ? (
-        <Sun className="w-4 h-4 text-amber-400 group-hover:rotate-45 transition-transform duration-300" />
+        <>
+          <Sun className="w-3.5 h-3.5 text-gray-300 group-hover:rotate-45 transition-transform duration-300" />
+          <span>dark</span>
+        </>
       ) : (
-        <Moon className="w-4 h-4 text-indigo-600 group-hover:-rotate-12 transition-transform duration-300" />
+        <>
+          <Moon className="w-3.5 h-3.5 text-gray-700 group-hover:-rotate-12 transition-transform duration-300" />
+          <span>light</span>
+        </>
       )}
     </button>
   );
