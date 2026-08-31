@@ -38,9 +38,8 @@ function WorkProjectCard({
         alt={project.title}
         fill
         sizes="(max-width: 640px) 100vw, 50vw"
-        className={`object-cover transition-transform duration-500 ease-out ${
-          showDescription ? "scale-105 filter blur-[2px] brightness-50 dark:brightness-40" : "group-hover:scale-105"
-        }`}
+        className={`object-cover transition-transform duration-500 ease-out ${showDescription ? "scale-105 filter blur-[2px] brightness-50 dark:brightness-40" : "group-hover:scale-105"
+          }`}
         onError={() => setImgSrc(FALLBACK)}
       />
 
