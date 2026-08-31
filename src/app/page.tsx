@@ -1,11 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import ProjectsSection from "./components/ProjectsSection";
-import Reactdiff from "./components/Reactdiff";
-import Lorenz from "./components/Lorenz";
-import BubbleSort from "./components/Bubblesort";
-import NeuralNetwork from "./components/Neuralnetwork";
+
+// Lazy Load Heavy WebGL & Simulation Components (No SSR)
+const Reactdiff = dynamic(() => import("./components/Reactdiff"), { ssr: false });
+const Lissajous = dynamic(() => import("./components/Lissajous"), { ssr: false });
+const BubbleSort = dynamic(() => import("./components/Bubblesort"), { ssr: false });
+const NeuralNetwork = dynamic(() => import("./components/Neuralnetwork"), { ssr: false });
+
 import CoolBackground from "./components/CoolBackground";
 import DarkModeToggle from "./components/DarkModeToggle";
 import experience from "./data/experience.json";
@@ -286,8 +290,9 @@ export default function HomePage() {
             ref={scrollContainerRef}
             className="flex-1 space-y-8 min-h-0 overflow-y-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden pr-2"
           >
-            {/* MINIMAL HOME VIEW */}
-            {rightPanelView === "home" && (
+            <div key={rightPanelView} className="animate-basic-fade space-y-8">
+              {/* MINIMAL HOME VIEW */}
+              {rightPanelView === "home" && (
               <>
                 <article className="space-y-4">
                   <h1 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">
@@ -436,16 +441,16 @@ export default function HomePage() {
                 {/* Pure CSS Masonry Grid Layout with Sharp Edges */}
                 <div className="columns-1 sm:columns-2 gap-4 space-y-4 w-full min-w-0 max-w-full">
 
-                  {/* MASONRY ITEM 1: Lorenz Attractor (Column 1 Top) */}
+                  {/* MASONRY ITEM 1: Lissajous Curve (Column 1 Top) */}
                   <div className="break-inside-avoid space-y-2.5 p-4 rounded-none border border-black/15 dark:border-white/15 bg-black/2 dark:bg-white/3 backdrop-blur-md w-full min-w-0 max-w-full overflow-hidden">
                     <div className="flex items-center justify-between font-mono text-xs">
                       <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-100 font-sans">
-                        The Lorenz Attractor
+                        Lissajous Curve
                       </h2>
-                      <span className="text-gray-400 text-[10px]">3D Chaos</span>
+                      <span className="text-gray-400 text-[10px]">Harmonics</span>
                     </div>
-                    <div className="w-full h-[260px] cursor-grab active:cursor-grabbing rounded-none overflow-hidden border border-black/10 dark:border-white/10">
-                      <Lorenz />
+                    <div className="w-full h-[260px] rounded-none overflow-hidden border border-black/10 dark:border-white/10">
+                      <Lissajous />
                     </div>
                   </div>
 
@@ -502,6 +507,7 @@ export default function HomePage() {
                 </section>
               )
             )}
+            </div>
           </div>
         </div>
       </section>

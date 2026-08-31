@@ -5,10 +5,14 @@ import 'katex/dist/katex.min.css';
 import { BlockMath } from 'react-katex';
 import Link from 'next/link';
 import React from 'react';
-import Reactdiff from '../components/Reactdiff';
-import Lorenz from '../components/Lorenz';
-import BubbleSort from '../components/Bubblesort';
-import NeuralNetwork from '../components/Neuralnetwork';
+import dynamic from 'next/dynamic';
+
+// Lazy Load Lightweight Canvas Simulation Components
+const Reactdiff = dynamic(() => import('../components/Reactdiff'), { ssr: false });
+const Lissajous = dynamic(() => import('../components/Lissajous'), { ssr: false });
+const BubbleSort = dynamic(() => import('../components/Bubblesort'), { ssr: false });
+const NeuralNetwork = dynamic(() => import('../components/Neuralnetwork'), { ssr: false });
+
 import CoolBackground from '../components/CoolBackground';
 import DarkModeToggle from '../components/DarkModeToggle';
 import PageTransition from '../components/PageTransition';
@@ -37,15 +41,14 @@ const sims: Sim[] = [
   },
   {
     id: 2,
-    label: "Lorenz Attractor",
-    category: "Nonlinear Dynamics",
-    description: "3D visualization of deterministic chaos studied by Edward Lorenz. Small initial condition shifts trigger unpredictable butterfly trajectory paths.",
+    label: "Lissajous Curve",
+    category: "Harmonic Oscillations",
+    description: "Ultra-featherweight 2D parametric oscillation visualizer. Plots superposition of orthogonal harmonic signals creating dynamic geometric knots.",
     equations: [
-      "\\frac{dx}{dt} = \\sigma(y - x)",
-      "\\frac{dy}{dt} = x(\\rho - z) - y",
-      "\\frac{dz}{dt} = xy - \\beta z",
+      "x(t) = A \\sin(a t + \\delta)",
+      "y(t) = B \\sin(b t)",
     ],
-    equationNote: "Lorenz strange attractor:",
+    equationNote: "Parametric equations:",
   },
   {
     id: 3,
@@ -73,7 +76,7 @@ const sims: Sim[] = [
 
 export default function SimulationPage() {
   const sim1 = sims[0]; // Reaction-Diffusion
-  const sim2 = sims[1]; // Lorenz Attractor
+  const sim2 = sims[1]; // Lissajous Curve
   const sim3 = sims[2]; // Bubble Sort
   const sim4 = sims[3]; // Neural Network
 
@@ -114,7 +117,7 @@ export default function SimulationPage() {
                 <span className="text-slate-800 dark:text-slate-200">Simulations.</span>
               </h1>
               <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-md mt-1 font-sans leading-relaxed">
-                Masonry grid layout of mathematical models, chaotic attractors, and algorithm visualizers.
+                Masonry grid layout of mathematical models, harmonic oscillations, and algorithm visualizers.
               </p>
             </div>
 
@@ -128,7 +131,7 @@ export default function SimulationPage() {
           {/* Pure CSS Masonry Grid Layout with Sharp Edges */}
           <div className="columns-1 md:columns-2 gap-4 space-y-4 w-full min-w-0 max-w-full">
 
-            {/* MASONRY ITEM 1: Lorenz Attractor (Column 1 Top) */}
+            {/* MASONRY ITEM 1: Lissajous Curve (Column 1 Top) */}
             <div className="break-inside-avoid rounded-none border border-black/15 dark:border-white/15 bg-black/2 dark:bg-white/3 backdrop-blur-xl p-4 sm:p-5 space-y-3 min-w-0 max-w-full overflow-hidden">
               <div className="flex items-center justify-between gap-2 border-b border-black/10 dark:border-white/10 pb-2 min-w-0 max-w-full">
                 <h2 className="text-base font-bold text-gray-900 dark:text-white font-sans truncate">
@@ -143,8 +146,8 @@ export default function SimulationPage() {
                 {sim2.description}
               </p>
 
-              <div className="w-full h-[280px] rounded-none overflow-hidden border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 cursor-grab active:cursor-grabbing">
-                <Lorenz />
+              <div className="w-full h-[280px] rounded-none overflow-hidden border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5">
+                <Lissajous />
               </div>
             </div>
 

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
 
-export default function PageTransition({ children }: { children: ReactNode }) {
+export default function Template({ children }: { children: ReactNode }) {
   return <div className="animate-basic-fade">{children}</div>;
 }

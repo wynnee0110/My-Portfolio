@@ -357,3 +357,18 @@ html {
 .stagger-item:nth-child(8) {
   animation-delay: 640ms;
 }
+
+/* Basic Fast Transition (120ms, starting at 0.2 opacity - zero blank delay) */
+@keyframes basicFade {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.animate-basic-fade {
+  animation: basicFade 120ms ease-out forwards;
+  will-change: opacity;
+}
