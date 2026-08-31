@@ -165,17 +165,6 @@ function SimViewer({ sim }: { sim: Sim }) {
 
 export default function SimulationPage() {
   const [activeSimId, setActiveSimId] = useState<number>(1);
-  const [currentTime, setCurrentTime] = useState<string>("");
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setCurrentTime(now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }));
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   const activeSim = sims.find((s) => s.id === activeSimId) ?? sims[0];
 
@@ -194,9 +183,6 @@ export default function SimulationPage() {
           <span className="text-slate-800 dark:text-slate-200 font-medium">simulation</span>
         </div>
         <div className="flex items-center gap-4 text-xs font-mono">
-          <span className="hidden sm:inline-block px-3 py-0.5 rounded-full bg-black/5 dark:bg-white/10 text-gray-600 dark:text-gray-400 border border-black/5 dark:border-white/10">
-            {currentTime || "--:--"}
-          </span>
           <DarkModeToggle />
         </div>
       </header>

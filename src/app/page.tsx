@@ -34,19 +34,8 @@ type WindowWithIdle = Window & {
 export default function HomePage() {
   const [rightPanelView, setRightPanelView] = useState<RightPanelView>("home");
   const [simulationsReady, setSimulationsReady] = useState(false);
-  const [currentTime, setCurrentTime] = useState<string>("");
   const [expandedExp, setExpandedExp] = useState<number | null>(null);
   const scrollContainerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const updateTime = () => {
-      const now = new Date();
-      setCurrentTime(now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" }));
-    };
-    updateTime();
-    const interval = setInterval(updateTime, 1000);
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     if (scrollContainerRef.current) {
@@ -124,9 +113,6 @@ export default function HomePage() {
         </div>
 
         <div className="flex items-center gap-4 text-xs font-mono">
-          <span className="hidden sm:inline-block px-3 py-0.5 rounded-full bg-black/5 dark:bg-white/10 text-gray-600 dark:text-gray-400 border border-black/5 dark:border-white/10">
-            {currentTime || "--:--"}
-          </span>
           <DarkModeToggle />
         </div>
       </header>
@@ -242,7 +228,7 @@ export default function HomePage() {
         )}
 
         {/* REFACTORED MINIMAL MAIN CONTENT AREA */}
-        <div className="flex-1 flex flex-col min-h-0">
+        <div className="flex-1 flex flex-col min-h-0 min-w-0 w-full">
 
           {/* Minimalist View Switcher Navigation */}
           <div className="flex items-center justify-between pb-3 mb-6 border-b border-black/10 dark:border-white/10 font-mono text-xs">
@@ -418,9 +404,14 @@ export default function HomePage() {
 
             {/* UNTOUCHED PROJECTS COMPONENT */}
             {rightPanelView === "projects" && (
-              <section className="space-y-3">
-                <div className="text-xs font-mono text-gray-500 dark:text-gray-400 pb-2 border-b border-black/10 dark:border-white/10">
-                  {"/* Selected Projects */"}
+              <section className="space-y-4">
+                <div className="space-y-2">
+                  <div className="text-xs font-mono text-gray-500 dark:text-gray-400 pb-2 border-b border-black/10 dark:border-white/10">
+                    {"/* Selected Projects */"}
+                  </div>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 font-sans leading-relaxed">
+                    A curated collection of full-stack web applications, developer utilities, CLI tools, and interactive software. Click on any project card to reveal detailed specifications, tech stack tags, and live demo links.
+                  </p>
                 </div>
                 <ProjectsSection />
               </section>
