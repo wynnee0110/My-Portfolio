@@ -4,7 +4,7 @@ import 'katex/dist/katex.min.css';
 // @ts-expect-error react-katex has no type declarations
 import { BlockMath } from 'react-katex';
 import Link from 'next/link';
-import React, { useState } from 'react';
+import React from 'react';
 import Reactdiff from '../components/Reactdiff';
 import Lorenz from '../components/Lorenz';
 import BubbleSort from '../components/Bubblesort';
@@ -12,161 +12,70 @@ import NeuralNetwork from '../components/Neuralnetwork';
 import CoolBackground from '../components/CoolBackground';
 import DarkModeToggle from '../components/DarkModeToggle';
 import PageTransition from '../components/PageTransition';
-import { ArrowLeft, Terminal, FlaskConical, Infinity, ArrowDownUp, Network } from 'lucide-react';
-import { useEffect } from 'react';
+import { ArrowLeft, Terminal } from 'lucide-react';
 
 type Sim = {
   id: number;
-  icon: React.ReactNode;
   label: string;
-  slug: string;
+  category: string;
   description: string;
   equations: string[];
   equationNote: string;
-  color: string;
 };
 
 const sims: Sim[] = [
   {
     id: 1,
-    icon: <FlaskConical className="w-5 h-5" />,
     label: "Reaction-Diffusion",
-    slug: "reaction-diffusion",
-    description: "Visualizing the Gray-Scott equations: a mathematical model of complex Turing patterns where diffusion rates, feed rate (f), and kill rate (k) determine structural evolution.",
+    category: "Morphogenesis",
+    description: "Visualizing Gray-Scott equations: a mathematical model of complex Turing patterns where diffusion rates, feed rate (f), and kill rate (k) determine structural evolution.",
     equations: [
       "\\frac{\\partial A}{\\partial t} = D_A \\nabla^2 A - AB^2 + f(1 - A)",
       "\\frac{\\partial B}{\\partial t} = D_B \\nabla^2 B + AB^2 - (k + f)B",
     ],
-    equationNote: "Gray-Scott model:",
-    color: "from-cyan-500/20 to-blue-500/20",
+    equationNote: "Gray-Scott differential model:",
   },
   {
     id: 2,
-    icon: <Infinity className="w-5 h-5" />,
     label: "Lorenz Attractor",
-    slug: "lorenz",
-    description: "A 3D visualization of deterministic chaos first studied by Edward Lorenz. Tiny changes in initial conditions result in drastically different, completely unpredictable outcomes — the butterfly effect.",
+    category: "Nonlinear Dynamics",
+    description: "3D visualization of deterministic chaos studied by Edward Lorenz. Small initial condition shifts trigger unpredictable butterfly trajectory paths.",
     equations: [
       "\\frac{dx}{dt} = \\sigma(y - x)",
       "\\frac{dy}{dt} = x(\\rho - z) - y",
       "\\frac{dz}{dt} = xy - \\beta z",
     ],
-    equationNote: "Lorenz system:",
-    color: "from-purple-500/20 to-pink-500/20",
+    equationNote: "Lorenz strange attractor:",
   },
   {
     id: 3,
-    icon: <ArrowDownUp className="w-5 h-5" />,
     label: "Bubble Sort",
-    slug: "bubble-sort",
-    description: "Step-by-step visualization of bubble sort. Adjacent elements are repeatedly compared and swapped until the array is fully sorted — a classic O(n²) algorithm.",
+    category: "Sorting & Arrays",
+    description: "Step-by-step visualization of bubble sort. Adjacent elements are repeatedly compared and swapped until the array is fully sorted.",
     equations: [
-      "T(n)=O(n^2)",
+      "T(n) = O(n^2)",
       "\\text{swap if } A[j] > A[j+1]",
     ],
     equationNote: "Time complexity:",
-    color: "from-orange-500/20 to-yellow-500/20",
   },
   {
     id: 4,
-    icon: <Network className="w-5 h-5" />,
     label: "Neural Network",
-    slug: "neural-network",
-    description: "A feedforward neural network visualization. Values propagate through weighted layers and activation functions, demonstrating the core mechanics of deep learning.",
+    category: "Artificial Intelligence",
+    description: "Feedforward neural network visualization. Values propagate through weighted layers and activation functions.",
     equations: [
       "a^{(l)} = \\sigma(W^{(l)}a^{(l-1)} + b^{(l)})",
-      "\\text{ReLU}(x)=\\max(0,x)",
+      "\\text{ReLU}(x) = \\max(0, x)",
     ],
     equationNote: "Forward propagation:",
-    color: "from-emerald-500/20 to-teal-500/20",
   },
 ];
 
-function SimCard({ sim, index, active, onClick }: { sim: Sim; index: number; active: boolean; onClick: () => void }) {
-  return (
-    <button
-      onClick={onClick}
-      className={`
-        stagger-item w-full text-left rounded-2xl border transition-all duration-300 p-4 group
-        ${active
-          ? "border-slate-500/40 bg-slate-500/10 shadow-lg shadow-slate-500/10"
-          : "border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 hover:border-slate-500/30 hover:bg-slate-500/5"
-        }
-      `}
-    >
-      <div className="flex items-center gap-3">
-        <div className={`
-          p-2 rounded-xl bg-gradient-to-br ${sim.color}
-          text-gray-700 dark:text-gray-300 transition-transform duration-300 group-hover:scale-110
-          ${active ? "scale-110" : ""}
-        `}>
-          {sim.icon}
-        </div>
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="text-[10px] font-mono text-gray-400 dark:text-gray-500">{String(index + 1).padStart(2, "0")}</span>
-            <h3 className={`text-sm font-semibold ${active ? "text-slate-800 dark:text-slate-200" : "text-gray-900 dark:text-gray-100"}`}>
-              {sim.label}
-            </h3>
-          </div>
-          <p className="text-[11px] text-gray-500 dark:text-gray-400 mt-0.5 leading-tight line-clamp-1 max-w-[200px]">
-            {sim.description.split(".")[0]}.
-          </p>
-        </div>
-        <div className={`ml-auto w-1.5 h-1.5 rounded-full transition-all ${active ? "bg-slate-600 dark:bg-slate-300 shadow-sm" : "bg-transparent"}`} />
-      </div>
-    </button>
-  );
-}
-
-function SimViewer({ sim }: { sim: Sim }) {
-  return (
-    <div className="space-y-6 animate-[fadeIn_400ms_ease_forwards]" key={sim.id}>
-      {/* Sim Header */}
-      <div className="space-y-3">
-        <div className="flex items-center gap-3">
-          <div className={`p-2.5 rounded-xl bg-gradient-to-br ${sim.color} text-gray-700 dark:text-gray-300`}>
-            {sim.icon}
-          </div>
-          <div>
-            <h2 className="text-xl font-bold text-gray-900 dark:text-white">{sim.label}</h2>
-            <span className="text-[10px] font-mono text-gray-400 dark:text-gray-500">simulation.{sim.slug}</span>
-          </div>
-        </div>
-        <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
-          {sim.description}
-        </p>
-      </div>
-
-      {/* Equations */}
-      <div className="p-4 rounded-xl bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 space-y-1">
-        <p className="text-[10px] font-mono text-gray-400 dark:text-gray-500 mb-2">{sim.equationNote}</p>
-        {sim.equations.map((eq, i) => (
-          <div key={i} className="text-base overflow-x-auto max-w-full">
-            <BlockMath math={eq} />
-          </div>
-        ))}
-      </div>
-
-      {/* The interactive component */}
-      <div className="rounded-xl overflow-hidden border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5">
-        {sim.id === 1 && <Reactdiff />}
-        {sim.id === 2 && (
-          <div className="w-full aspect-square cursor-grab active:cursor-grabbing">
-            <Lorenz />
-          </div>
-        )}
-        {sim.id === 3 && <BubbleSort />}
-        {sim.id === 4 && <NeuralNetwork />}
-      </div>
-    </div>
-  );
-}
-
 export default function SimulationPage() {
-  const [activeSimId, setActiveSimId] = useState<number>(1);
-
-  const activeSim = sims.find((s) => s.id === activeSimId) ?? sims[0];
+  const sim1 = sims[0]; // Reaction-Diffusion
+  const sim2 = sims[1]; // Lorenz Attractor
+  const sim3 = sims[2]; // Bubble Sort
+  const sim4 = sims[3]; // Neural Network
 
   return (
     <main className="portfolio-bg relative isolate min-h-[100svh] text-gray-800 dark:text-gray-200 transition-colors duration-300">
@@ -188,57 +97,122 @@ export default function SimulationPage() {
       </header>
 
       <PageTransition>
-        <div className="relative z-10 pt-24 pb-16 max-w-4xl mx-auto px-4 lg:px-6">
+        <div className="relative z-10 pt-24 pb-16 max-w-4xl mx-auto px-4 lg:px-6 w-full min-w-0 max-w-full font-mono">
 
           {/* Page Header */}
-          <div className="mb-10 flex flex-col sm:flex-row sm:items-end justify-between gap-4 border-b border-black/10 dark:border-white/10 pb-8">
-            <div className="space-y-2">
+          <div className="mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-6 border-b border-black/10 dark:border-white/10 pb-6">
+            <div className="space-y-2 min-w-0 max-w-full">
               <Link
                 href="/"
-                className="inline-flex items-center gap-1.5 text-xs font-mono text-slate-800 dark:text-slate-200 hover:text-slate-600 dark:hover:text-slate-400 transition-colors mb-3"
+                className="inline-flex items-center gap-1.5 text-xs text-slate-800 dark:text-slate-200 hover:text-slate-600 dark:hover:text-slate-400 transition-colors mb-2"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 back
               </Link>
-              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
-                Interactive<br />
+              <h1 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white font-sans">
+                Abstract<br />
                 <span className="text-slate-800 dark:text-slate-200">Simulations.</span>
               </h1>
-              <p className="text-sm text-gray-500 dark:text-gray-400 font-mono max-w-sm mt-2">
-                Math models, algorithms, and systems — visualized live in the browser.
+              <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 max-w-md mt-1 font-sans leading-relaxed">
+                Masonry grid layout of mathematical models, chaotic attractors, and algorithm visualizers.
               </p>
             </div>
-            <span className="text-xs font-mono px-3 py-1.5 rounded-full bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10 text-gray-500 dark:text-gray-400 h-fit">
-              {sims.length} simulations
-            </span>
+
+            <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-gray-400 shrink-0">
+              <span className="px-3 py-1.5 rounded-none bg-black/5 dark:bg-white/5 border border-black/10 dark:border-white/10">
+                {sims.length} models
+              </span>
+            </div>
           </div>
 
-          {/* Two-column layout: sidebar + viewer */}
-          <div className="flex flex-col lg:flex-row gap-8">
+          {/* Pure CSS Masonry Grid Layout with Sharp Edges */}
+          <div className="columns-1 md:columns-2 gap-4 space-y-4 w-full min-w-0 max-w-full">
 
-            {/* Left: sim selector */}
-            <aside className="lg:w-72 shrink-0 space-y-2">
-              {sims.map((sim, index) => (
-                <SimCard
-                  key={sim.id}
-                  sim={sim}
-                  index={index}
-                  active={activeSimId === sim.id}
-                  onClick={() => setActiveSimId(sim.id)}
-                />
-              ))}
-            </aside>
+            {/* MASONRY ITEM 1: Lorenz Attractor (Column 1 Top) */}
+            <div className="break-inside-avoid rounded-none border border-black/15 dark:border-white/15 bg-black/2 dark:bg-white/3 backdrop-blur-xl p-4 sm:p-5 space-y-3 min-w-0 max-w-full overflow-hidden">
+              <div className="flex items-center justify-between gap-2 border-b border-black/10 dark:border-white/10 pb-2 min-w-0 max-w-full">
+                <h2 className="text-base font-bold text-gray-900 dark:text-white font-sans truncate">
+                  {sim2.label}
+                </h2>
+                <span className="px-2 py-0.5 rounded-none bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 text-[10px] text-gray-500 dark:text-gray-400 shrink-0">
+                  {sim2.category}
+                </span>
+              </div>
 
-            {/* Right: viewer */}
-            <div className="flex-1 min-w-0">
-              <SimViewer sim={activeSim} />
+              <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed font-sans min-w-0 max-w-full break-words">
+                {sim2.description}
+              </p>
+
+              <div className="w-full h-[280px] rounded-none overflow-hidden border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 cursor-grab active:cursor-grabbing">
+                <Lorenz />
+              </div>
+            </div>
+
+            {/* MASONRY ITEM 2: Reaction-Diffusion (Column 2 Top) */}
+            <div className="break-inside-avoid rounded-none border border-black/15 dark:border-white/15 bg-black/2 dark:bg-white/3 backdrop-blur-xl p-4 sm:p-5 space-y-3 min-w-0 max-w-full overflow-hidden">
+              <div className="flex items-center justify-between gap-2 border-b border-black/10 dark:border-white/10 pb-2 min-w-0 max-w-full">
+                <h2 className="text-base font-bold text-gray-900 dark:text-white font-sans truncate">
+                  {sim1.label}
+                </h2>
+                <span className="px-2 py-0.5 rounded-none bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 text-[10px] text-gray-500 dark:text-gray-400 shrink-0">
+                  {sim1.category}
+                </span>
+              </div>
+
+              <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed font-sans min-w-0 max-w-full break-words">
+                {sim1.description}
+              </p>
+
+              <div className="rounded-none overflow-hidden border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 min-w-0 max-w-full">
+                <Reactdiff />
+              </div>
+            </div>
+
+            {/* MASONRY ITEM 3: Bubble Sort (Column 1 Bottom) */}
+            <div className="break-inside-avoid rounded-none border border-black/15 dark:border-white/15 bg-black/2 dark:bg-white/3 backdrop-blur-xl p-4 sm:p-5 space-y-3 min-w-0 max-w-full overflow-hidden">
+              <div className="flex items-center justify-between gap-2 border-b border-black/10 dark:border-white/10 pb-2 min-w-0 max-w-full">
+                <h2 className="text-base font-bold text-gray-900 dark:text-white font-sans truncate">
+                  {sim3.label}
+                </h2>
+                <span className="px-2 py-0.5 rounded-none bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 text-[10px] text-gray-500 dark:text-gray-400 shrink-0">
+                  {sim3.category}
+                </span>
+              </div>
+
+              <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed font-sans min-w-0 max-w-full break-words">
+                {sim3.description}
+              </p>
+
+              <div className="rounded-none overflow-hidden border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 min-w-0 max-w-full">
+                <BubbleSort />
+              </div>
+            </div>
+
+            {/* MASONRY ITEM 4: Neural Network (Column 2 Bottom) */}
+            <div className="break-inside-avoid rounded-none border border-black/15 dark:border-white/15 bg-black/2 dark:bg-white/3 backdrop-blur-xl p-4 sm:p-5 space-y-3 min-w-0 max-w-full overflow-hidden">
+              <div className="flex items-center justify-between gap-2 border-b border-black/10 dark:border-white/10 pb-2 min-w-0 max-w-full">
+                <h2 className="text-base font-bold text-gray-900 dark:text-white font-sans truncate">
+                  {sim4.label}
+                </h2>
+                <span className="px-2 py-0.5 rounded-none bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/10 text-[10px] text-gray-500 dark:text-gray-400 shrink-0">
+                  {sim4.category}
+                </span>
+              </div>
+
+              <p className="text-xs text-gray-600 dark:text-gray-300 leading-relaxed font-sans min-w-0 max-w-full break-words">
+                {sim4.description}
+              </p>
+
+              <div className="rounded-none overflow-hidden border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 min-w-0 max-w-full">
+                <NeuralNetwork />
+              </div>
             </div>
 
           </div>
 
           {/* Footer */}
           <div className="mt-16 pt-6 border-t border-black/10 dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-gray-500 dark:text-gray-400">
-            <span>wayne.obial — interactive simulations</span>
+            <span>wayne.obial — masonry simulations</span>
             <Link href="/" className="inline-flex items-center gap-1.5 text-slate-800 dark:text-slate-200 hover:underline">
               <ArrowLeft className="w-3 h-3" /> back to home
             </Link>

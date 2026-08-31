@@ -35,32 +35,32 @@ function ProjectCard({
         fill
         sizes="(max-width: 640px) 100vw, 50vw"
         className={`object-cover transition-transform duration-500 ease-out ${
-          showDescription ? "scale-105 filter blur-[2px] brightness-40" : "group-hover:scale-105"
+          showDescription ? "scale-105 filter blur-[2px] brightness-50 dark:brightness-40" : "group-hover:scale-105"
         }`}
         onError={() => setImgSrc(FALLBACK)}
       />
 
       {/* Default Overlay Gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent" />
+      <div className="absolute inset-0 bg-gradient-to-t from-white/95 via-white/40 to-transparent dark:from-black/85 dark:via-black/25 dark:to-transparent" />
 
-      {/* Default Photo State: Title & Hint */}
+      {/* Default Photo State: Title & Theme-aware Hint */}
       {!showDescription && (
         <div className="absolute inset-0 p-4 flex flex-col justify-between z-10 pointer-events-none">
           <div className="flex justify-between items-center w-full">
-            <span className="px-2.5 py-0.5 rounded-none text-[10px] font-mono font-bold bg-black/70 text-white/90 border border-white/20 backdrop-blur-md">
+            <span className="px-2.5 py-0.5 rounded-none text-[10px] font-mono font-bold bg-white/85 text-gray-900 border border-black/15 dark:bg-black/70 dark:text-white/90 dark:border-white/20 backdrop-blur-md shadow-sm">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <span className="text-[10px] font-mono text-white/70 bg-black/50 px-2 py-0.5 rounded-none border border-white/10 backdrop-blur-sm">
+            <span className="text-[10px] font-mono bg-white/85 text-gray-900 border border-black/15 dark:bg-black/60 dark:text-white/80 dark:border-white/15 px-2 py-0.5 rounded-none backdrop-blur-md shadow-sm font-semibold">
               Click for info
             </span>
           </div>
 
           <div>
-            <h3 className="text-sm sm:text-base font-bold text-white drop-shadow-md truncate font-sans">
+            <h3 className="text-sm sm:text-base font-bold text-gray-900 dark:text-white drop-shadow-sm truncate font-sans">
               {project.title}
             </h3>
             {project.languages?.[0] && (
-              <span className="text-[11px] font-mono text-gray-300">
+              <span className="text-[11px] font-mono text-gray-700 dark:text-gray-300">
                 {project.languages[0]}
               </span>
             )}
@@ -68,12 +68,12 @@ function ProjectCard({
         </div>
       )}
 
-      {/* Clicked State: Description & Links Overlay */}
+      {/* Clicked State: Theme-aware Description & Links Overlay */}
       {showDescription && (
-        <div className="absolute inset-0 p-4 bg-black/90 backdrop-blur-md text-white flex flex-col justify-between z-20 animate-fadeIn">
+        <div className="absolute inset-0 p-4 bg-white/95 text-gray-900 dark:bg-black/90 dark:text-white backdrop-blur-md flex flex-col justify-between z-20 animate-fadeIn border border-black/10 dark:border-white/10">
           <div className="space-y-2 min-w-0 max-w-full">
-            <div className="flex items-start justify-between gap-2 border-b border-white/15 pb-2">
-              <h3 className="text-sm font-bold text-white truncate font-sans">
+            <div className="flex items-start justify-between gap-2 border-b border-black/10 dark:border-white/15 pb-2">
+              <h3 className="text-sm font-bold text-gray-900 dark:text-white truncate font-sans">
                 {project.title}
               </h3>
               <button
@@ -81,24 +81,24 @@ function ProjectCard({
                   e.stopPropagation();
                   setShowDescription(false);
                 }}
-                className="p-1 rounded-none bg-white/10 hover:bg-white/20 text-white/80 shrink-0"
+                className="p-1 rounded-none bg-black/10 hover:bg-black/20 text-gray-800 dark:bg-white/10 dark:hover:bg-white/20 dark:text-white/80 shrink-0"
               >
                 <X className="w-3.5 h-3.5" />
               </button>
             </div>
 
-            <p className="text-xs text-gray-200 leading-relaxed font-sans min-w-0 max-w-full break-words line-clamp-4">
+            <p className="text-xs text-gray-700 dark:text-gray-200 leading-relaxed font-sans min-w-0 max-w-full break-words line-clamp-4">
               {project.description}
             </p>
           </div>
 
-          <div className="space-y-2 pt-2 border-t border-white/15 min-w-0 max-w-full">
+          <div className="space-y-2 pt-2 border-t border-black/10 dark:border-white/15 min-w-0 max-w-full">
             {project.languages && project.languages.length > 0 && (
               <div className="flex flex-wrap gap-1 min-w-0 max-w-full">
                 {project.languages.slice(0, 4).map((tag, i) => (
                   <span
                     key={i}
-                    className="px-2 py-0.5 text-[9px] font-mono rounded-none bg-white/10 text-gray-200 border border-white/15 truncate"
+                    className="px-2 py-0.5 text-[9px] font-mono rounded-none bg-black/5 text-gray-800 border border-black/15 dark:bg-white/10 dark:text-gray-200 dark:border-white/15 truncate"
                   >
                     {tag}
                   </span>
@@ -113,7 +113,7 @@ function ProjectCard({
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
-                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-none text-xs font-mono font-medium bg-emerald-500 text-black hover:bg-emerald-400 transition-colors"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-none text-xs font-mono font-medium bg-slate-900 text-white hover:bg-slate-800 dark:bg-emerald-500 dark:text-black dark:hover:bg-emerald-400 transition-colors"
                 >
                   <Globe className="w-3 h-3" />
                   <span>Visit App</span>

@@ -421,61 +421,73 @@ export default function HomePage() {
             {simulationsReady ? (
               <section
                 className={
-                  rightPanelView === "simulations" ? "space-y-8" : "hidden"
+                  rightPanelView === "simulations" ? "space-y-4 w-full min-w-0 max-w-full" : "hidden"
                 }
               >
-                <div className="text-xs font-mono text-gray-500 dark:text-gray-400 pb-2 border-b border-black/10 dark:border-white/10">
-                  {"/* Interactive Math Models */"}
+                <div className="space-y-2">
+                  <div className="text-xs font-mono text-gray-500 dark:text-gray-400 pb-2 border-b border-black/10 dark:border-white/10">
+                    {"/* Abstract Math Models & Simulations */"}
+                  </div>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 font-sans leading-relaxed">
+                    Interactive visualizations of mathematical differential equations, chaotic attractors, sorting algorithms, and neural networks.
+                  </p>
                 </div>
 
-                <div className="space-y-8">
-                  <div className="space-y-2">
-                    <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2 font-mono">
-                      <span className="text-slate-600 dark:text-slate-400">01.</span> Reaction-Diffusion
-                    </h2>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
-                      Interactive Gray-Scott pattern simulation based on reaction-diffusion equations.
-                    </p>
-                    <div className="rounded-xl overflow-hidden border border-black/10 dark:border-white/10">
-                      <Reactdiff />
-                    </div>
-                  </div>
+                {/* Pure CSS Masonry Grid Layout with Sharp Edges */}
+                <div className="columns-1 sm:columns-2 gap-4 space-y-4 w-full min-w-0 max-w-full">
 
-                  <div className="space-y-2">
-                    <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2 font-mono">
-                      <span className="text-slate-600 dark:text-slate-400">02.</span> The Lorenz Attractor
-                    </h2>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
-                      3D chaotic system showing how small changes in initial conditions create different trajectories.
-                    </p>
-                    <div className="w-full aspect-square cursor-grab active:cursor-grabbing rounded-xl overflow-hidden">
+                  {/* MASONRY ITEM 1: Lorenz Attractor (Column 1 Top) */}
+                  <div className="break-inside-avoid space-y-2.5 p-4 rounded-none border border-black/15 dark:border-white/15 bg-black/2 dark:bg-white/3 backdrop-blur-md w-full min-w-0 max-w-full overflow-hidden">
+                    <div className="flex items-center justify-between font-mono text-xs">
+                      <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-100 font-sans">
+                        The Lorenz Attractor
+                      </h2>
+                      <span className="text-gray-400 text-[10px]">3D Chaos</span>
+                    </div>
+                    <div className="w-full h-[260px] cursor-grab active:cursor-grabbing rounded-none overflow-hidden border border-black/10 dark:border-white/10">
                       <Lorenz />
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2 font-mono">
-                      <span className="text-slate-600 dark:text-slate-400">03.</span> Bubble Sort
-                    </h2>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
-                      Step-by-step visual demonstration of bubble sort comparisons and swaps.
-                    </p>
-                    <div className="rounded-xl overflow-hidden border border-black/10 dark:border-white/10">
+                  {/* MASONRY ITEM 2: Reaction Diffusion (Column 2 Top) */}
+                  <div className="break-inside-avoid space-y-2.5 p-4 rounded-none border border-black/15 dark:border-white/15 bg-black/2 dark:bg-white/3 backdrop-blur-md w-full min-w-0 max-w-full overflow-hidden">
+                    <div className="flex items-center justify-between font-mono text-xs">
+                      <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-100 font-sans">
+                        Reaction-Diffusion
+                      </h2>
+                      <span className="text-gray-400 text-[10px]">Pattern</span>
+                    </div>
+                    <div className="rounded-none overflow-hidden border border-black/10 dark:border-white/10 w-full min-w-0 max-w-full">
+                      <Reactdiff />
+                    </div>
+                  </div>
+
+                  {/* MASONRY ITEM 3: Bubble Sort (Column 1 Bottom) */}
+                  <div className="break-inside-avoid space-y-2.5 p-4 rounded-none border border-black/15 dark:border-white/15 bg-black/2 dark:bg-white/3 backdrop-blur-md w-full min-w-0 max-w-full overflow-hidden">
+                    <div className="flex items-center justify-between font-mono text-xs">
+                      <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-100 font-sans">
+                        Bubble Sort
+                      </h2>
+                      <span className="text-gray-400 text-[10px]">Algorithm</span>
+                    </div>
+                    <div className="rounded-none overflow-hidden border border-black/10 dark:border-white/10 w-full min-w-0 max-w-full">
                       <BubbleSort />
                     </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-100 flex items-center gap-2 font-mono">
-                      <span className="text-slate-600 dark:text-slate-400">04.</span> Neural Network
-                    </h2>
-                    <p className="text-xs text-gray-500 dark:text-gray-400">
-                      Feedforward neural network visualization with weighted layers and activations.
-                    </p>
-                    <div className="rounded-xl overflow-hidden border border-black/10 dark:border-white/10">
+                  {/* MASONRY ITEM 4: Neural Network (Column 2 Bottom) */}
+                  <div className="break-inside-avoid space-y-2.5 p-4 rounded-none border border-black/15 dark:border-white/15 bg-black/2 dark:bg-white/3 backdrop-blur-md w-full min-w-0 max-w-full overflow-hidden">
+                    <div className="flex items-center justify-between font-mono text-xs">
+                      <h2 className="text-sm font-semibold text-gray-900 dark:text-gray-100 font-sans">
+                        Neural Network
+                      </h2>
+                      <span className="text-gray-400 text-[10px]">Deep Learning</span>
+                    </div>
+                    <div className="rounded-none overflow-hidden border border-black/10 dark:border-white/10 w-full min-w-0 max-w-full">
                       <NeuralNetwork />
                     </div>
                   </div>
+
                 </div>
               </section>
             ) : (

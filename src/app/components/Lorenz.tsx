@@ -156,7 +156,7 @@ function Lorenz() {
   return (
     <div
       id="lorenz-container"
-      className="w-full h-full min-h-[400px] md:min-h-[500px] rounded-lg overflow-hidden bg-black/5 dark:bg-black border border-border"
+      className="w-full h-full min-h-[250px] max-h-[380px] rounded-lg overflow-hidden bg-black/5 dark:bg-black border border-border"
     >
       <Canvas
         dpr={[1, 1.5]} // limits retina GPU load
