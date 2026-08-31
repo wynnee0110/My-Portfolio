@@ -137,20 +137,14 @@ export default function HomePage() {
                 <span>Wayne Obial</span>
               </div>
 
-              {/* Profile Avatar with Hover Transition */}
-              <div className="relative w-28 h-28 md:w-36 md:h-36 mb-4 shrink-0 rounded-full overflow-hidden ring-2 ring-slate-400/30 group-hover:ring-4 group-hover:ring-slate-500/70 dark:group-hover:ring-slate-400/70 shadow-lg group-hover:shadow-[0_0_25px_rgba(148,163,184,0.25)] transition-all duration-500 group">
+              {/* Profile Avatar */}
+              <div className="relative w-28 h-28 md:w-36 md:h-36 mb-4 shrink-0 rounded-full overflow-hidden ring-2 ring-slate-400/30 shadow-lg">
                 <Image
-                  src="/images/2.jpeg"
+                  src="/images/Me.jpg"
                   alt="Wayne Obial Profile Picture"
                   fill
-                  className="object-cover opacity-100 group-hover:opacity-0 group-hover:scale-110 group-hover:rotate-3 transition-all duration-500 ease-in-out"
+                  className="object-cover"
                   priority
-                />
-                <Image
-                  src="/images/Me.png"
-                  alt="Wayne Obial Profile Hover Picture"
-                  fill
-                  className="object-cover opacity-0 group-hover:opacity-100 scale-105 group-hover:scale-100 transition-all duration-500 ease-in-out"
                 />
               </div>
 
