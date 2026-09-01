@@ -302,11 +302,6 @@ export default function HomePage() {
                         development, automation, and problem-solving, and I&apos;m always curious about how systems work behind the scenes.
                       </p>
                       <p>
-                        I actively explore different tools, frameworks, and technologies by creating hands-on projects, from small
-                        scripts to full applications. Through these projects, I focus on writing clean, efficient solutions while
-                        continuously improving my skills and understanding.
-                      </p>
-                      <p>
                         I believe in continuous growth, learning beyond the classroom, and turning ideas into real, functional products.
                         This portfolio showcases my journey, projects, and the skills I&apos;m developing as I move forward in the tech field.
                       </p>
