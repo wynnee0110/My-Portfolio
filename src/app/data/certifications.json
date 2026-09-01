@@ -1,0 +1,76 @@
+[
+  {
+    "title": "Python for Data Science, AI & Development",
+    "issuer": "Coursera",
+    "date": "May 2026",
+    "category": "Data Science & AI",
+    "description": "Covers Python programming for data science, artificial intelligence, and software development, including core programming concepts, data structures, APIs, data analysis, and practical Python applications.",
+    "credentialUrl": "https://coursera.org/share/cf432eb4514df81567a668806d5c9dc4",
+    "image": "/images/certifications/ibm.jpeg",
+    "skills": [
+      "Python",
+      "Data Science",
+      "Artificial Intelligence",
+      "Programming"
+    ]
+  },
+  {
+    "title": "JavaScript Essentials 2",
+    "issuer": "Cisco Networking Academy",
+    "date": "May 2026",
+    "category": "Programming",
+    "description": "Covers intermediate JavaScript programming concepts, including advanced language features, object-oriented programming, asynchronous programming, APIs, and practical application development.",
+    "credentialUrl": "/images/certifications/JavaScript_Essentials_2_certificate_obialwayne-gmail-com_53e18578-8ec8-4627-b002-bf11eeb90417.pdf",
+    "image": "/images/certifications/JsEssentials.png",
+    "skills": [
+      "JavaScript",
+      "ES6+",
+      "Asynchronous Programming",
+      "APIs",
+      "Programming"
+    ]
+  },
+  {
+    "title": "Hour of Code",
+    "issuer": "CodeAI",
+    "date": "Mar 2026",
+    "category": "Programming",
+    "description": "An introductory programming experience focused on computational thinking, problem-solving, and fundamental coding concepts.",
+    "credentialUrl": "#",
+    "image": "/images/certifications/hourofcode.jpeg",
+    "skills": [
+      "Programming",
+      "Computational Thinking",
+      "Problem Solving"
+    ]
+  },
+  {
+    "title": "Gemini Certification for University Students",
+    "issuer": "Google",
+    "date": "Feb 2026",
+    "category": "Artificial Intelligence",
+    "description": "Certification demonstrating knowledge and practical understanding of Google's Gemini AI tools and their applications for learning, productivity, and artificial intelligence workflows.",
+    "credentialUrl": "https://edu.google.accredible.com/b1015ced-0b61-4304-80ca-f898a3ee7c8b",
+    "image": "/images/certifications/gemini.png",
+    "skills": [
+      "Generative AI",
+      "Google Gemini",
+      "Artificial Intelligence"
+    ]
+  },
+  {
+    "title": "Python Essentials 2",
+    "issuer": "Cisco Networking Academy",
+    "date": "Jan 2026",
+    "category": "Programming",
+    "description": "Builds upon fundamental Python knowledge with advanced programming concepts, object-oriented programming, modules, packages, exception handling, and practical software development skills.",
+    "credentialUrl": "/images/certifications/Python_Essentials_2_certificate_obialwayne-gmail-com_469e4a55-b198-4882-bb31-79d720420d30.pdf",
+    "image": "/images/certifications/PythonEssentials.png",
+    "skills": [
+      "Python",
+      "OOP",
+      "Modules",
+      "Exception Handling"
+    ]
+  }
+]

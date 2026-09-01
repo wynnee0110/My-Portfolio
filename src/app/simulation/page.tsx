@@ -1,8 +1,5 @@
 "use client";
 
-import 'katex/dist/katex.min.css';
-// @ts-expect-error react-katex has no type declarations
-import { BlockMath } from 'react-katex';
 import Link from 'next/link';
 import React from 'react';
 import dynamic from 'next/dynamic';

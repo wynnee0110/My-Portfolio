@@ -3,6 +3,7 @@
 import Image from "next/image";
 import dynamic from "next/dynamic";
 import ProjectsSection from "./components/ProjectsSection";
+import CertificationsSection from "./components/CertificationsSection";
 
 // Lazy Load Heavy WebGL & Simulation Components (No SSR)
 const Reactdiff = dynamic(() => import("./components/Reactdiff"), { ssr: false });
@@ -27,7 +28,7 @@ interface Tooltip {
   y: number;
 }
 
-type RightPanelView = "home" | "projects" | "simulations";
+type RightPanelView = "home" | "projects" | "certifications" | "simulations";
 type IdleCallbackHandle = number;
 type IdleCallbackFn = (deadline: { didTimeout: boolean; timeRemaining: () => number }) => void;
 
@@ -241,7 +242,13 @@ export default function HomePage() {
                 </button>
               )}
               <span className="text-gray-400 dark:text-gray-500">
-                {rightPanelView === "home" ? "/* Overview */" : rightPanelView === "projects" ? "/* Portfolio Builds */" : "/* Math Models */"}
+                {rightPanelView === "home"
+                  ? "/* Overview */"
+                  : rightPanelView === "projects"
+                  ? "/* Portfolio Builds */"
+                  : rightPanelView === "certifications"
+                  ? "/* Verified Credentials */"
+                  : "/* Math Models */"}
               </span>
             </div>
 
@@ -263,6 +270,15 @@ export default function HomePage() {
                   }`}
               >
                 works
+              </button>
+              <button
+                onClick={() => { setRightPanelView("certifications"); setExpandedExp(null); }}
+                className={`px-2.5 py-1 rounded-md transition-all ${rightPanelView === "certifications"
+                  ? "text-slate-900 dark:text-slate-100 font-bold bg-slate-500/15 border border-slate-500/30"
+                  : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
+                  }`}
+              >
+                certifications
               </button>
               <button
                 onClick={() => {
@@ -409,6 +425,21 @@ export default function HomePage() {
                     </p>
                   </div>
                   <ProjectsSection />
+                </section>
+              )}
+
+              {/* CERTIFICATIONS COMPONENT */}
+              {rightPanelView === "certifications" && (
+                <section className="space-y-4">
+                  <div className="space-y-2">
+                    <div className="text-xs font-mono text-gray-500 dark:text-gray-400 pb-2 border-b border-black/10 dark:border-white/10">
+                      {"/* Verified Credentials & Certifications */"}
+                    </div>
+                    <p className="text-xs text-gray-600 dark:text-gray-400 font-sans leading-relaxed">
+                      Verified credentials and completed courses across software development, data analytics, systems, and networking. Click on any card to reveal details and credential links.
+                    </p>
+                  </div>
+                  <CertificationsSection />
                 </section>
               )}
 
