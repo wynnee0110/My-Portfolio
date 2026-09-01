@@ -15,6 +15,8 @@ import CoolBackground from "./components/CoolBackground";
 import DarkModeToggle from "./components/DarkModeToggle";
 import experience from "./data/experience.json";
 import connect from "./data/connect.json";
+import stats from "./data/stats.json";
+import { projects } from "./data/projectsData";
 import { Cpu, Brain, Terminal, ArrowUpRight, ChevronDown } from "lucide-react";
 import { FaPython, FaReact } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
@@ -203,8 +205,34 @@ export default function HomePage() {
               </div>
             )}
 
+            {/* Developer Stats Overview (Simple row lines, no icons, only titles) */}
+            <div className="w-full text-xs font-mono space-y-1 text-gray-600 dark:text-gray-400 pt-4 border-t border-black/10 dark:border-white/10 mb-2">
+              <div className="text-[11px] font-semibold tracking-wider text-gray-500 dark:text-gray-400 uppercase px-2.5 pb-1">
+                Stats
+              </div>
+              <div className="flex justify-between items-center py-1 px-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                <span className="font-medium text-gray-700 dark:text-gray-300">Projects</span>
+                <span className="font-bold text-gray-900 dark:text-white">{stats.projectsCount || projects.length}+</span>
+              </div>
+              <div className="flex justify-between items-center py-1 px-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                <span className="font-medium text-gray-700 dark:text-gray-300">Joined</span>
+                <span className="font-bold text-gray-900 dark:text-white">{stats.joinedYear}</span>
+              </div>
+              <div className="flex justify-between items-center py-1 px-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
+                <span className="font-medium text-gray-700 dark:text-gray-300">Code</span>
+                <div className="flex items-center gap-1 font-bold">
+                  <span className="text-emerald-600 dark:text-emerald-400">+{stats.codeAdded}</span>
+                  <span className="text-gray-400 dark:text-gray-600">/</span>
+                  <span className="text-rose-600 dark:text-rose-400">-{stats.codeRemoved}</span>
+                </div>
+              </div>
+            </div>
+
             {/* Social Links — Projects & Simulations excluded (shown in top nav) */}
-            <div className="w-full text-xs font-mono space-y-1.5 text-gray-600 dark:text-gray-400 pt-4 border-t border-black/10 dark:border-white/10">
+            <div className="w-full text-xs font-mono space-y-1.5 text-gray-600 dark:text-gray-400 pt-3 border-t border-black/10 dark:border-white/10">
+              <div className="text-[11px] font-semibold tracking-wider text-gray-500 dark:text-gray-400 uppercase px-2.5 pb-1">
+                Connect
+              </div>
               {connect
                 .filter((item) => item.name !== "Projects" && item.name !== "Simulations")
                 .map((item, index) => (
