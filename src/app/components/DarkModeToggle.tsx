@@ -3,7 +3,6 @@
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Sun, Moon } from "lucide-react";
-import { flushSync } from "react-dom";
 
 export default function DarkModeToggle() {
   const { setTheme, resolvedTheme } = useTheme();
@@ -19,49 +18,8 @@ export default function DarkModeToggle() {
 
   const isDark = resolvedTheme === "dark";
 
-  const handleToggle = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const nextTheme = isDark ? "light" : "dark";
-
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setTheme(nextTheme);
-      return;
-    }
-
-    const x = e.clientX;
-    const y = e.clientY;
-
-    const endRadius = Math.hypot(
-      Math.max(x, window.innerWidth - x),
-      Math.max(y, window.innerHeight - y)
-    );
-
-    const doc = document as unknown as {
-      startViewTransition?: (cb: () => void) => { ready: Promise<void> };
-    };
-
-    if (typeof doc.startViewTransition === "function") {
-      const transition = doc.startViewTransition(() => {
-        flushSync(() => setTheme(nextTheme));
-      });
-
-      transition.ready.then(() => {
-        document.documentElement.animate(
-          {
-            clipPath: [
-              `circle(0px at ${x}px ${y}px)`,
-              `circle(${endRadius}px at ${x}px ${y}px)`,
-            ],
-          },
-          {
-            duration: 600,
-            easing: "cubic-bezier(0.4, 0, 0.2, 1)",
-            pseudoElement: "::view-transition-new(root)",
-          }
-        );
-      });
-    } else {
-      setTheme(nextTheme);
-    }
+  const handleToggle = () => {
+    setTheme(isDark ? "light" : "dark");
   };
 
   return (
