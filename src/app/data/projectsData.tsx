@@ -90,7 +90,7 @@ export const projects: Project[] = [
     image: "/images/works/fallback.webp",
   },
   {
-    title: "Telegram natural language parser scheduling automation ",
+    title: "NLP Scheduling Automation",
     description:
       "A telegram bot to create an event schedule using natural language, using patterns from everyday language, and will automatically set in google calendar",
     description2: "personal project",
