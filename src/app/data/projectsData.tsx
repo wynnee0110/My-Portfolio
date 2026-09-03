@@ -89,4 +89,19 @@ export const projects: Project[] = [
     link: "https://scan-sync-app.vercel.app/",
     image: "/images/works/fallback.webp",
   },
+  {
+    title: "Telegram natural language parser scheduling automation ",
+    description:
+      "A telegram bot to create an event schedule using natural language, using patterns from everyday language, and will automatically set in google calendar",
+    description2: "personal project",
+    languages: [
+      "python",
+      "google cloud",
+      "Bot Father",
+      "google calender api",
+
+    ],
+    link: "",
+    image: "/images/works/fallback.webp",
+  },
 ];
