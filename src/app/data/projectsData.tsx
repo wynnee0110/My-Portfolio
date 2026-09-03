@@ -104,4 +104,13 @@ export const projects: Project[] = [
     link: "",
     image: "/images/works/fallback.webp",
   },
+
+  {
+    title: "Tunnel",
+    description: "a random stranger chat app where chats disapear after few exchanges of messages",
+    description2: "Built with Next.js, Tailwind CSS, and firebase for real-time data handling.",
+    languages: ["Next.js", "Tailwind CSS", "firebase", "TypeScript", "React"],
+    link: "https://tunnel-delta-indol.vercel.app/",
+    image: "/images/works/9.webp",
+  },
 ];
