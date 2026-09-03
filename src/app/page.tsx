@@ -112,15 +112,14 @@ export default function HomePage() {
       <CoolBackground />
 
       {/* Top Embedded Minimalist Header */}
-      <header className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[92%] max-w-4xl flex items-center justify-between px-5 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white/50 dark:bg-black/50 backdrop-blur-md shadow-sm">
-        <div className="flex items-center gap-2 font-mono text-xs text-gray-700 dark:text-gray-300">
-          <Terminal className="w-3.5 h-3.5 text-slate-700 dark:text-slate-300 animate-pulse" />
-          <span className="font-semibold text-gray-900 dark:text-white">hexctl</span>
-          <span className="text-gray-400 dark:text-gray-500">/</span>
-
+      <header className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-[92%] max-w-4xl flex items-center justify-between px-3.5 sm:px-5 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white/50 dark:bg-black/50 backdrop-blur-md shadow-sm">
+        <div className="flex items-center gap-2 font-mono text-xs text-gray-700 dark:text-gray-300 min-w-0 truncate">
+          <Terminal className="w-3.5 h-3.5 text-slate-700 dark:text-slate-300 animate-pulse shrink-0" />
+          <span className="font-semibold text-gray-900 dark:text-white shrink-0">hexctl</span>
+          <span className="text-gray-400 dark:text-gray-500 shrink-0">/</span>
         </div>
 
-        <div className="flex items-center gap-4 text-xs font-mono">
+        <div className="flex items-center gap-4 text-xs font-mono shrink-0">
           <DarkModeToggle />
         </div>
       </header>
@@ -218,14 +217,7 @@ export default function HomePage() {
                 <span className="font-medium text-gray-700 dark:text-gray-300">Joined</span>
                 <span className="font-bold text-gray-900 dark:text-white">{stats.joinedYear}</span>
               </div>
-              <div className="flex justify-between items-center py-1 px-2.5 rounded-lg hover:bg-black/5 dark:hover:bg-white/5 transition-colors">
-                <span className="font-medium text-gray-700 dark:text-gray-300">Code</span>
-                <div className="flex items-center gap-1 font-bold">
-                  <span className="text-emerald-600 dark:text-emerald-400">+{stats.codeAdded}</span>
-                  <span className="text-gray-400 dark:text-gray-600">/</span>
-                  <span className="text-rose-600 dark:text-rose-400">-{stats.codeRemoved}</span>
-                </div>
-              </div>
+
             </div>
 
             {/* Social Links — Projects & Simulations excluded (shown in top nav) */}
@@ -259,32 +251,32 @@ export default function HomePage() {
         <div className="flex-1 flex flex-col min-h-0 min-w-0 w-full">
 
           {/* Minimalist View Switcher Navigation */}
-          <div className="flex items-center justify-between pb-3 mb-6 border-b border-black/10 dark:border-white/10 font-mono text-xs">
-            <div className="flex items-center gap-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 mb-6 border-b border-black/10 dark:border-white/10 font-mono text-xs w-full min-w-0">
+            <div className="flex items-center gap-3 min-w-0">
               {rightPanelView !== "home" && (
                 <button
                   onClick={() => { setRightPanelView("home"); setExpandedExp(null); }}
-                  className="text-slate-800 dark:text-slate-200 hover:underline font-semibold"
+                  className="text-slate-800 dark:text-slate-200 hover:underline font-semibold shrink-0"
                 >
                   ← Home
                 </button>
               )}
-              <span className="text-gray-400 dark:text-gray-500">
+              <span className="text-gray-400 dark:text-gray-500 truncate">
                 {rightPanelView === "home"
                   ? "/* Overview */"
                   : rightPanelView === "projects"
-                  ? "/* Portfolio Builds */"
-                  : rightPanelView === "certifications"
-                  ? "/* Verified Credentials */"
-                  : "/* Math Models */"}
+                    ? "/* Portfolio Builds */"
+                    : rightPanelView === "certifications"
+                      ? "/* Verified Credentials */"
+                      : "/* Math Models */"}
               </span>
             </div>
 
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1.5 w-full sm:w-auto overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden py-0.5 scroll-smooth shrink-0">
               <button
                 onClick={() => { setRightPanelView("home"); setExpandedExp(null); }}
-                className={`px-2.5 py-1 rounded-md transition-all ${rightPanelView === "home"
-                  ? "text-slate-900 dark:text-slate-100 font-bold bg-slate-500/15 border border-slate-500/30"
+                className={`px-3 py-1 rounded-md transition-all shrink-0 whitespace-nowrap ${rightPanelView === "home"
+                  ? "text-slate-900 dark:text-slate-100 font-bold bg-slate-500/15 border border-slate-500/30 shadow-xs"
                   : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
                   }`}
               >
@@ -292,8 +284,8 @@ export default function HomePage() {
               </button>
               <button
                 onClick={() => { setRightPanelView("projects"); setExpandedExp(null); }}
-                className={`px-2.5 py-1 rounded-md transition-all ${rightPanelView === "projects"
-                  ? "text-slate-900 dark:text-slate-100 font-bold bg-slate-500/15 border border-slate-500/30"
+                className={`px-3 py-1 rounded-md transition-all shrink-0 whitespace-nowrap ${rightPanelView === "projects"
+                  ? "text-slate-900 dark:text-slate-100 font-bold bg-slate-500/15 border border-slate-500/30 shadow-xs"
                   : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
                   }`}
               >
@@ -301,8 +293,8 @@ export default function HomePage() {
               </button>
               <button
                 onClick={() => { setRightPanelView("certifications"); setExpandedExp(null); }}
-                className={`px-2.5 py-1 rounded-md transition-all ${rightPanelView === "certifications"
-                  ? "text-slate-900 dark:text-slate-100 font-bold bg-slate-500/15 border border-slate-500/30"
+                className={`px-3 py-1 rounded-md transition-all shrink-0 whitespace-nowrap ${rightPanelView === "certifications"
+                  ? "text-slate-900 dark:text-slate-100 font-bold bg-slate-500/15 border border-slate-500/30 shadow-xs"
                   : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
                   }`}
               >
@@ -314,8 +306,8 @@ export default function HomePage() {
                   setRightPanelView("simulations");
                   setExpandedExp(null);
                 }}
-                className={`px-2.5 py-1 rounded-md transition-all ${rightPanelView === "simulations"
-                  ? "text-slate-900 dark:text-slate-100 font-bold bg-slate-500/15 border border-slate-500/30"
+                className={`px-3 py-1 rounded-md transition-all shrink-0 whitespace-nowrap ${rightPanelView === "simulations"
+                  ? "text-slate-900 dark:text-slate-100 font-bold bg-slate-500/15 border border-slate-500/30 shadow-xs"
                   : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
                   }`}
               >

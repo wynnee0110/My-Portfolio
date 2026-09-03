@@ -24,7 +24,7 @@ export default function Contact() {
 
   return (
     <main className="overflow-y-auto [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] min-h-[100svh] bg-white dark:bg-black text-gray-800 dark:text-gray-300 pb-10 transition-colors duration-300">
-      <Header />
+      <Header pageTitle="contact" />
 
       <div>
         <section className="pt-25 max-w-4xl mx-auto px-4 lg:px-0">
