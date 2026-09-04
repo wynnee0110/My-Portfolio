@@ -95,7 +95,7 @@ export default function FloatingButton() {
                 right: "2rem",
                 zIndex: 9999,
             }}
-            className="w-76 rounded-xl border border-gray-200 dark:border-white/8 bg-white dark:bg-[#111111] shadow-xl overflow-hidden"
+            className="w-76 rounded-xl border border-gray-200 dark:border-white/8 bg-white dark:bg-[#1c1c1f] shadow-xl overflow-hidden"
         >
             {/* Header */}
             <div className="px-4 pt-4 pb-3 border-b border-gray-100 dark:border-white/6 flex items-start justify-between">

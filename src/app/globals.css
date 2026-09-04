@@ -114,11 +114,11 @@ body {
 }
 
 .dark {
-  --background: #000000;
+  --background: #161618;
   --foreground: oklch(0.985 0 0);
-  --card: #000000;
+  --card: #1c1c1f;
   --card-foreground: oklch(0.985 0 0);
-  --popover: #000000;
+  --popover: #1c1c1f;
   --popover-foreground: oklch(0.985 0 0);
   --primary: oklch(0.922 0 0);
   --primary-foreground: oklch(0.205 0 0);
@@ -247,7 +247,7 @@ html {
 }
 
 .dark .portfolio-bg {
-  --bg-base: #000000;
+  --bg-base: #161618;
 }
 
 .portfolio-bg__glow,

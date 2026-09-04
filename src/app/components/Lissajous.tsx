@@ -49,7 +49,7 @@ const Lissajous: React.FC = () => {
       const H = canvas.height;
       const isDark = document.documentElement.classList.contains("dark");
 
-      ctx.fillStyle = isDark ? "#0f0f11" : "#f9f9fb";
+      ctx.fillStyle = isDark ? "#161618" : "#f9f9fb";
       ctx.fillRect(0, 0, W, H);
 
       const cx = W / 2;
@@ -110,7 +110,7 @@ const Lissajous: React.FC = () => {
   return (
     <div
       ref={containerRef}
-      className="w-full h-full min-h-[250px] max-h-[380px] rounded-none overflow-hidden bg-gray-50 dark:bg-[#0f0f11] border border-black/15 dark:border-white/15"
+      className="w-full h-full min-h-[250px] max-h-[380px] rounded-none overflow-hidden bg-gray-50 dark:bg-[#161618] border border-black/15 dark:border-white/15"
     >
       <canvas ref={canvasRef} className="w-full h-full" />
     </div>

@@ -18,7 +18,7 @@ import connect from "./data/connect.json";
 import stats from "./data/stats.json";
 import { projects } from "./data/projectsData";
 import { Cpu, Brain, Terminal, ArrowUpRight, ChevronDown } from "lucide-react";
-import { FaPython, FaReact, FaFacebook } from "react-icons/fa";
+import { FaPython, FaReact } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
 import FloatingButton from "./components/FloatingButton";
 import BackToTop from "./components/BackToTop";
@@ -76,7 +76,7 @@ export default function HomePage() {
       <CoolBackground />
 
       {/* Top Embedded Minimalist Header */}
-      <header className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-[92%] max-w-4xl flex items-center justify-between px-3.5 sm:px-5 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white/50 dark:bg-black/50 backdrop-blur-md shadow-sm">
+      <header className="fixed top-3 left-1/2 -translate-x-1/2 z-50 w-[95%] sm:w-[92%] max-w-4xl flex items-center justify-between px-3.5 sm:px-5 py-2 rounded-full border border-black/10 dark:border-white/10 bg-white/50 dark:bg-[#161618]/70 backdrop-blur-md shadow-sm">
         <div className="flex items-center gap-2 font-mono text-xs text-gray-700 dark:text-gray-300 min-w-0 truncate">
           <Terminal className="w-3.5 h-3.5 text-slate-700 dark:text-slate-300 animate-pulse shrink-0" />
           <span className="font-semibold text-gray-900 dark:text-white shrink-0">hexctl</span>
@@ -290,22 +290,20 @@ export default function HomePage() {
                     <div className="text-sm leading-relaxed text-gray-600 dark:text-gray-300 space-y-3 font-normal">
                       <p>Greetings.</p>
                       <p>
-                        I&apos;m <span className="font-semibold text-gray-900 dark:text-white">Wayne</span>, a technology-driven learner with a strong interest in building practical and creative digital solutions. I&apos;m currently the Head of Web Development at{" "}
+                        I&apos;m <span className="font-semibold text-gray-900 dark:text-white">Wayne</span>, a technology-driven learner with a strong interest in building practical and creative digital solutions.
+                        I&apos;m currently the Head of <span className="underline">Committee on Web Development</span> at{" "}
                         <a
                           href="https://www.facebook.com/ICpEP.SE.USTP"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 px-2 py-0.5 mx-1 rounded-full text-[11px] font-medium bg-white text-blue-600 border border-slate-300 dark:bg-slate-900 dark:text-blue-400 dark:border-white/20 shadow-xs hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-sm transition-all duration-200 align-middle"
+                          className="inline-flex items-center gap-0.5 font-semibold text-gray-900 dark:text-white underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                         >
-                          <FaFacebook className="w-3 h-3 text-blue-600 dark:text-blue-400 shrink-0" />
-                          <span>Facebook</span>
+                          ICpEP.SE
+                          <ArrowUpRight className="w-3.5 h-3.5" />
                         </a>
                         . I enjoy working on projects that involve software development, automation, and problem-solving, and I&apos;m always curious about how systems work behind the scenes.
                       </p>
-                      <p>
-                        I believe in continuous growth, learning beyond the classroom, and turning ideas into real, functional products.
-                        This portfolio showcases my journey, projects, and the skills I&apos;m developing as I move forward in the tech field.
-                      </p>
+
                     </div>
                   </article>
 
