@@ -2,6 +2,8 @@
   {
     "role": "Head of Committee on Development, ICpEP.SE USTP Chapter",
     "period": "2026 – Present",
+    "logo": "/images/icpepse-ustp (2).PNG",
+    "link": "https://www.facebook.com/ICpEP.SE.USTP",
     "description": "Lead the development of digital solutions that support chapter operations, student engagement, and technical initiatives while coordinating with officers and committee members.",
     "highlights": [
       "Oversee the design and development of internal web applications and digital tools for the chapter",
@@ -11,8 +13,10 @@
     ]
   },
   {
-    "role": "Technology Department Member, Google Developer Groups (GDG) USTP",
+    "role": "Technology Department' Computer Engineering Lead, Google Developer Groups (GDG) USTP",
     "period": "2025 – Present",
+    "logo": "/images/gdg.png",
+    "link": "https://gdg.community.dev/",
     "description": "Support the technical execution of community events and contribute to initiatives that promote modern software development and open-source technologies.",
     "highlights": [
       "Assist in developing technical resources and digital solutions for GDG events",

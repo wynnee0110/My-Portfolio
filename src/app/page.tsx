@@ -288,7 +288,7 @@ export default function HomePage() {
                     </h1>
 
                     <div className="text-sm leading-relaxed text-gray-600 dark:text-gray-300 space-y-3 font-normal">
-                      <p>Greetings.</p>
+
                       <p>
                         I&apos;m <span className="font-semibold text-gray-900 dark:text-white">Wayne</span>, a technology-driven learner with a strong interest in building practical and creative digital solutions.
                         I&apos;m currently the Head of <span className="underline">Committee on Web Development</span> at{" "}
@@ -330,27 +330,58 @@ export default function HomePage() {
                               className="w-full text-left flex items-start justify-between gap-3 pl-4 pr-3 py-2.5 group"
                             >
                               <div className="flex-1 min-w-0">
-                                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-                                  <h3 className={`font-medium text-sm leading-snug transition-colors ${isOpen
-                                    ? "text-slate-900 dark:text-slate-100"
-                                    : "text-gray-900 dark:text-gray-100 group-hover:text-slate-700 dark:group-hover:text-slate-300"
-                                    }`}>
-                                    {item.role}
-                                  </h3>
-                                  <span className="text-[11px] font-mono text-gray-500 dark:text-gray-400 shrink-0">
-                                    {item.period}
-                                  </span>
-                                </div>
+                                <h3 className={`font-medium text-sm leading-snug transition-colors ${isOpen
+                                  ? "text-slate-900 dark:text-slate-100"
+                                  : "text-gray-900 dark:text-gray-100 group-hover:text-slate-700 dark:group-hover:text-slate-300"
+                                  }`}>
+                                  {item.role}
+                                  {(() => {
+                                    const expItem = item as unknown as { logo?: string; link?: string };
+                                    return expItem.logo ? (
+                                      expItem.link ? (
+                                        <a
+                                          href={expItem.link}
+                                          target="_blank"
+                                          rel="noopener noreferrer"
+                                          onClick={(e) => e.stopPropagation()}
+                                          className="inline-flex items-center align-middle ml-1.5 p-0.5 hover:scale-110 transition-transform rounded bg-black/5 dark:bg-white/10 hover:bg-black/10 dark:hover:bg-white/20"
+                                          title="Open link"
+                                        >
+                                          <Image
+                                            src={expItem.logo}
+                                            alt={`${item.role} logo`}
+                                            width={18}
+                                            height={18}
+                                            className="w-4 h-4 object-contain rounded-xs"
+                                          />
+                                        </a>
+                                      ) : (
+                                        <Image
+                                          src={expItem.logo}
+                                          alt={`${item.role} logo`}
+                                          width={18}
+                                          height={18}
+                                          className="w-4 h-4 object-contain rounded-xs inline-block align-middle ml-1.5"
+                                        />
+                                      )
+                                    ) : null;
+                                  })()}
+                                </h3>
                                 {!isOpen && (
                                   <p className="text-[11px] text-gray-400 dark:text-gray-500 mt-0.5 leading-relaxed line-clamp-1">
                                     {item.description}
                                   </p>
                                 )}
                               </div>
-                              <ChevronDown
-                                className={`w-4 h-4 text-gray-400 dark:text-gray-500 shrink-0 mt-0.5 transition-transform duration-300 ${isOpen ? "rotate-180 text-slate-700 dark:text-slate-300" : ""
-                                  }`}
-                              />
+                              <div className="flex items-center gap-2 shrink-0 mt-0.5">
+                                <span className="text-[11px] font-mono text-gray-500 dark:text-gray-400">
+                                  {item.period}
+                                </span>
+                                <ChevronDown
+                                  className={`w-4 h-4 text-gray-400 dark:text-gray-500 shrink-0 transition-transform duration-300 ${isOpen ? "rotate-180 text-slate-700 dark:text-slate-300" : ""
+                                    }`}
+                                />
+                              </div>
                             </button>
 
                             {/* Expandable details */}
