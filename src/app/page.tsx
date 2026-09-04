@@ -18,26 +18,12 @@ import connect from "./data/connect.json";
 import stats from "./data/stats.json";
 import { projects } from "./data/projectsData";
 import { Cpu, Brain, Terminal, ArrowUpRight, ChevronDown } from "lucide-react";
-import { FaPython, FaReact } from "react-icons/fa";
+import { FaPython, FaReact, FaFacebook } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
 import FloatingButton from "./components/FloatingButton";
 import BackToTop from "./components/BackToTop";
 
-interface Tooltip {
-  visible: boolean;
-  text: string;
-  x: number;
-  y: number;
-}
-
 type RightPanelView = "home" | "projects" | "certifications" | "simulations";
-type IdleCallbackHandle = number;
-type IdleCallbackFn = (deadline: { didTimeout: boolean; timeRemaining: () => number }) => void;
-
-type WindowWithIdle = Window & {
-  requestIdleCallback?: (cb: IdleCallbackFn, options?: { timeout: number }) => IdleCallbackHandle;
-  cancelIdleCallback?: (id: IdleCallbackHandle) => void;
-};
 
 export default function HomePage() {
   const [rightPanelView, setRightPanelView] = useState<RightPanelView>("home");
@@ -51,55 +37,33 @@ export default function HomePage() {
     }
   }, [rightPanelView]);
 
-  const [tooltip, setTooltip] = useState<Tooltip>({
-    visible: false,
-    text: "",
-    x: 0,
-    y: 0,
-  });
-
-  useEffect(() => {
-    const browserWindow = window as WindowWithIdle;
-    let cancelled = false;
-
-    const warmSimulations = () => {
-      if (!cancelled) setSimulationsReady(true);
-    };
-
-    if (typeof browserWindow.requestIdleCallback === "function") {
-      const idleId = browserWindow.requestIdleCallback(warmSimulations, {
-        timeout: 1500,
-      });
-      return () => {
-        cancelled = true;
-        browserWindow.cancelIdleCallback?.(idleId);
-      };
-    }
-
-    const timer = globalThis.setTimeout(warmSimulations, 600);
-    return () => {
-      cancelled = true;
-      globalThis.clearTimeout(timer);
-    };
-  }, []);
+  const tooltipRef = useRef<HTMLDivElement | null>(null);
+  const rafIdRef = useRef<number | null>(null);
 
   const handleMouseMove = (
     e: React.MouseEvent<HTMLDivElement>,
     text: string
   ) => {
-    setTooltip({
-      visible: true,
-      text,
-      x: e.clientX + 15,
-      y: e.clientY + 15,
+    const x = e.clientX + 15;
+    const y = e.clientY + 15;
+
+    if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
+    rafIdRef.current = requestAnimationFrame(() => {
+      if (tooltipRef.current) {
+        tooltipRef.current.style.transform = `translate3d(${x}px, ${y}px, 0)`;
+        if (tooltipRef.current.textContent !== text) {
+          tooltipRef.current.textContent = text;
+        }
+        tooltipRef.current.style.opacity = "1";
+      }
     });
   };
 
   const handleMouseLeave = () => {
-    setTooltip((prev) => ({
-      ...prev,
-      visible: false,
-    }));
+    if (rafIdRef.current) cancelAnimationFrame(rafIdRef.current);
+    if (tooltipRef.current) {
+      tooltipRef.current.style.opacity = "0";
+    }
   };
 
   return (
@@ -191,18 +155,11 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Custom Tooltip */}
-            {tooltip.visible && (
-              <div
-                className="fixed z-50 bg-gray-900 text-white text-xs font-mono px-2.5 py-1 rounded-md shadow-lg pointer-events-none border border-white/20"
-                style={{
-                  left: tooltip.x,
-                  top: tooltip.y,
-                }}
-              >
-                {tooltip.text}
-              </div>
-            )}
+            {/* Custom Tooltip (GPU Accelerated) */}
+            <div
+              ref={tooltipRef}
+              className="fixed top-0 left-0 z-50 bg-gray-900 text-white text-xs font-mono px-2.5 py-1 rounded-md shadow-lg pointer-events-none border border-white/20 opacity-0 transition-opacity duration-150 will-change-transform"
+            />
 
             {/* Developer Stats Overview (Simple row lines, no icons, only titles) */}
             <div className="w-full text-xs font-mono space-y-1 text-gray-600 dark:text-gray-400 pt-4 border-t border-black/10 dark:border-white/10 mb-2">
@@ -333,9 +290,17 @@ export default function HomePage() {
                     <div className="text-sm leading-relaxed text-gray-600 dark:text-gray-300 space-y-3 font-normal">
                       <p>Greetings.</p>
                       <p>
-                        I&apos;m <span className="font-semibold text-gray-900 dark:text-white">Wayne</span>, a technology-driven learner with a strong
-                        interest in building practical and creative digital solutions. I enjoy working on projects that involve software
-                        development, automation, and problem-solving, and I&apos;m always curious about how systems work behind the scenes.
+                        I&apos;m <span className="font-semibold text-gray-900 dark:text-white">Wayne</span>, a technology-driven learner with a strong interest in building practical and creative digital solutions. I&apos;m currently the Head of Web Development at{" "}
+                        <a
+                          href="https://www.facebook.com/ICpEP.SE.USTP"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 px-2 py-0.5 mx-1 rounded-full text-[11px] font-medium bg-white text-blue-600 border border-slate-300 dark:bg-slate-900 dark:text-blue-400 dark:border-white/20 shadow-xs hover:border-blue-500 dark:hover:border-blue-400 hover:shadow-sm transition-all duration-200 align-middle"
+                        >
+                          <FaFacebook className="w-3 h-3 text-blue-600 dark:text-blue-400 shrink-0" />
+                          <span>Facebook</span>
+                        </a>
+                        . I enjoy working on projects that involve software development, automation, and problem-solving, and I&apos;m always curious about how systems work behind the scenes.
                       </p>
                       <p>
                         I believe in continuous growth, learning beyond the classroom, and turning ideas into real, functional products.

@@ -47,7 +47,7 @@ export default function BackToTop({
         }
       }
 
-      setShow(isNearBottom);
+      setShow((prev) => (prev !== isNearBottom ? isNearBottom : prev));
     };
 
     window.addEventListener("scroll", handleScroll, { passive: true });

@@ -4,11 +4,11 @@ import { projects } from "../data/projectsData";
 import { FiExternalLink } from "react-icons/fi";
 import { Globe, X } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, memo } from "react";
 
 const FALLBACK = "/images/works/fallback.webp";
 
-function ProjectCard({
+const ProjectCard = memo(function ProjectCard({
   project,
   index,
 }: {
@@ -126,9 +126,9 @@ function ProjectCard({
       )}
     </div>
   );
-}
+});
 
-export default function ProjectsSection() {
+function ProjectsSection() {
   return (
     <section className="w-full min-w-0 max-w-full py-1" id="projects">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full min-w-0 max-w-full">
@@ -139,3 +139,5 @@ export default function ProjectsSection() {
     </section>
   );
 }
+
+export default memo(ProjectsSection);

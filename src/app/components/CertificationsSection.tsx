@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Award, ExternalLink, X } from "lucide-react";
 import certifications from "../data/certifications.json";
-import { useState } from "react";
+import { useState, memo } from "react";
 
 type Cert = (typeof certifications)[number];
 
@@ -196,7 +196,7 @@ export function CertificateCard({
   );
 }
 
-export default function CertificationsSection() {
+function CertificationsSection() {
   return (
     <section className="w-full min-w-0 max-w-full py-1" id="certifications">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full min-w-0 max-w-full">
@@ -207,3 +207,5 @@ export default function CertificationsSection() {
     </section>
   );
 }
+
+export default memo(CertificationsSection);
