@@ -4,6 +4,7 @@ import Image from "next/image";
 import dynamic from "next/dynamic";
 import ProjectsSection from "./components/ProjectsSection";
 import CertificationsSection from "./components/CertificationsSection";
+import GitHubContributionTracker from "./components/GitHubContributionTracker";
 
 // Lazy Load Heavy WebGL & Simulation Components (No SSR)
 const Reactdiff = dynamic(() => import("./components/Reactdiff"), { ssr: false });
@@ -423,6 +424,11 @@ export default function HomePage() {
                         );
                       })}
                     </div>
+                  </section>
+
+                  {/* GITHUB CONTRIBUTION TRACKER BELOW EXPERIENCE */}
+                  <section className="pt-6 border-t border-black/10 dark:border-white/10 space-y-4">
+                    <GitHubContributionTracker />
                   </section>
                 </>
               )}
