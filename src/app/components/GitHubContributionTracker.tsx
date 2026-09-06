@@ -97,7 +97,7 @@ export default function GitHubContributionTracker() {
       case 4:
         return "bg-blue-600 dark:bg-cyan-400 shadow-sm";
       default:
-        return "bg-gray-200/70 dark:bg-[#1e1e24] border border-black/[0.04] dark:border-white/[0.04]";
+        return "bg-gray-200/80 dark:bg-[#26262c] border border-black/[0.04] dark:border-white/[0.05]";
     }
   };
 
@@ -132,10 +132,10 @@ export default function GitHubContributionTracker() {
         </div>
       </div>
 
-      {/* Heatmap Grid Container - No Scrollbar & Ample Top Space for Tooltips */}
-      <div className="w-full p-3 pt-7 rounded-xl bg-gray-50 dark:bg-[#111113] border border-black/5 dark:border-white/5 overflow-visible relative [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+      {/* Heatmap Grid Container - Elegant translucent card background */}
+      <div className="w-full p-4 pt-7 rounded-2xl bg-white/60 dark:bg-[#161618]/80 border border-black/10 dark:border-white/10 backdrop-blur-md overflow-visible relative [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden shadow-xs">
         {loading ? (
-          <div className="h-24 w-full animate-pulse bg-gray-200 dark:bg-gray-800/40 rounded-lg" />
+          <div className="h-24 w-full animate-pulse bg-gray-200/60 dark:bg-gray-800/40 rounded-lg" />
         ) : (
           <div className="w-full flex flex-col space-y-1.5">
 
@@ -222,7 +222,7 @@ export default function GitHubContributionTracker() {
         <div className="flex items-center gap-1.5 font-mono">
           <span>Less</span>
           <div className="flex gap-1">
-            <span className="w-2.5 h-2.5 rounded-[2px] bg-gray-200/70 dark:bg-[#1e1e24] border border-black/[0.04] dark:border-white/[0.04]" />
+            <span className="w-2.5 h-2.5 rounded-[2px] bg-gray-200/80 dark:bg-[#26262c] border border-black/[0.04] dark:border-white/[0.05]" />
             <span className="w-2.5 h-2.5 rounded-[2px] bg-blue-300 dark:bg-blue-900/90" />
             <span className="w-2.5 h-2.5 rounded-[2px] bg-blue-400 dark:bg-blue-700" />
             <span className="w-2.5 h-2.5 rounded-[2px] bg-blue-500 dark:bg-blue-500" />
@@ -234,6 +234,7 @@ export default function GitHubContributionTracker() {
     </div>
   );
 }
+
 
 
 

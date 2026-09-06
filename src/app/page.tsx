@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import ProjectsSection from "./components/ProjectsSection";
 import CertificationsSection from "./components/CertificationsSection";
 import GitHubContributionTracker from "./components/GitHubContributionTracker";
+import ResourcesSection from "./components/ResourcesSection";
 
 // Lazy Load Heavy WebGL & Simulation Components (No SSR)
 const Reactdiff = dynamic(() => import("./components/Reactdiff"), { ssr: false });
@@ -24,7 +25,7 @@ import { useEffect, useState, useRef } from "react";
 import FloatingButton from "./components/FloatingButton";
 import BackToTop from "./components/BackToTop";
 
-type RightPanelView = "home" | "projects" | "certifications" | "simulations";
+type RightPanelView = "home" | "projects" | "certifications" | "simulations" | "resources";
 
 export default function HomePage() {
   const [rightPanelView, setRightPanelView] = useState<RightPanelView>("home");
@@ -270,6 +271,15 @@ export default function HomePage() {
                   }`}
               >
                 simulations
+              </button>
+              <button
+                onClick={() => { setRightPanelView("resources"); setExpandedExp(null); }}
+                className={`px-3 py-1 rounded-md transition-all shrink-0 whitespace-nowrap ${rightPanelView === "resources"
+                  ? "text-slate-900 dark:text-slate-100 font-bold bg-slate-500/15 border border-slate-500/30 shadow-xs"
+                  : "text-gray-500 hover:text-gray-800 dark:hover:text-gray-200"
+                  }`}
+              >
+                resources
               </button>
             </div>
           </div>
@@ -547,6 +557,12 @@ export default function HomePage() {
                     </p>
                   </section>
                 )
+              )}
+              {/* RESOURCES COMPONENT */}
+              {rightPanelView === "resources" && (
+                <section className="space-y-4">
+                  <ResourcesSection />
+                </section>
               )}
             </div>
           </div>

@@ -1,0 +1,624 @@
+[
+  {
+    "id": "cv-resume",
+    "title": "Curriculum Vitae / Resume",
+    "description": "Official resume with experience, projects, and technical skills.",
+    "category": "Downloads",
+    "url": "/MyCv.pdf",
+    "icon": "file-text",
+    "badge": "PDF",
+    "isDownload": true
+  },
+  {
+    "id": "portfolio-source",
+    "title": "Portfolio Source Code",
+    "description": "Next.js codebase for this portfolio.",
+    "category": "Downloads",
+    "url": "https://github.com/wynnee0110/My-Portfolio",
+    "icon": "code",
+    "badge": "GitHub"
+  },
+  {
+    "id": "nextjs-docs",
+    "title": "Next.js Documentation",
+    "description": "Official Next.js App Router guides and documentation.",
+    "category": "Learning & Docs",
+    "url": "https://nextjs.org/docs",
+    "icon": "book-open",
+    "badge": "Docs"
+  },
+  {
+    "id": "react-docs",
+    "title": "React Documentation",
+    "description": "Official React guides, hooks, and API reference.",
+    "category": "Learning & Docs",
+    "url": "https://react.dev",
+    "icon": "code",
+    "badge": "Docs"
+  },
+  {
+    "id": "typescript-handbook",
+    "title": "TypeScript Handbook",
+    "description": "Static typing guide and TypeScript documentation.",
+    "category": "Learning & Docs",
+    "url": "https://www.typescriptlang.org/docs/",
+    "icon": "book-open",
+    "badge": "Docs"
+  },
+  {
+    "id": "python-docs",
+    "title": "Python Documentation",
+    "description": "Python language and standard library reference.",
+    "category": "Learning & Docs",
+    "url": "https://docs.python.org/3/",
+    "icon": "terminal",
+    "badge": "Reference"
+  },
+  {
+    "id": "leetcode-practice",
+    "title": "LeetCode",
+    "description": "Data structures and algorithms practice.",
+    "category": "Learning & Docs",
+    "url": "https://leetcode.com/problemset/all/",
+    "icon": "cpu",
+    "badge": "Practice"
+  },
+  {
+    "id": "mdn-web-docs",
+    "title": "MDN Web Docs",
+    "description": "HTML, CSS, JavaScript, and web platform reference.",
+    "category": "Learning & Docs",
+    "url": "https://developer.mozilla.org",
+    "icon": "globe",
+    "badge": "Web Standard"
+  },
+  {
+    "id": "fastapi-docs",
+    "title": "FastAPI Documentation",
+    "description": "Modern Python framework for building APIs.",
+    "category": "Learning & Docs",
+    "url": "https://fastapi.tiangolo.com/",
+    "icon": "server",
+    "badge": "Backend"
+  },
+  {
+    "id": "postgresql-docs",
+    "title": "PostgreSQL Documentation",
+    "description": "Relational database documentation and reference.",
+    "category": "Learning & Docs",
+    "url": "https://www.postgresql.org/docs/",
+    "icon": "database",
+    "badge": "Database"
+  },
+  {
+    "id": "github",
+    "title": "GitHub",
+    "description": "Repository hosting, version control, and CI/CD workflows.",
+    "category": "Development Tools",
+    "url": "https://github.com/",
+    "icon": "github",
+    "badge": "Version Control"
+  },
+  {
+    "id": "git",
+    "title": "Git",
+    "description": "Distributed version control used for project development.",
+    "category": "Development Tools",
+    "url": "https://git-scm.com/",
+    "icon": "git-branch",
+    "badge": "Version Control"
+  },
+  {
+    "id": "vscode",
+    "title": "Visual Studio Code",
+    "description": "Primary code editor for web, Python, and embedded development.",
+    "category": "Development Tools",
+    "url": "https://code.visualstudio.com/",
+    "icon": "code",
+    "badge": "Editor"
+  },
+  {
+    "id": "vite-tooling",
+    "title": "Vite",
+    "description": "Fast frontend development server and build tool.",
+    "category": "Development Tools",
+    "url": "https://vite.dev/",
+    "icon": "zap",
+    "badge": "Build System"
+  },
+  {
+    "id": "npm",
+    "title": "npm",
+    "description": "JavaScript package manager and dependency ecosystem.",
+    "category": "Development Tools",
+    "url": "https://www.npmjs.com/",
+    "icon": "package",
+    "badge": "Package Manager"
+  },
+  {
+    "id": "docker",
+    "title": "Docker",
+    "description": "Container platform for packaging and deploying applications.",
+    "category": "Development Tools",
+    "url": "https://www.docker.com/",
+    "icon": "container",
+    "badge": "Containers"
+  },
+  {
+    "id": "tauri",
+    "title": "Tauri",
+    "description": "Framework for building lightweight desktop applications.",
+    "category": "Development Tools",
+    "url": "https://tauri.app/",
+    "icon": "monitor",
+    "badge": "Desktop"
+  },
+  {
+    "id": "tailwindcss",
+    "title": "Tailwind CSS",
+    "description": "Utility-first CSS framework for modern interfaces.",
+    "category": "Frontend Stack",
+    "url": "https://tailwindcss.com/",
+    "icon": "layout",
+    "badge": "Styling"
+  },
+  {
+    "id": "nativewind",
+    "title": "NativeWind",
+    "description": "Tailwind-style utility classes for React Native.",
+    "category": "Frontend Stack",
+    "url": "https://www.nativewind.dev/",
+    "icon": "smartphone",
+    "badge": "Mobile UI"
+  },
+  {
+    "id": "expo",
+    "title": "Expo",
+    "description": "React Native development platform for mobile applications.",
+    "category": "Frontend Stack",
+    "url": "https://expo.dev/",
+    "icon": "smartphone",
+    "badge": "Mobile"
+  },
+  {
+    "id": "react-native",
+    "title": "React Native",
+    "description": "Cross-platform mobile application development framework.",
+    "category": "Frontend Stack",
+    "url": "https://reactnative.dev/",
+    "icon": "smartphone",
+    "badge": "Mobile"
+  },
+  {
+    "id": "lucide-icons",
+    "title": "Lucide Icons",
+    "description": "Modern open-source icon library used in UI development.",
+    "category": "Frontend Stack",
+    "url": "https://lucide.dev/",
+    "icon": "grid",
+    "badge": "UI Assets"
+  },
+  {
+    "id": "nodejs",
+    "title": "Node.js",
+    "description": "JavaScript runtime for backend and automation development.",
+    "category": "Backend & APIs",
+    "url": "https://nodejs.org/",
+    "icon": "server",
+    "badge": "Runtime"
+  },
+  {
+    "id": "express",
+    "title": "Express.js",
+    "description": "Minimal Node.js framework for REST APIs and backend services.",
+    "category": "Backend & APIs",
+    "url": "https://expressjs.com/",
+    "icon": "server",
+    "badge": "Backend"
+  },
+  {
+    "id": "fastapi",
+    "title": "FastAPI",
+    "description": "High-performance Python framework for APIs and automation services.",
+    "category": "Backend & APIs",
+    "url": "https://fastapi.tiangolo.com/",
+    "icon": "server",
+    "badge": "Python API"
+  },
+  {
+    "id": "prisma",
+    "title": "Prisma",
+    "description": "ORM and database toolkit for type-safe applications.",
+    "category": "Backend & APIs",
+    "url": "https://www.prisma.io/",
+    "icon": "database",
+    "badge": "ORM"
+  },
+  {
+    "id": "supabase",
+    "title": "Supabase",
+    "description": "Backend platform providing PostgreSQL, authentication, storage, and APIs.",
+    "category": "Cloud & Database",
+    "url": "https://supabase.com/",
+    "icon": "database",
+    "badge": "Backend Platform"
+  },
+  {
+    "id": "firebase",
+    "title": "Firebase",
+    "description": "Cloud backend platform with authentication and realtime databases.",
+    "category": "Cloud & Database",
+    "url": "https://firebase.google.com/",
+    "icon": "database",
+    "badge": "Realtime"
+  },
+  {
+    "id": "postgresql",
+    "title": "PostgreSQL",
+    "description": "Open-source relational database used in backend projects.",
+    "category": "Cloud & Database",
+    "url": "https://www.postgresql.org/",
+    "icon": "database",
+    "badge": "SQL"
+  },
+  {
+    "id": "upstash",
+    "title": "Upstash Redis",
+    "description": "Serverless Redis for caching and distributed application state.",
+    "category": "Cloud & Database",
+    "url": "https://upstash.com/",
+    "icon": "database",
+    "badge": "Redis"
+  },
+  {
+    "id": "aws",
+    "title": "Amazon Web Services",
+    "description": "Cloud infrastructure and deployment services.",
+    "category": "Cloud & Database",
+    "url": "https://aws.amazon.com/",
+    "icon": "cloud",
+    "badge": "Cloud"
+  },
+  {
+    "id": "google-cloud",
+    "title": "Google Cloud",
+    "description": "Cloud APIs, services, and integrations.",
+    "category": "Cloud & Database",
+    "url": "https://cloud.google.com/",
+    "icon": "cloud",
+    "badge": "Cloud"
+  },
+  {
+    "id": "google-drive-api",
+    "title": "Google Drive API",
+    "description": "API integration for automated file storage and reporting.",
+    "category": "Cloud & Database",
+    "url": "https://developers.google.com/drive",
+    "icon": "hard-drive",
+    "badge": "API"
+  },
+  {
+    "id": "vercel",
+    "title": "Vercel",
+    "description": "Deployment platform for Next.js and modern web applications.",
+    "category": "Deployment",
+    "url": "https://vercel.com/",
+    "icon": "rocket",
+    "badge": "Hosting"
+  },
+  {
+    "id": "render",
+    "title": "Render",
+    "description": "Cloud hosting for backend APIs and web services.",
+    "category": "Deployment",
+    "url": "https://render.com/",
+    "icon": "cloud",
+    "badge": "Hosting"
+  },
+  {
+    "id": "cloudflare",
+    "title": "Cloudflare",
+    "description": "Edge infrastructure, networking, security, and web services.",
+    "category": "Deployment",
+    "url": "https://www.cloudflare.com/",
+    "icon": "cloud",
+    "badge": "Edge"
+  },
+  {
+    "id": "openai",
+    "title": "OpenAI",
+    "description": "AI models and APIs used for intelligent application workflows.",
+    "category": "AI & Automation",
+    "url": "https://openai.com/",
+    "icon": "bot",
+    "badge": "AI"
+  },
+  {
+    "id": "anthropic",
+    "title": "Anthropic Claude",
+    "description": "AI models for reasoning, coding, and automation workflows.",
+    "category": "AI & Automation",
+    "url": "https://www.anthropic.com/",
+    "icon": "bot",
+    "badge": "AI"
+  },
+  {
+    "id": "tensorflow",
+    "title": "TensorFlow",
+    "description": "Machine learning framework for model development.",
+    "category": "AI & Automation",
+    "url": "https://www.tensorflow.org/",
+    "icon": "brain",
+    "badge": "Machine Learning"
+  },
+  {
+    "id": "pytorch",
+    "title": "PyTorch",
+    "description": "Deep learning framework for AI and machine learning experiments.",
+    "category": "AI & Automation",
+    "url": "https://pytorch.org/",
+    "icon": "brain",
+    "badge": "Deep Learning"
+  },
+  {
+    "id": "assemblyai",
+    "title": "AssemblyAI",
+    "description": "Speech-to-text API for realtime audio transcription workflows.",
+    "category": "AI & Automation",
+    "url": "https://www.assemblyai.com/",
+    "icon": "audio-lines",
+    "badge": "Speech AI"
+  },
+  {
+    "id": "n8n",
+    "title": "n8n",
+    "description": "Workflow automation platform for connecting APIs and services.",
+    "category": "AI & Automation",
+    "url": "https://n8n.io/",
+    "icon": "workflow",
+    "badge": "Automation"
+  },
+  {
+    "id": "langchain",
+    "title": "LangChain",
+    "description": "Framework for building LLM-powered applications and AI workflows.",
+    "category": "AI & Automation",
+    "url": "https://www.langchain.com/",
+    "icon": "network",
+    "badge": "AI Framework"
+  },
+  {
+    "id": "manjaro",
+    "title": "Manjaro Linux",
+    "description": "Linux environment used for development and daily programming.",
+    "category": "Linux & Terminal",
+    "url": "https://manjaro.org/",
+    "icon": "terminal",
+    "badge": "Operating System"
+  },
+  {
+    "id": "gnome",
+    "title": "GNOME",
+    "description": "Desktop environment and Linux workflow customization.",
+    "category": "Linux & Terminal",
+    "url": "https://www.gnome.org/",
+    "icon": "monitor",
+    "badge": "Desktop"
+  },
+  {
+    "id": "tmux",
+    "title": "tmux",
+    "description": "Terminal multiplexer for managing development sessions.",
+    "category": "Linux & Terminal",
+    "url": "https://github.com/tmux/tmux",
+    "icon": "terminal",
+    "badge": "Terminal"
+  },
+  {
+    "id": "zellij",
+    "title": "Zellij",
+    "description": "Terminal workspace and multiplexer for development sessions.",
+    "category": "Linux & Terminal",
+    "url": "https://zellij.dev/",
+    "icon": "terminal",
+    "badge": "Terminal"
+  },
+  {
+    "id": "hyprland",
+    "title": "Hyprland",
+    "description": "Dynamic Wayland compositor used for Linux desktop customization.",
+    "category": "Linux & Terminal",
+    "url": "https://hyprland.org/",
+    "icon": "monitor",
+    "badge": "Window Manager"
+  },
+  {
+    "id": "arch-linux",
+    "title": "Arch Linux",
+    "description": "Linux ecosystem explored for system customization and development.",
+    "category": "Linux & Terminal",
+    "url": "https://archlinux.org/",
+    "icon": "terminal",
+    "badge": "Linux"
+  },
+  {
+    "id": "arduino",
+    "title": "Arduino",
+    "description": "Embedded programming platform for electronics prototypes.",
+    "category": "Embedded & Hardware",
+    "url": "https://www.arduino.cc/",
+    "icon": "microchip",
+    "badge": "Embedded"
+  },
+  {
+    "id": "esp32",
+    "title": "ESP32",
+    "description": "Microcontroller platform for IoT and embedded projects.",
+    "category": "Embedded & Hardware",
+    "url": "https://www.espressif.com/",
+    "icon": "microchip",
+    "badge": "Microcontroller"
+  },
+  {
+    "id": "wokwi",
+    "title": "Wokwi",
+    "description": "Online simulator for Arduino, ESP32, and embedded projects.",
+    "category": "Embedded & Hardware",
+    "url": "https://wokwi.com/",
+    "icon": "cpu",
+    "badge": "Simulator"
+  },
+  {
+    "id": "obsidian",
+    "title": "Obsidian",
+    "description": "Knowledge management and project documentation workspace.",
+    "category": "Productivity",
+    "url": "https://obsidian.md/",
+    "icon": "notebook",
+    "badge": "Knowledge Base"
+  },
+  {
+    "id": "marp",
+    "title": "Marp",
+    "description": "Markdown-based presentation and slide generation tool.",
+    "category": "Productivity",
+    "url": "https://marp.app/",
+    "icon": "presentation",
+    "badge": "Presentations"
+  },
+  {
+    "id": "mermaid-editor",
+    "title": "Mermaid Live Editor",
+    "description": "Markdown-based flowchart and software architecture diagrams.",
+    "category": "Productivity",
+    "url": "https://mermaid.live/",
+    "icon": "share-2",
+    "badge": "Architecture"
+  },
+  {
+    "id": "bundlephobia",
+    "title": "Bundlephobia",
+    "description": "Check npm package sizes before installing dependencies.",
+    "category": "Utilities & Tools",
+    "url": "https://bundlephobia.com/",
+    "icon": "box",
+    "badge": "Dev Tool"
+  },
+  {
+    "id": "realtime-colors",
+    "title": "Realtime Colors",
+    "description": "Interactive UI color palette generator and visualizer.",
+    "category": "Utilities & Tools",
+    "url": "https://www.realtimecolors.com/",
+    "icon": "palette",
+    "badge": "Color Tool"
+  },
+  {
+    "id": "inkscape",
+    "title": "Inkscape",
+    "description": "Open-source vector graphics editor for designs and mockups.",
+    "category": "Design Tools",
+    "url": "https://inkscape.org/",
+    "icon": "pen-tool",
+    "badge": "Vector Design"
+  },
+  {
+    "id": "httpie",
+    "title": "HTTPie",
+    "description": "Developer-friendly HTTP client and command-line tool for testing APIs.",
+    "category": "Development Tools",
+    "url": "https://httpie.io/",
+    "icon": "send",
+    "badge": "API Client"
+  },
+  {
+    "id": "antigravity",
+    "title": "Google Antigravity",
+    "description": "AI-powered development environment and agentic coding workspace for building software.",
+    "category": "Development Tools",
+    "url": "https://antigravity.google/",
+    "icon": "bot",
+    "badge": "AI Coding"
+  },
+  {
+    "id": "opencode",
+    "title": "OpenCode",
+    "description": "Open-source AI coding agent for building, editing, and understanding software projects.",
+    "category": "AI & Automation",
+    "url": "https://opencode.ai/",
+    "icon": "bot",
+    "badge": "AI Coding"
+  },
+  {
+    "id": "coursera",
+    "title": "Coursera",
+    "description": "Online courses, professional certificates, and technical specializations.",
+    "category": "Learning Platforms",
+    "url": "https://www.coursera.org/",
+    "icon": "graduation-cap",
+    "badge": "Courses"
+  },
+  {
+    "id": "freecodecamp",
+    "title": "freeCodeCamp",
+    "description": "Free interactive learning platform for programming and web development.",
+    "category": "Learning Platforms",
+    "url": "https://www.freecodecamp.org/",
+    "icon": "code",
+    "badge": "Free Learning"
+  },
+  {
+    "id": "cisco-networking-academy",
+    "title": "Cisco Networking Academy",
+    "description": "Technical courses and certifications in programming, networking, cybersecurity, and IT.",
+    "category": "Learning Platforms",
+    "url": "https://www.netacad.com/",
+    "icon": "network",
+    "badge": "Certification"
+  },
+  {
+    "id": "pacman",
+    "title": "Pacman",
+    "description": "Command-line package manager used for installing, updating, and managing software on Arch-based Linux systems.",
+    "category": "Linux & Terminal",
+    "url": "https://archlinux.org/pacman/",
+    "icon": "package",
+    "badge": "Package Manager"
+  },
+  {
+    "id": "aur",
+    "title": "Arch User Repository",
+    "description": "Community-driven repository containing additional software packages for Arch Linux and Arch-based distributions.",
+    "category": "Linux & Terminal",
+    "url": "https://aur.archlinux.org/",
+    "icon": "archive",
+    "badge": "Community Repository"
+  },
+  {
+    "id": "javascript-standard-style",
+    "title": "JavaScript Standard Style",
+    "description": "JavaScript coding style guide and linter for writing consistent, clean code with minimal configuration.",
+    "category": "Development Tools",
+    "url": "https://standardjs.com/",
+    "icon": "braces",
+    "badge": "Code Style"
+  },
+  {
+    "id": "canva",
+    "title": "Canva",
+    "description": "Online design tool for creating graphics, presentations, and other visual content.",
+    "category": "Design Tools",
+    "url": "https://www.canva.com/",
+    "icon": "image",
+    "badge": "Design"
+  },
+  {
+    "id": "excalidraw",
+    "title": "Excalidraw",
+    "description": "Open-source virtual whiteboard for collaborative diagramming and sketching.",
+    "category": "Design Tools",
+    "url": "https://excalidraw.com/",
+    "icon": "pen-tool",
+    "badge": "Whiteboard"
+  }
+]
