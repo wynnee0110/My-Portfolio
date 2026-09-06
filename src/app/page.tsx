@@ -231,7 +231,7 @@ export default function HomePage() {
               </span>
             </div>
 
-            <div className="flex items-center gap-1.5 w-full sm:w-auto overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden py-0.5 scroll-smooth shrink-0">
+            <div className="flex flex-wrap items-center gap-1.5 w-full sm:w-auto py-0.5">
               <button
                 onClick={() => { setRightPanelView("home"); setExpandedExp(null); }}
                 className={`px-3 py-1 rounded-md transition-all shrink-0 whitespace-nowrap ${rightPanelView === "home"
