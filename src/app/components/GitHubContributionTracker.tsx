@@ -218,7 +218,7 @@ export default function GitHubContributionTracker() {
 
       {/* Footer Legend */}
       <div className="flex items-center justify-between text-[10px] text-gray-400 dark:text-gray-500 pt-0.5 px-0.5">
-        <span>Accurate telemetry synced with GitHub</span>
+
         <div className="flex items-center gap-1.5 font-mono">
           <span>Less</span>
           <div className="flex gap-1">
